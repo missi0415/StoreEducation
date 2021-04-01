@@ -34,7 +34,8 @@
 https://docs.google.com/spreadsheets/d/1t4AGqin8ptOpMXf0g8FrYJsLSANSRb1ZwNopq7VCoF4/edit?usp=sharing
 
 ## ER図
-![image](https://user-images.githubusercontent.com/76615633/113250422-6c847a00-92fb-11eb-880c-e3ee24c9ced0.png)
+![image](https://user-images.githubusercontent.com/76615633/113251503-5677b900-92fd-11eb-8a5b-5cbff853a4e0.png)
+
 
 
 ## 開発環境
