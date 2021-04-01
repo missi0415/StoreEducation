@@ -45,5 +45,6 @@ https://docs.google.com/spreadsheets/d/1t4AGqin8ptOpMXf0g8FrYJsLSANSRb1ZwNopq7VC
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
+- ruby '2.6.3'
+- rails '5.2.4'
 
