@@ -1,0 +1,9 @@
+<h1>groups#show</h1>
+<h2>mannagerグループを押した際に飛ぶ先</h2>
+<%= link_to "メンバー追加",new_member_registration_path %>
+
+<% @members.each do |member| %>
+<%= link_to member_path(member) do %>
+<p>名前：<%= member.name %></p><br>
+<% end %>
+<% end %>

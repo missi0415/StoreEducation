@@ -16,6 +16,12 @@ class GroupsController < ApplicationController
       render:index
     end
   end
+  def show
+    group = Group.find(params[:id])
+    #送られてくるパラメータを指定している
+    @members = group.members
+    
+  end
   
   def edit
     @group = Group.find(params[:id])
