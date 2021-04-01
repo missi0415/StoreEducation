@@ -33,9 +33,6 @@
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1t4AGqin8ptOpMXf0g8FrYJsLSANSRb1ZwNopq7VCoF4/edit?usp=sharing
 
-## ER図
-![image](https://user-images.githubusercontent.com/76615633/113261305-42868400-930a-11eb-9fbc-10e33f7fd6ab.png)
-
 
 
 
