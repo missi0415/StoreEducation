@@ -22,4 +22,4 @@ Group.create!(
 Group.create!(
             manager_id: 2,
             name: "グループ2-2"
-            )              
+            ) 
