@@ -1,0 +1,13 @@
+<h1>group#edit</h1>
+<%= form_with model: @group, url: group_path(@group), local:true do |f| %>
+
+    <div>
+        <%= f.text_field :name, class:"form-control"  %>
+    </div>
+    <div>
+        <%= f.submit "変更を保存する", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "戻る", group_path, class: "glyphicon glyphicon-home btn btn-info" %>
+    </div>
