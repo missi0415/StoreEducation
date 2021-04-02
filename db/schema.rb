@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_032623) do
     t.datetime "remember_created_at"
     t.integer "group_id"
     t.string "name"
-    t.string "imager_id"
+    t.string "image_id"
     t.integer "phone_number"
     t.boolean "is_deleted"
     t.datetime "created_at", null: false

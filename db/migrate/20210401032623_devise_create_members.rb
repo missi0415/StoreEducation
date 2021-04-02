@@ -16,7 +16,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       
       t.integer :group_id
       t.string :name
-      t.string :imager_id
+      t.string :image_id
       t.integer :phone_number
       t.boolean :is_deleted
       
