@@ -3,7 +3,7 @@
 <%= link_to "メンバー追加",new_member_registration_path(group_id: @group.id) %>
 
 <% @members.each do |member| %>
-<%= link_to member_path(member) do %>
+<%= link_to manager_member_path(member) do %>
 <p>名前：<%= member.name %></p><br>
 <% end %>
 <% end %>

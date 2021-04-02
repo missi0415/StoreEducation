@@ -1,13 +1,14 @@
 <h1>member#show</h1>
 画像投稿フォーム<br>
-<%= form_with model: @member_new, local:true do |f| %>
+<%= form_with model: @member_new, url: manager_members_path, local:true do |f| %>
 <%= f.attachment_field :image %>
 <%= f.submit '画像投稿' %>
 <% end %>
 <%= attachment_image_tag @member, :image , :fill, 20 , 20, fallback: "no_image.jpg"%><br>
 <%= @member.name %><br>
+<%= @member.name_kana %><br>
 <%= @member.email %><br>
 <%= @member.encrypted_password %><br>
 <%= @member.phone_number %><br>
 <%= @member.is_deleted %><br>
-<%= link_to "edit" ,edit_manager_registration_path %>
+<%= link_to "edit" ,edit_manager_member_path %>

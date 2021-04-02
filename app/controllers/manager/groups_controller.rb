@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class Manager::GroupsController < ApplicationController
   def index
     #いまログインしているmanagerに紐付いたgroupsという配列を
     @groups = current_manager.groups
@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.manager_id = current_manager.id
     if @group.save
-      
+      redirect_to manager_groups_path
     else
       render:index
     end
@@ -31,7 +31,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to groups_path(@group)
+      redirect_to manager_groups_path(@group)
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     @group.destroy
-    redirect_to groups_path
+    redirect_to manager_groups_path
   end  
     
   private
