@@ -1,9 +1,17 @@
 <h1>manager/education/show</h1>
-個人の教育進捗がみれるページ
+個人の教育進捗がみれるページ<br>
+<h2><%= @member.name %></h2>
+項目追加
+
+<%= form_with model: @education ,url: manager_educations_path(@education),local: true do |f| %>
+<%= f.text_field :title  %>
+<%= f.text_field :body  %>
+<%= f.text_field :progress  %>
+
+<% end %>
 <table class="table">
   <thead>
     <tr>
-      <th>メンバー名</th>
       <th>教育項目</th>
       <th>補足</th>
       <th>進捗率</th>
@@ -11,12 +19,17 @@
   </thead>
   <tbody>
 <% @educations.each do |education| %>
+<%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
     <tr>
-      <td><%= education.member.name %></td>
-      <td><%= education.title %></td>
-      <td><%= education.body %></td>
-      <td><%= education.progress %>％</td>
+      <td><%= f.text_field :title  %></td>
+      <!--<td><%#= education.title %></td>-->
+      <td><%= f.text_field :body  %></td>
+      <!--<td><%#= education.body %></td>-->
+      <td><%= f.text_field :progress  %>%</td>
+      <!--<td><%#= education.progress %>％</td>-->
+      <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
     </tr>
+<% end %>
 <% end %>
   </tbody>
 </table>
