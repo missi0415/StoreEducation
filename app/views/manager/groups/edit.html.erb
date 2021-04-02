@@ -1,5 +1,5 @@
 <h1>group#edit</h1>
-<%= form_with model: @group, url: group_path(@group), local:true do |f| %>
+<%= form_with model: @group, url: manager_group_path(@group), local:true do |f| %>
 
     <div>
         <%= f.text_field :name, class:"form-control"  %>
@@ -9,5 +9,5 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "戻る", group_path, class: "glyphicon glyphicon-home btn btn-info" %>
+      <%= link_to "戻る", manager_group_path, class: "glyphicon glyphicon-home btn btn-info" %>
     </div>

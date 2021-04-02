@@ -1,4 +1,5 @@
 <h1>managers#top</h1>
 <%=link_to "マネジャーサインアップ", new_manager_registration_path %><br>
 <%=link_to "マネジャーログイン", new_manager_session_path %><br>
+<%=link_to "マネジャーログアウト", destroy_manager_session_path ,method: :delete %><br>
 <%=link_to "グループメンバーーログインサインアップはいらない", new_member_session_path %>

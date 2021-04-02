@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_032623) do
+ActiveRecord::Schema.define(version: 2021_04_02_125812) do
+
+  create_table "abilities", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "educations", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "progress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.integer "manager_id"
@@ -39,13 +54,22 @@ ActiveRecord::Schema.define(version: 2021_04_01_032623) do
     t.datetime "remember_created_at"
     t.integer "group_id"
     t.string "name"
+    t.string "name_kana"
     t.string "image_id"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "progress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
