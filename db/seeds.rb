@@ -55,3 +55,27 @@ Member.create!(
             phone_number: "00000000",
             is_deleted: false,
               )
+Education.create!(
+                  member_id: 1,
+                  title: "接客用語教育",
+                  body: "34ページから",
+                  progress: 50
+                  )              
+Education.create!(
+                  member_id: 1,
+                  title: "用語教育",
+                  body: "マニュアル用語P40から",
+                  progress: 20
+                  )              
+Education.create!(
+                  member_id: 2,
+                  title: "接客用語教育",
+                  body: "34ページから",
+                  progress: 50
+                  )              
+Education.create!(
+                  member_id: 2,
+                  title: "用語教育",
+                  body: "マニュアル用語P40から",
+                  progress: 20
+                  )              

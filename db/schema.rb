@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_04_02_125812) do
 
   create_table "abilities", force: :cascade do |t|
+    t.integer "member_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
@@ -20,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_125812) do
   end
 
   create_table "educations", force: :cascade do |t|
+    t.integer "member_id"
     t.string "title"
     t.text "body"
     t.integer "progress"
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_125812) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.integer "member_id"
     t.string "title"
     t.text "body"
     t.integer "progress"

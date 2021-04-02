@@ -1,0 +1,22 @@
+<h1>manager/education/show</h1>
+個人の教育進捗がみれるページ
+<table class="table">
+  <thead>
+    <tr>
+      <th>メンバー名</th>
+      <th>教育項目</th>
+      <th>補足</th>
+      <th>進捗率</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @educations.each do |education| %>
+    <tr>
+      <td><%= education.member.name %></td>
+      <td><%= education.title %></td>
+      <td><%= education.body %></td>
+      <td><%= education.progress %>％</td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

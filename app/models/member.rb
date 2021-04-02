@@ -5,4 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :group
   attachment :image 
+  has_many :educations
+  has_many :tasks
+  has_many :abilities
 end

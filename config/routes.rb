@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :managers
   resources :groups
   resources :members
+  resources :educations
+  
  end
 end
