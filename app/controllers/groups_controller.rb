@@ -11,10 +11,16 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.manager_id = current_manager.id
     if @group.save
-      redirect_back(fallback_location: root_path)
+      
     else
       render:index
     end
+  end
+  def show
+    @group = Group.find(params[:id])
+    #送られてくるパラメータを指定している
+    @members = @group.members
+    
   end
   
   def edit
