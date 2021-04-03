@@ -155,4 +155,26 @@ Ability.create!(
                 member_id: 1,
                 title: "走力",
                 value: 5,
-                )                             
+                )  
+GroupMessage.create!(
+                group_id: 1,
+                manager_id: 1,
+                title: "シフトに関して",
+                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
+GroupMessage.create!(
+                group_id: 1,
+                manager_id: 1,
+                title: "シフトに関して",
+                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
+GroupMessage.create!(
+                group_id: 1,
+                member_id: 2,
+                title: "メンバー２です",
+                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
+                
+GroupMessage.create!(
+                group_id: 1,
+                member_id: 1,
+                title: "メンバー１",
+                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
+                

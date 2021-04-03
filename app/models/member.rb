@@ -8,4 +8,5 @@ class Member < ApplicationRecord
   has_many :educations
   has_many :tasks
   has_many :abilities
+  has_many :group_messages
 end

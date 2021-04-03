@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :manager do
+    get 'group_messages/index'
+  end
+  namespace :manager do
     get 'tasks/show'
     get 'tasks/create'
     get 'tasks/update'
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
   resources :educations
   resources :tasks
   resources :abilities
+  resources :group_messages
   
  end
 end
