@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :members
   resources :educations
   resources :tasks
+  resources :abilities
   
  end
 end

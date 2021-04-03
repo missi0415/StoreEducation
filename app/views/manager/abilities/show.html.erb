@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>abilities#show</h1>
+      <h1>manager/abilities/show</h1>
+      <p>個人の能力がみれるページ</p>
+      <h2><%= @member.name %></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>能力</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%= form_with model: @ability_new,url: manager_abilities_path(@ability),local: true do |f| %>
+              <td><%= f.text_field :title %></td>
+              <td><%= f.text_field :value  %></td>
+                <%= f.hidden_field :member_id, value: @member_id %>
+              <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
+              <% end %>
+            </tr>
+              <% @abilities.each do |ability| %>
+              <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+            <tr>
+              <td><%= f.text_field :title ,style: "border: none" %></td>
+              <td><%= f.text_field :value  ,style: "border: none"%></td>
+              <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
+            <% end %>
+              <td><%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-md-4">
+      <canvas id="myChart" width="300" height="300"style="margin:200px 0 0 0;"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+let ctx = document.getElementById("myChart");
+//idmy
+let myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: [
+      <% @abilities.each do |ability| %>
+      "<%= ability.title %>",
+      <% end %>
+      ],
+    datasets: 
+    [
+        {
+        label: 'ability',
+        backgroundColor: 'rgba(125,255,255,0.6)',
+        borderColor: 'rgba(122,122,129,0.5)',
+        data: [
+      <% @abilities.each do |ability| %>
+          <%= ability.value %>,
+      <% end %>
+          ]
+        },
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }
+  }
+});
+</script>

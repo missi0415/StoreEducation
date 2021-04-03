@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_125812) do
   create_table "abilities", force: :cascade do |t|
     t.integer "member_id"
     t.string "title"
-    t.text "body"
+    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

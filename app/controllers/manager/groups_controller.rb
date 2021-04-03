@@ -31,7 +31,7 @@ class Manager::GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to manager_groups_path(@group)
+      redirect_to managergroups_path(@group)
     else
       render :edit
     end
