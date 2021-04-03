@@ -2,15 +2,17 @@ class Manager::EducationsController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @educations = @member.educations
+    @education = Education.find(params[:id])
+    @member_id = @member.id
     @education_new = Education.new
   end
   
   
   def create
     @education_new = Education.new(education_params)
-    @education.manager_id = current_manager.id
-    if @education.save
-      redirect_to manager_education_path(education)
+    #@education.member_id = @member.id
+    if @education_new.save
+      redirect_back(fallback_location: root_path)
     else
       render:show
     end
@@ -24,7 +26,7 @@ class Manager::EducationsController < ApplicationController
   def update
     @education = Education.find(params[:id])
     if @education.update(education_params)
-      redirect_to manager_education_path(@education)
+      redirect_back(fallback_location: root_path)
     else
       render :edit
     end
@@ -33,7 +35,7 @@ class Manager::EducationsController < ApplicationController
   def destroy
     @education = Education.find(params[:id])
     @education.destroy
-    redirect_to manager_educations_path
+    redirect_back(fallback_location: root_path)
   end  
     
   private
