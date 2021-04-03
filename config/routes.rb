@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :manager do
+    get 'tasks/show'
+    get 'tasks/create'
+    get 'tasks/update'
+    get 'tasks/destroy'
+  end
  root to: "manager/managers#top"
    devise_for :managers, :controllers => {
     :sessions => 'managers/sessions',
@@ -14,5 +20,8 @@ Rails.application.routes.draw do
   resources :managers
   resources :groups
   resources :members
+  resources :educations
+  resources :tasks
+  
  end
 end
