@@ -1,0 +1,27 @@
+<h1>Manager::GroupMessages#index</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>投稿者</th>
+      <th>タイトル</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+<tbody>
+  <td></td>
+<% @group_messages.each do |group_message| %>
+  <tr>
+    <td><%= l group_message.created_at, format: :short %></td>
+    <% if group_message.manager_id == nil %>
+    <td><%= group_message.member.name %></td>
+    <% else %>
+    <td class="text text-success">マネジャー</td>
+    <% end %>
+    <td><%= group_message.title %></td>
+    <td><%= group_message.body %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
