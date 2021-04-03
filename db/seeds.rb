@@ -78,4 +78,34 @@ Education.create!(
                   title: "用語教育",
                   body: "マニュアル用語P40から",
                   progress: 20
+                  )
+                  
+Task.create!(
+                  member_id: 1,
+                  title: "接客用語教育",
+                  body: "34ページから",
+                  start_on: "2021-04-11",
+                  end_on: "2021-04-15",
+                  member_body: "完了しました。確認お願いいたします",
+                  member_status: 2,
+                  manager_status: 0,
+                  progress: 50
                   )              
+Task.create!(
+                  member_id: 1,
+                  title: "用語教育",
+                  body: "マニュアル用語P40から",
+                  progress: 20
+                  )              
+Task.create!(
+                  member_id: 2,
+                  title: "接客用語教育",
+                  body: "34ページから",
+                  progress: 50
+                  )              
+Task.create!(
+                  member_id: 2,
+                  title: "用語教育",
+                  body: "マニュアル用語P40から",
+                  progress: 20
+                  )                                

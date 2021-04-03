@@ -70,6 +70,11 @@ ActiveRecord::Schema.define(version: 2021_04_02_125812) do
     t.integer "member_id"
     t.string "title"
     t.text "body"
+    t.date "start_on"
+    t.date "end_on"
+    t.text "member_body"
+    t.integer "member_status", default: 0
+    t.integer "manager_status", default: 0
     t.integer "progress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
