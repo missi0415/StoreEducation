@@ -10,7 +10,6 @@ class Manager::TasksController < ApplicationController
   
   def create
     @task_new = Task.new(task_params)
-    #@task.member_id = @member.id
     if @task_new.save
       redirect_back(fallback_location: root_path)
     else

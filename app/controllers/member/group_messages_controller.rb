@@ -1,8 +1,8 @@
-class Manager::GroupMessagesController < ApplicationController
+class Member::GroupMessagesController < ApplicationController
   def show
     @group =Group.find(params[:id])
     @group_messages = @group.group_messages
-    @manager_id = current_manager.id
+    @member_id = current_member.id
     @group_message_new = GroupMessage.new
   end
   
@@ -33,6 +33,6 @@ class Manager::GroupMessagesController < ApplicationController
     private
   
   def group_message_params
-  params.require(:group_message).permit(:group_id,:manager_id,:title,:body)
+  params.require(:group_message).permit(:group_id,:member_id,:title,:body)
   end
 end
