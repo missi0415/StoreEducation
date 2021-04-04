@@ -21,23 +21,35 @@
               <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
               <% end %>
             </tr>
-            <tr>
-              <% @abilities_titles.each do |ability_title| %>
-              <tr>
-              <td><%= ability_title %></td>
-              </tr>
-              <% end %>
-              <!--<td><%#= f.text_field :title ,style: "border: none" %></td>-->
-              <% @abilities.each do |ability| %>
-              <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
-              <td><%= f.text_field :value  ,style: "border: none"%></td>
-              <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
-              <% end %>              
-              <td><%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %></td>
-            </tr>
-            <% end %>
           </tbody>
         </table>
+        <div class="row">
+          <div class="col-2">
+            
+        <table class="table">
+              <% @abilities_titles.each do |ability_title| %>
+            <tr>
+                <td><%= ability_title %></td>
+            </tr>
+              <% end %>
+        </table>
+          </div>
+          <div class="col-10">
+            
+        <table class="table">
+              <!--<td><%#= f.text_field :title ,style: "border: none" %></td>-->
+              <% @abilities.each do |ability| %>
+                <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+          <tr>
+                  <td><%= f.text_field :value  ,style: "border: none"%></td>
+                  <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
+                <% end %>              
+                <td><%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %></td>
+          </tr>
+              <% end %>
+        </table>
+          </div>
+        </div>
     </div>
     <div class="col-md-4">
       <canvas id="myChart" width="300" height="300"style="margin:200px 0 0 0;"></canvas>
