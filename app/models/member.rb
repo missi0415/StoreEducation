@@ -9,4 +9,6 @@ class Member < ApplicationRecord
   has_many :tasks
   has_many :abilities
   has_many :group_messages
+  has_many :checks, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

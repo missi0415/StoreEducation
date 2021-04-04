@@ -1,9 +1,10 @@
 class Member::GroupMessagesController < ApplicationController
   def show
-    @group =Group.find(params[:id])
+    @group = Group.find(params[:id])
     @group_messages = @group.group_messages
     @member_id = current_member.id
     @group_message_new = GroupMessage.new
+    @group_message = GroupMessage.find(params[:id])  
   end
   
   def create

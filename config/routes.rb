@@ -36,7 +36,10 @@ Rails.application.routes.draw do
  namespace :member do 
   resources :members
   resources :tasks
-  resources :group_messages
+  resources :group_messages do
+    resource :checks, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
+  end  
  end
  #-------------------
 end

@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_03_092500) do
+ActiveRecord::Schema.define(version: 2021_04_04_102546) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "member_id"
     t.string "title"
-    t.integer "value"
+    t.integer "value", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "checks", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "group_message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "group_message_id"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_03_092500) do
   create_table "groups", force: :cascade do |t|
     t.integer "manager_id"
     t.string "name"
+    t.string "abilitie_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
