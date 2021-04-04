@@ -16,8 +16,13 @@ Rails.application.routes.draw do
     :sessions => 'managers/sessions',
     :registrations => 'managers/registrations',
   }
+    devise_scope :member do
+      patch "members/confirmation", to: "members/confirmations#confirm"
+    end
+    
    devise_for :members, :controllers => {
-    :sessions => 'members/sessions',
+    :confirmations => "members/confirmations",
+    #:sessions => 'members/sessions',
     :registrations => 'members/registrations',
   }
   
@@ -32,7 +37,7 @@ Rails.application.routes.draw do
   resources :group_messages
  end
  #-------------------
- #--------manager---------
+#--------manager---------
  namespace :member do 
   resources :members
   resources :tasks
@@ -41,5 +46,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end  
  end
- #-------------------
+#-------------------
+#-------letter_opener----------
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

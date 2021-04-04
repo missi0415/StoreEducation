@@ -7,12 +7,12 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @group_id = params[:group_id] 
-
      super
   end
 
   # POST /resource
   def create
+    member.save
      super
   end
 
