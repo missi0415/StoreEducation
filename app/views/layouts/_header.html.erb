@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" >
+    <div class="container">
+      <h3><%= link_to "StoreEducation", root_path, class: "text-body font-italicn text-decoration-none logo-text" %></h3>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <% if member_signed_in?  %>
+          <div class="nav-item mt-2 ml-5">
+                ようこそ、<strong><%= current_member.name %></strong>さん！
+          </div>
+        <% end  %>
+        <ul class="navbar-nav ml-auto">
+          <% if member_signed_in? %>
+            <li class="nav-item"><%= link_to "マイページ", member_member_path(current_member), class: "nav-link"  %></li>
+            <li class="nav-item"><%= link_to "グループ連絡", member_group_message_path(current_member), class: "nav-link"  %></li>
+            <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link"  %></li>
+          <% elsif current_manager %>
+            <!--<li class="nav-item"><%#= link_to "グループ連絡", manager_group_messages_path(current_manager.group_message.id), class: "nav-link"  %></li>-->
+            <li class="nav-item"><%= link_to "グループ一覧", manager_groups_path, class: "nav-link"  %></li>
+            <!--<li class="nav-item"><%#= link_to "", manager_orders_path, class: "nav-link"  %></li>-->
+            <!--<li class="nav-item"><%#= link_to "ジャンル一覧", manager_genres_path, class: "nav-link"  %></li>-->
+            <li class="nav-item"><%= link_to "マナジャーログアウト", destroy_manager_session_path, method: :delete, class: "nav-link"  %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "About", "", class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "top", "", class: "nav-link" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

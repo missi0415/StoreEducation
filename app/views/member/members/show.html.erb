@@ -1,10 +1,10 @@
 <h1>member#show</h1>
 画像投稿フォーム<br>
-<%= form_with model: @member_new, url: member_members_path, local:true do |f| %>
+<%= form_with model: @member, url: member_member_path, local:true do |f| %>
 <%= f.attachment_field :image %>
 <%= f.submit '画像投稿' %>
 <% end %>
-<%= attachment_image_tag(@member, :image , :fill, 20 , 20, fallback: "no_image.jpg")%><br>
+<%= attachment_image_tag(@member, :image , :fill, 100 , 150, fallback: "no_image.jpg")%><br>
 <%= @member.name %><br>
 <%= @member.name_kana %><br>
 <%= @member.email %><br>

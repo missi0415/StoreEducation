@@ -21,13 +21,18 @@
               <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
               <% end %>
             </tr>
+            <tr>
+              <% @abilities_titles.each do |ability_title| %>
+              <tr>
+              <td><%= ability_title %></td>
+              </tr>
+              <% end %>
+              <!--<td><%#= f.text_field :title ,style: "border: none" %></td>-->
               <% @abilities.each do |ability| %>
               <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
-            <tr>
-              <td><%= f.text_field :title ,style: "border: none" %></td>
               <td><%= f.text_field :value  ,style: "border: none"%></td>
               <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
-            <% end %>
+              <% end %>              
               <td><%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %></td>
             </tr>
             <% end %>
@@ -41,14 +46,17 @@
 </div>
 
 <script>
+$(document).on('turbolinks:load',function(){
+  $("#myChart").on("click",ctx)
+})
 let ctx = document.getElementById("myChart");
 //idmy
 let myChart = new Chart(ctx, {
   type: 'radar',
   data: {
     labels: [
-      <% @abilities.each do |ability| %>
-      "<%= ability.title %>",
+      <% @abilities_titles.each do |ability_title| %>
+      "<%= ability_title %>",
       <% end %>
       ],
     datasets: 

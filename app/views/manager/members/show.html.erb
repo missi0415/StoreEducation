@@ -4,7 +4,7 @@
 <%= f.attachment_field :image %>
 <%= f.submit '画像投稿' %>
 <% end %>
-<%= attachment_image_tag @member, :image , :fill, 20 , 20, fallback: "no_image.jpg"%><br>
+<%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
 <%= @member.name %><br>
 <%= @member.name_kana %><br>
 <%= @member.email %><br>

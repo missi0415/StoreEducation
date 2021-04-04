@@ -19,7 +19,7 @@ class Member::MembersController < ApplicationController
     if @member.update(member_params)
       redirect_to member_member_path(@member)
     else
-      render :edit
+      render :show
     end  
   end  
   

@@ -1,6 +1,8 @@
 class Manager::AbilitiesController < ApplicationController
   def show
     @member = Member.find(params[:id])
+    @abilities_titles = Ability.where(member_id: @member.group_id).pluck(:title)
+    #binding.pry
     @abilities = @member.abilities
     @ability = Ability.find(params[:id])
     @member_id = @member.id
