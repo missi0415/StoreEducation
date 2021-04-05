@@ -1,9 +1,29 @@
 <h1>groups#show</h1>
 <h2>mannagerグループを押した際に飛ぶ先</h2>
-<%= link_to "メンバー追加",new_member_registration_path(group_id: @group.id) %>
+<h2><%= link_to "グループ連絡板", manager_group_message_path(@group) %></h2>
+<h2><%= link_to "メンバー追加",new_member_registration_path(group_id: @group.id) %></h2>
 
-<% @members.each do |member| %>
-<%= link_to manager_member_path(member) do %>
-<p>名前：<%= member.name %></p><br>
-<% end %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>メンバー情報</th>
+      <th>教育項目一覧</th>
+      <th>課題一覧</th>
+      <th>個人能力</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+    <tr>
+      <%= link_to manager_member_path(member) do %>
+        <td><%= member.name %></td>
+      <% end %>
+    <td><%= link_to "情報" ,manager_member_path(member),class: "btn btn-success" %></td>
+    <td><%= link_to "教育" ,manager_education_path(member),class: "btn btn-success" %></td>
+    <td><%= link_to "課題" ,manager_task_path(member),class: "btn btn-success" %></td>
+    <td><%= link_to "能力" ,manager_ability_path(member),data: {"turbolinks" => false},class: "btn btn-success" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

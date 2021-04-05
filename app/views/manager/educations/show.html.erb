@@ -1,0 +1,37 @@
+<h1>manager/education/show</h1>
+個人の教育進捗がみれるページ<br>
+<h2><%= @member.name %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>教育項目</th>
+      <th>補足</th>
+      <th>進捗率</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%= form_with model: @education_new,url: manager_educations_path(@education),local: true do |f| %>
+      <td><%= f.text_field :title %></td>
+      <td><%= f.text_field :body  %></td>
+      <td><%= f.text_field :progress  %></td>
+        <%= f.hidden_field :member_id, value: @member_id %>
+      <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
+      <% end %>
+    </tr>
+<% @educations.each do |education| %>
+<%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
+    <tr>
+      <td><%= f.text_field :title ,style: "border: none" %></td>
+      <!--<td><%#= education.title %></td>-->
+      <td><%= f.text_field :body  ,style: "border: none"%></td>
+      <!--<td><%#= education.body %></td>-->
+      <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
+      <!--<td><%#= education.progress %>％</td>-->
+      <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
+<% end %>
+      <td><%= link_to "消去",manager_education_path(education), class: "btn btn-danger" ,method: :delete %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

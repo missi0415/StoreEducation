@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>abilities#show</h1>
+      <h1>manager/abilities/show</h1>
+      <p>個人の能力がみれるページ</p>
+      <h2><%= @member.name %></h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <%= form_with model: @ability_new,url: manager_abilities_path(@ability),local: true do |f| %>
+              <td><%= f.text_field :title %></td>
+                <%= f.hidden_field :member_id, value: @member_id %>
+              <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="row">
+            <table class="table">
+              <thead>
+              <tr>
+              <% @abilities.each do |ability| %>
+                  <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+                    <th><%= f.text_field :title  ,style: "border: none"%>
+                  <%= f.submit "変更", class: "btn btn-success" %>
+                  <%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %>
+                  </th>
+                <% end %>                 
+              <% end %>                 
+              <!--<%# @abilities_titles.each do |ability_title| %>-->
+              <!--  <th><%#= ability_title %></th>-->
+              <!--<%# end %>-->
+              </tr>
+              <!--<td><%#= f.text_field :title ,style: "border: none" %></td>-->
+              </thead>
+              <tbody>
+                
+                <tr>
+              <% @abilities.each do |ability| %>
+                  <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+                    <td><%= f.text_field :value,style: "border: none"%>
+                    <%= f.submit "変更", class: "btn btn-success" %>
+                  <% end %>              
+                  </td>
+              <% end %>
+                </tr>
+              </tbody>
+              </table>
+        </div>
+      </div>
+    <div class="col-md-4">
+      <canvas id="myChart" width="300" height="300"style="margin:200px 0 0 0;"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).on('turbolinks:load',function(){
+  $("#myChart").on("click",ctx)
+})
+let ctx = document.getElementById("myChart");
+//idmy
+let myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: [
+      <% @abilities_titles.each do |ability_title| %>
+      "<%= ability_title %>",
+      <% end %>
+      ],
+    datasets: 
+    [
+        {
+        label: 'ability',
+        backgroundColor: 'rgba(125,255,255,0.6)',
+        borderColor: 'rgba(122,122,129,0.5)',
+        data: [
+      <% @abilities.each do |ability| %>
+          <%= ability.value %>,
+      <% end %>
+          ]
+        },
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }
+  }
+});
+</script>
