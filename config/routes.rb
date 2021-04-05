@@ -1,17 +1,7 @@
 Rails.application.routes.draw do
-  namespace :member do
-    get 'group_messages/show'
-  end
-  namespace :manager do
-    get 'group_messages/index'
-  end
-  namespace :manager do
-    get 'tasks/show'
-    get 'tasks/create'
-    get 'tasks/update'
-    get 'tasks/destroy'
-  end
- root to: "manager/managers#top"
+ root to: "homes#top"
+ get 'homes/about'
+ 
    devise_for :managers, :controllers => {
     :sessions => 'managers/sessions',
     :registrations => 'managers/registrations',
