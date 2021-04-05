@@ -9,6 +9,8 @@
     <%#= bootstrap_devise_error_messages! %>
     <div class="form-inline mb-3">
     <div class="form-inline mb-3">
+       <%= f.attachment_field :image %>
+        <%= f.submit '画像投稿' %>
       <label class="mr-4">名前　</label>
       <div class="form-group">
         <%= f.text_field :name, autofocus: true, placeholder: "姓", class: "form-control mr-3" %>

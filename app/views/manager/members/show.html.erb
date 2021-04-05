@@ -1,15 +1,26 @@
-<h1>member#show</h1>
-画像投稿フォーム<br>
-<%= form_with model: @member_new, url: manager_members_path, local:true do |f| %>
-<%= f.attachment_field :image %>
-<%= f.submit '画像投稿' %>
-<% end %>
-<%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
-<%= @member.name %><br>
-<%= @member.name_kana %><br>
-<%= @member.email %><br>
-<%= @member.encrypted_password %><br>
-<%= @member.phone_number %><br>
-<%= @member.is_deleted %><br>
-<%= link_to "edit" ,edit_manager_member_path %><br>
-<%= link_to "manager/educationへ",manager_educations_path %>
+
+  <div class="row">
+    
+    <div class = "col-md-3 bg-secondary">
+      <%= render "sideber", members:@members %>
+    </div>
+  <div class = "col-md-8">
+  <h2><%= @member.name %></h2>
+  <div class="row">
+    
+  <div class = "col-6">
+  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+  </div>
+  <div class="col-6">
+  <%= @member.name %><br>
+  <%= @member.name_kana %><br>
+  <%= @member.email %><br>
+  <%= @member.encrypted_password %><br>
+  <%= @member.phone_number %><br>
+  <%= @member.is_deleted %><br>
+  <%= link_to "edit" ,edit_manager_member_path %><br>
+  </div>
+  </div>
+  <%= link_to "manager/educationへ",manager_educations_path %>
+  </div>
+  </div>

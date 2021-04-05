@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration[5.2]
       t.integer :manager_id
       t.string :name
       t.string :abilitie_title
+      t.string :group_image_id
       t.timestamps
     end
   end

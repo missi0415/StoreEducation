@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_102546) do
     t.integer "manager_id"
     t.string "name"
     t.string "abilitie_title"
+    t.string "group_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

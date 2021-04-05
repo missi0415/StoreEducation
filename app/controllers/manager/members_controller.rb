@@ -1,5 +1,7 @@
 class Manager::MembersController < ApplicationController
   def show
+    @group = Group.find(params[:id])
+    @members = @group.members
     @member = Member.find(params[:id])
     @member_new = Member.new
   end

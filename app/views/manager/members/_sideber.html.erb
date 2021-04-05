@@ -1,0 +1,9 @@
+<h2><i class="fas fa-users text-light text-center ">members</i></h2>
+<% members.each do |member| %>
+<%= link_to manager_member_path(member) do %>
+<button class ="btn btn-secondary form-control" >
+  <i class="fas fa-user"></i>
+  <%= member.name %>
+</button>
+<% end %>  
+<% end %>
