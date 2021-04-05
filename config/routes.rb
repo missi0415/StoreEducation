@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :abilities
   resources :group_messages
-  resources :abilities_titles
+  resources :ability_titles
  end
  #-------------------
  #--------manager---------

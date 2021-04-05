@@ -5,6 +5,7 @@ class Manager::GroupsController < ApplicationController
     @group = Group.new
     #groupのFkであるmanager_idにそのページにログインしている人のIDを代入しておくという記述
     @group.manager_id = current_manager.id
+    @abilitie_title = AbilityTitle.new
     #@group = Group.find(params[:id])
   end
   
@@ -21,6 +22,7 @@ class Manager::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     #送られてくるパラメータを指定している
     @members = @group.members
+    @ability_titles = @group.ability_titles
     
   end
   

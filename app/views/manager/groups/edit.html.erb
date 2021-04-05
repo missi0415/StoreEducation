@@ -1,4 +1,9 @@
 <h1>グループ編集</h1>
+<!--abilitie_title-->
+<!--<%#= form_with model: @abilitie_title,url: new_manager_abilities_titles_path,method:post ,local:true do |f| %>-->
+<!--<%#= f.text_field :title %>-->
+<!--<%#= f.submit "保存する", class: "btn btn-success" %>-->
+<!--<%# end %>-->
 <%= form_with model: @group, url: manager_group_path(@group), local:true do |f| %>
 <div class="container col-6 mx-auto">
   <div>

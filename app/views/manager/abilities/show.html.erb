@@ -5,37 +5,13 @@
       <h1>manager/abilities/show</h1>
       <p>個人の能力がみれるページ</p>
       <h2><%= @member.name %></h2>
-<!-------------------->
-<%= form_with model: @ability_new,url: manager_abilities_path(@ability),local: true do |f| %>
-<!--------------------------->
-
-        <table class="table">
-          <thead>
-            <tr>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <%= form_with model: @ability_new,url: manager_abilities_path(@ability),local: true do |f| %>
-              <td><%= f.text_field :title %></td>
-                <%= f.hidden_field :member_id, value: @member_id %>
-              <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
-              <% end %>
-            </tr>
-          </tbody>
-        </table>
         
         <div class="row">
             <table class="table">
               <thead>
               <tr>
-              <% @abilities.each do |ability| %>
-                  <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
-                    <th><%= f.text_field :title  ,style: "border: none"%>
-                  <%= f.submit "変更", class: "btn btn-success" %>
-                  <%= link_to "消去",manager_ability_path(ability), class: "btn btn-danger" ,method: :delete %>
-                  </th>
-                <% end %>                 
+              <%  @ability_titles.each do | ability_title| %>
+                    <th><%=  ability_title.title %></th>
               <% end %>                 
               <!--<%# @abilities_titles.each do |ability_title| %>-->
               <!--  <th><%#= ability_title %></th>-->
@@ -74,8 +50,8 @@ let myChart = new Chart(ctx, {
   type: 'radar',
   data: {
     labels: [
-      <% @abilities_titles.each do |ability_title| %>
-      "<%= ability_title %>",
+      <% @ability_titles.each do |ability_title| %>
+      "<%= ability_title.title %>",
       <% end %>
       ],
     datasets: 
