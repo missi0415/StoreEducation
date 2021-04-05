@@ -2,8 +2,22 @@ class Manager::AbilityTitlesController < ApplicationController
   
   def create
     @ability_title = AbilityTitle.new(ability_title_params)
+    
     #@ability.member_id = @member.id
     if @ability_title.save
+      
+      # #繰り返す回数は？グループのメンバーの数だけ作成する
+      # @group = @ability_title.group#アビリティタイトルの所属するグループ
+      # #メンバー数は
+      # p "-----------------------------"
+      # @members = @group.members#グループメンバー全員
+      
+      # @members.each do |member|
+      # Ability.create!(
+      #   member_id: member,
+      #           ability_title_id: @ability_title.id,
+      #     )
+      # end
       redirect_back(fallback_location: root_path)
     else
       render:show

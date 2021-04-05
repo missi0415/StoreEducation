@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_115107) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "member_id"
+    t.integer "ability_title_id"
     t.integer "value", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
