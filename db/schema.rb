@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_102546) do
+ActiveRecord::Schema.define(version: 2021_04_05_115107) do
 
   create_table "abilities", force: :cascade do |t|
     t.integer "member_id"
-    t.string "title"
     t.integer "value", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ability_titles", force: :cascade do |t|
+    t.integer "group_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +63,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_102546) do
   create_table "groups", force: :cascade do |t|
     t.integer "manager_id"
     t.string "name"
-    t.string "abilitie_title"
     t.string "group_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -5,6 +5,9 @@
       <h1>manager/abilities/show</h1>
       <p>個人の能力がみれるページ</p>
       <h2><%= @member.name %></h2>
+<!-------------------->
+<%= form_with model: @ability_new,url: manager_abilities_path(@ability),local: true do |f| %>
+<!--------------------------->
 
         <table class="table">
           <thead>
