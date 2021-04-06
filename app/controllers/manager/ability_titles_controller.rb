@@ -1,10 +1,15 @@
 class Manager::AbilityTitlesController < ApplicationController
   
   def create
-    @ability_title = AbilityTitle.new(ability_title_params)
+    @ability_title = AbilityTitle.new(ability_title_params) 
     
     #@ability.member_id = @member.id
     if @ability_title.save
+      
+      @group = @ability_title.group
+      #@members_ids = @group.members.pluck(:id)
+
+      #@members_ids.save
       
       # #繰り返す回数は？グループのメンバーの数だけ作成する
       # @group = @ability_title.group#アビリティタイトルの所属するグループ
@@ -30,7 +35,7 @@ class Manager::AbilityTitlesController < ApplicationController
   
   def update
     @ability_title= AbilityTitle.find(params[:id])
-    if @ability_title.update(ability_title_params)
+    if @ability_title.update(ability_apdate_params)
       redirect_back(fallback_location: root_path)
     else
       render :edit
@@ -44,6 +49,9 @@ class Manager::AbilityTitlesController < ApplicationController
   end  
     
   private
+  def ability_apdate_params
+    params.require(:ability_title).permit(:title,:group_id)
+  end
   
   def ability_title_params
     params.permit(:group_id,:title)
