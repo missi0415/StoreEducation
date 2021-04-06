@@ -1,26 +1,35 @@
+<div class="row">
+  <div class = "col-md-1 bg-secondary">
+    <%= render "sideber", members:@members %>
+  </div>
+  <div class = "col-md-3 ">
+      <div class="row">
+        <div class="col-6">
+      <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+        </div>
+        <div class="col-6">
+      <%= @member.name %><br>
+      <%= @member.name_kana %><br>
+      <%= @member.email %><br>
+      <%= @member.phone_number %><br>
+      <%= @member.is_deleted %><br>
+      <%= link_to "edit" ,edit_manager_member_path %><br>
+      </div>
+      </div>
+    <div>
+    <canvas id="myChart" width="40" height="40"></canvas>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+  </div>
+</div>
+
+
+  <div class="row m-1">
+    <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+  </div>
 
   <div class="row">
-    
-    <div class = "col-md-3 bg-secondary">
-      <%= render "sideber", members:@members %>
-    </div>
-  <div class = "col-md-8">
-  <h2><%= @member.name %></h2>
-  <div class="row">
-    
-  <div class = "col-6">
-  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
-  </div>
-  <div class="col-6">
-  <%= @member.name %><br>
-  <%= @member.name_kana %><br>
-  <%= @member.email %><br>
-  <%= @member.encrypted_password %><br>
-  <%= @member.phone_number %><br>
-  <%= @member.is_deleted %><br>
-  <%= link_to "edit" ,edit_manager_member_path %><br>
-  </div>
-  </div>
-  <%= link_to "manager/educationへ",manager_educations_path %>
-  </div>
+    <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>
   </div>

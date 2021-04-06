@@ -1,43 +1,30 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h1>abilities#show</h1>
-      <h1>manager/abilities/show</h1>
-      <p>個人の能力がみれるページ</p>
-      <h2><%= @member.name %></h2>
-        
-        <div class="row">
-            <table class="table">
-              <thead>
-              <tr>
-              <%  @ability_titles.each do | ability_title| %>
-                    <th><%= ability_title.title %></th>
-              <% end %>                 
-              <!--<%# @abilities_titles.each do |ability_title| %>-->
-              <!--  <th><%#= ability_title %></th>-->
-              <!--<%# end %>-->
-              </tr>
-              <!--<td><%#= f.text_field :title ,style: "border: none" %></td>-->
-              </thead>
-              <tbody>
-                
-                <tr>
-              <% @abilities.each do |ability| %>
-                  <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
-                    <td><%= f.text_field :value,style: "border: none"%>
-                    <%= f.submit "変更", class: "btn btn-success" %>
-                  <% end %>              
-                  </td>
-              <% end %>
-                </tr>
-              </tbody>
-              </table>
-        </div>
-      </div>
-    <div class="col-md-4">
-      <canvas id="myChart" width="300" height="300"style="margin:200px 0 0 0;"></canvas>
+<h3 class="bg-light"><%= @member.name %></h3>
+<div class="row">
+<%= render partial: "manager/groups/ability_sidebar", locals: { group: @group, ability_title: @ability_title,ability_titles: @ability_titles }%>
+  <div class="col-md-2">  
+    <table class="ability">
+      <thead>
+        <tr>
+        <% @ability_titles.each do | ability_title| %>
+          <th><%= ability_title.title %></th>
+        <% end %>                 
+        </tr>
+      </thead> 
+      <tbody>
+      <tr>
+        <% @abilities.each do |ability| %>
+          <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+          <td><%= f.text_field :value,size:"5px",style: "border: none"%>
+          <%= f.submit "変更", class: "btn btn-success btn-sm" %></td>
+          <% end %>
+          <% end %>
+      </tr>
+      </tbody>
+    </table>
+  </div>  
+    <div class="col-md-5">
+      <canvas id="myChart" width="300" height="300"></canvas>
     </div>
-  </div>
 </div>
 
 <script>

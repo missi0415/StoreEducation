@@ -1,7 +1,4 @@
-
-<h1>manager/tasks/show</h1>
-個人の課題がみれるページ<br>
-<h2><%= @member.name %></h2>
+<h2>タスク管理</h2>
 <table class="table">
   <thead>
     <tr>
@@ -17,16 +14,16 @@
   </thead>
   <tbody>
     <tr>
-      <%= form_with model: @task_new,url: manager_tasks_path(@task),local: true do |f| %>
+      <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
       <td><%= f.text_field :title %></td>
       <td><%= f.text_field :body  %></td>
       <td><%= date_field_tag 'task[start_on]', nil %></td>
       <td><%= date_field_tag 'post[end_on]', nil %></td>
-        <%= f.hidden_field :member_id, value: @member_id %>
+        <%= f.hidden_field :member_id, value: member_id %>
       <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
       <% end %>
     </tr>
-<% @tasks.each do |task| %>
+<% tasks.each do |task| %>
 <%= form_with model: task ,url: manager_task_path(task),local: true do |f| %>
     <tr>
       <td><%= f.text_field :title ,style: "border: none" %></td>
