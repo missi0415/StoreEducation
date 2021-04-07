@@ -1,13 +1,13 @@
 <header>
-  <nav class="navbar navbar-expand navbar-dark bg-secondary ">
-    <div class="container">
-      <h3><%= link_to "StoreEducation", root_path, class: "text-white font-italicn text-decoration-none logo-text "  %></h3>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <h3><%= link_to "StoreEducation", root_path, class: "font-italicn text-decoration-none logo-text "  %></h3>
+      <!--<button class="navbar-toggler btn btn-primary dropdown-toggle" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+      <!--  <span class="navbar-toggler-icon btn btn-primary"></span>-->
+      <!--</button>-->
+      <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
         <% if member_signed_in?  %>
-          <div class="nav-item mt-2 ml-5">
+          <div class="nav mt-2 ml-5">
                 ようこそ、<strong><%= current_member.name %></strong>さん！
           </div>
         <% end  %>

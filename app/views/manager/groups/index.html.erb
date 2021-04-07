@@ -1,48 +1,48 @@
-
-<h2>新しくグループを作る</h2>
-<%= form_with model: @group,url: manager_groups_path, local:true do |f| %>
-  <div class="form-group">
-    <%= f.label :name ,"グループネーム"%>
-    <%= f.text_field :name, class: 'form-control goup_name', placeholder: "グループ名を入力してください" %>
-  </div>
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
-  </div>  
-<h1>グループ一覧</h1>
-<% end %>
- <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-    <% @groups.each do |group| %>  
-      <div class="col-3">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 ">
-            <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
-              <h3><%= f.text_field :name, :size=>"20px", style: "border: none" %>
-            <%= f.submit "名前変更", class: "btn btn-success" %></h3>
-            <% end %>
-          </div>
-          <%= link_to manager_group_path(group.id) do %>
-          <div>
-          <%= attachment_image_tag(group, :group_image , :size=>"200x200", fallback: "figure_group_blue.jpg" ,:size=>"200x200")%>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title "><small class="text-muted fw-light"></small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-            <li>グループを見る</li>
+<div class="container-fluid">
+  <div class="row" style="height: 100%">
+    <!--sidebar-------------------------->
+    <div class = "col-md-2 sidebar">
+      <div class="title">
+          <%= form_with model: @group,url: manager_groups_path, local:true do |f| %>
+            <div class="form-group">
+              <%= f.label :name ,"グループネーム"%>
+              <%= f.text_field :name, class: 'form-control goup_name', placeholder: "グループ名を入力してください" %>
+            </div>
+            <div class="form-group">
+              <%= f.submit class: 'btn btn-success' %>
+            </div>  
           <% end %>
-            </ul>
-            <!--<button type="button" class="w-100 btn btn-lg">-->
-            <!--  <%#= link_to "編集",edit_manager_group_path(group) ,class: "btn w-100  btn-lg btn-success" %>-->
-          <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
-          <%= f.attachment_field :group_image %>
-          <%= f.submit "画像変更", class: "btn btn-success" %>
-          <% end %>
-            </button>
-            <button type="button" class="w-100 btn btn-lg">
-              <%= link_to "消去",manager_group_path(group) ,data: {confirm: "本当に削除しますか？"}, class: "btn w-100  btn-lg btn-danger",method: :delete %>
-            </button>
-          </div>
-        </div>
       </div>
-    <% end %>
+    </div>
+    <!--sidebar-------------------------->
+    <!--card----------------------------------->
+    <div class="col-md-10">
+      <div class="row">
+        <% @groups.each do |group| %>  
+          <div class="col-md-3 mt-3">
+            <div class="card shadow rounded-start">
+              <div class="card-header">
+                <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
+              </div>  
+              <div class="card-body text-center ">  
+                <img>
+                  <%= link_to manager_group_path(group.id) do %>
+                  <%= attachment_image_tag(group, :group_image , :size=>"200x200", fallback: "figure_group_blue.jpg" ,:size=>"200x200")%>
+                  <% end %>
+                </img>  
+                <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
+                  <%= f.attachment_field :group_image ,style: "border: none",class: "form-control"%>
+                  <%= f.text_field :name, style: "border: none",class: "form-control mt-2" %>
+                  <%= f.submit "更新", class: "btn btn-success form-control mt-2" %>
+                <% end %>
+                <%= link_to "削除",manager_group_path(group) ,data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger form-control mt-2",method: :delete %>
+              </div>  
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
+  
+  </div>
+</div>  

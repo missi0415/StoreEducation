@@ -1,35 +1,63 @@
-<div class="row">
-  <div class = "col-md-1 bg-test-black">
-    <%= render "sideber", members: @members %>
-  </div>
-  <div class = "col-md-3 bg-gradient-primary">
-      <div class="row">
-        <div class="col-6">
-      <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
-        </div>
-        <div class="col-6">
-      <%= @member.name %><br>
-      <%= @member.name_kana %><br>
-      <%= @member.email %><br>
-      <%= @member.phone_number %><br>
-      <%= @member.is_deleted %><br>
-      <%= link_to "edit" ,edit_manager_member_path %><br>
-      </div>
-      </div>
-    <div>
-    <canvas id="myChart" width="40" height="40"></canvas>
+<div class="container-fluid">
+  <div class="row" >
+    <div class = "col-md-2 sidebar">
+      <%= render "sideber", members: @members %>
     </div>
-  </div>
-  <div class="col-md-7">
+    <div class = "col-md-3 mt-3">
+      <div class="card shadow rounded-start" >
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold title">Profile</h6>
+        </div>  
+        <div class="card-body" >  
+          <div class="row">
+            <div class="col-6">
+              <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+            </div>
+            <div class="col-6">
+              <%= @member.name %><br>
+              <%= @member.name_kana %><br>
+              <%= @member.email %><br>
+              <%= @member.phone_number %><br>
+              <%= @member.is_deleted %><br>
+              <%= link_to "edit" ,edit_manager_member_path %><br>
+            </div>  
+          </div>
+        </div>  
+      </div>
+      <div class="card shadow rounded-start mt-3"style="height:67%" >
+        <div class="card-header">
+        <h6 class="m-0 font-weight-bold title">Abilty chart</h6>
+        </div>
+          <div class="card-body">
+            <canvas id="myChart" height="100%" width="100"></canvas>
+          </div>
+      </div>
+    </div>  
+  <div class="col-md-7 mt-3">
+    <div class="card shadow rounded-start">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold title">Education</h6>
+      </div>  
+      <div class="card-body" style="height: 710px" >  
     <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+      </div>
+    </div>  
   </div>
 </div>
+</div>
 
-
-  <div class="row m-1">
-    <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+<div class="row m-2">
+    <div class="card shadow rounded-start"style="width: 100%">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold title">Task</h6>
+      </div>  
+      <div class="card-body">  
+        <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+      </div>
+    </div>  
   </div>
 
   <div class="row">
     <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>
   </div>
+</div>

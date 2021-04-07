@@ -16,3 +16,70 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+body{
+ background-color: #F8F9FC;
+
+}
+header{
+  .navbar{
+    background-color: #fff;
+  }
+}
+
+#myChart{
+   background-color: #fff; 
+  font:  1.2em "Fira Sans", sans-serif;
+
+}
+
+//card
+.card{
+  border-left: 5px solid #4F74E0;
+  border-left: 5px solid #4F74E0;
+  .card-header{
+  font:  1.2em "Fira Sans", sans-serif;
+  color: #4F74E0;
+  background-color: #F8F9FC;
+  }
+  .card-body{
+  background-color: #fff;  
+  }
+}
+
+
+//sidebar-----------------------
+
+
+.sidebar{
+  background-color: #4F74E0;
+  color: #fff;
+  a:link{
+  color: #fff;
+  } 
+  .name{
+    border-bottom: solid;
+    padding : 20px; 
+    text-align: center;
+    margin: 0 auto;
+    font-size: 25px;
+    border-color: #fff;
+  }
+  .title{
+    padding : 20px; 
+    text-align: center;
+    margin: 0 auto;
+    font-size: 25px;
+    border-color: #fff;
+  }
+  .nav {
+    color: #fff;
+  }
+  .nav-item {
+    font-size: 20px;
+    text-align: center;
+    padding : 5px; 
+    color: #fff;
+    
+  }
+}
+//-----------------------
