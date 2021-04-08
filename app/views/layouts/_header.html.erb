@@ -1,34 +1,35 @@
+
 <header>
-  <nav class="navbar">
-    <div class="container-fluid">
-      <h3><%= link_to "StoreEducation", root_path, class: "font-italicn text-decoration-none logo-text "  %></h3>
-      <!--<button class="navbar-toggler btn btn-primary dropdown-toggle" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
-      <!--  <span class="navbar-toggler-icon btn btn-primary"></span>-->
-      <!--</button>-->
-      <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-        <% if member_signed_in?  %>
-          <div class="nav mt-2 ml-5">
-                ようこそ、<strong><%= current_member.name %></strong>さん！
-          </div>
-        <% end  %>
-        <ul class="navbar-nav ml-auto">
-          <% if member_signed_in? %>
-            <li class="nav-item"><%= link_to "マイページ", member_member_path(current_member), class: "nav-link"  %></li>
-            <li class="nav-item"><%= link_to "グループ連絡", member_group_message_path(current_member), class: "nav-link"  %></li>
-            <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "nav-link"  %></li>
-          <% elsif current_manager %>
-            <!--<li class="nav-item"><%#= link_to "グループ連絡", manager_group_messages_path(current_manager.group_message.id), class: "nav-link"  %></li>-->
-            <li class="nav-item"><%= link_to "グループ一覧", manager_groups_path, class: "nav-link"  %></li>
-            
-            <!--<li class="nav-item"><%#= link_to "", manager_orders_path, class: "nav-link"  %></li>-->
-            <!--<li class="nav-item"><%#= link_to "ジャンル一覧", manager_genres_path, class: "nav-link"  %></li>-->
-            <li class="nav-item"><%= link_to "マナジャーログアウト", destroy_manager_session_path, method: :delete, class: "nav-link"  %></li>
-          <% else %>
-            <li class="nav-item"><%= link_to "About", "", class: "nav-link text-white" %></li>
-            <li class="nav-item"><%= link_to "top", "", class: "nav-link text-white" %></li>
-          <% end %>
-        </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <div class="name">
+        <img src="/assets/logo.jpg" alt="logo" width="40" height="40">
+        <%= link_to "StoreEducation", root_path, class: "font-italicn text-decoration-none logo-text "  %>
       </div>
     </div>
-  </nav>
+    <div>
+      
+      <%#= link_to "StoreEducation", root_path ,class: "btn btn-primary shadow rounded fas fa-download fa-sm "%>
+    <% if manager_signed_in?  %>
+      <%= link_to "　Log out", destroy_manager_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt fa-sm" , method: :delete%>
+      <%= link_to "　Grops", manager_groups_path, class: "btn btn-primary shadow rounded fas fa-users fa-sm"  %>
+        <% if (controller_path == 'manager/groups' && action_name == 'show'||controller_path == 'manager/members' && action_name == 'show'||controller_path == 'manager/group_messages' && action_name == 'show'
+        )%>
+          <%= link_to "　GropMessages", manager_group_message_path(@group), class: "btn btn-primary shadow rounded fas fa-users fa-sm"  %>
+          <%= link_to "　PlusMember", new_member_registration_path(group_id: @group.id), class: "btn btn-primary shadow rounded fas fa-user-friends fa-sm"  %>
+          <%= link_to "　GropEdit", edit_manager_group_path, class: "btn btn-primary shadow rounded fas fa-edit fa-sm"  %>
+        <% end %>
+    <% elsif member_signed_in? %>
+      <%= link_to "　マイページ", member_member_path(current_member), class: "btn btn-primary shadow rounded fas fa-download fa-sm"  %>
+      <%= link_to "　グループ連絡", member_group_message_path(current_member), class: "btn btn-primary shadow rounded fas fa-download fa-sm"  %>
+      <%= link_to "　ログアウト", destroy_member_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt fa-sm" , method: :delete %>
+    <% else %> 
+      <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download fa-sm" %>  
+      <%= link_to "　top", "", class: "btn btn-primary shadow rounded fas fa-download fa-sm" %>
+    <% end %>   
+    </div>
+  </div>
+</div>    
+
 </header>
