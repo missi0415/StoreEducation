@@ -41,16 +41,17 @@ header{
   .navbar{
     background-color: #fff;
   }
-  .btn{
-    // text-align: center;
+}  
+  .btn-primary{
+    text-align: left;
     background-color: #fff;
     margin: 10px;
     color :#5a5c69;
-    padding: 15px 0px;
+    padding: 15px 0px 15px 15px;
     border: 0 none;
     border-left: 10px solid #008cff;
-    width: 200px;
-    font-size: 15px;
+    width: 250px;
+    font-size: 20px;
     letter-spacing: 1px;
   }  
     .btn-primary:hover, .btn-primary:focus, 
@@ -68,7 +69,7 @@ header{
     color: #12141a; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     }
      
-}   
+   
 //------------------header------------------------------
 
 #myChart{
@@ -93,17 +94,12 @@ header{
   }
 }
 
-
 //---------------sidebar-----------------------
-
 
 .sidebar{
   background-color: #008cff;
   color: #fff;
-  a{
-  color: #fff;
-  } 
-  .name{
+  .page-title{
     border-bottom: solid;
     padding : 20px; 
     text-align: center;
@@ -111,12 +107,14 @@ header{
     font-size: 25px;
     border-color: #fff;
   }
-  .title{
+  .sub-title{
+    font-size: 25px;
     padding : 20px; 
     text-align: center;
     margin: 0 auto;
-    font-size: 25px;
+    font-size: px;
     border-color: #fff;
+    border-bottom: solid;
   }
   .nav {
     color: #fff;

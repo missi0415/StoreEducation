@@ -1,32 +1,72 @@
-<h3 class="bg-light"><%= @member.name %></h3>
-<div class="row">
-<%= render partial: "manager/groups/ability_sidebar", locals: { group: @group, ability_title: @ability_title,ability_titles: @ability_titles }%>
-  <div class="col-md-2">  
-    <table class="ability">
-      <thead>
-        <tr>
-        <% @ability_titles.each do | ability_title| %>
-          <th><%= ability_title.title %></th>
-        <% end %>                 
-        </tr>
-      </thead> 
-      <tbody>
-      <tr>
-        <% @abilities.each do |ability| %>
-          <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
-          <td><%= f.text_field :value,size:"5px",style: "border: none"%>
-          <%= f.submit "変更", class: "btn btn-success btn-sm" %></td>
-          <% end %>
-          <% end %>
-      </tr>
-      </tbody>
-    </table>
+<div class="container-fluid">
+  <div class="row">
+    <div class = "col-md-2 sidebar">
+      <div class="page-title">
+        <i class="fas fa-chart-pie "> Abilty</i>
+      </div>
+      <%= render "manager/members/sideber", members: @members %>
+    </div>    
+        <div class ="col-md-2">
+          <div class="card shadow rounded-start" style="width: 100%" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">Abilty Title</h6>
+            </div>
+            <div class="card-body">
+              <%= form_with model: @ability_title,url: manager_ability_titles_path,local:true do |f| %>
+              <%= f.text_field :title ,class: "form-control"%>
+              <%= f.hidden_field :group_id,value: @group.id %>
+              <%= f.submit "項目追加", class: "btn btn-secondary form-control" %>
+              <% end %>
+              <% @ability_titles.each do |ability_title| %>
+              <%= form_with model: ability_title,url: manager_ability_title_path(ability_title),local:true do |f| %>
+                <%= f.text_field :title ,:size=>"10px"%>
+                <%= f.hidden_field :group_id,value: ability_title.group_id %>
+                <%= f.submit "変更", class: "btn btn-outline-success form-inline " %>
+                <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger",method: :delete %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>          
+          <div class="card shadow rounded-start mt-3"style="width: 100%">
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">Abilty Status</h6>
+            </div>  
+            <div class="card-body">  
+              <table class="ability">
+                <thead>
+                  <tr>
+                  <% @ability_titles.each do | ability_title| %>
+                    <th><%= ability_title.title %></th>
+                  <% end %>                 
+                  </tr>
+                </thead> 
+                <tbody>
+                  <tr>
+                    <% @abilities.each do |ability| %>
+                    <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+                  <td><%= f.text_field :value,size:"5px",style: "border: none"%>
+                    <%= f.submit "変更", class: "btn btn-success btn-sm" %></td>
+                    <% end %>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card shadow rounded-start" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">Abilty Chart</h6>
+            </div>
+            <div class="card-body">
+              <canvas id="myChart" height="100%" width="100"></canvas>
+            </div>
+          </div>
+        </div>  
   </div>  
-    <div class="col-md-5">
-      <canvas id="myChart" width="300" height="300"></canvas>
-    </div>
-</div>
-
+</div>        
+        
 <script>
 $(document).on('turbolinks:load',function(){
   $("#myChart").on("click",ctx)

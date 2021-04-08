@@ -2,6 +2,7 @@ class Manager::AbilitiesController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @group = @member.group
+    @members = @group.members
     @ability_titles = @group.ability_titles
     @abilities = @member.abilities
     @ability = Ability.find(params[:id])

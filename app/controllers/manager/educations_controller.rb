@@ -1,6 +1,8 @@
 class Manager::EducationsController < ApplicationController
   def show
     @member = Member.find(params[:id])
+    @group = @member.group
+    @members = @group.members
     @educations = @member.educations
     @education = Education.find(params[:id])
     @member_id = @member.id

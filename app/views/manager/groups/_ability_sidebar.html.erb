@@ -1,31 +1,3 @@
-  <div class = "col-md-2 sidebar">
-    <div class="name">
-      <i class="fas fa-clipboard "><%= link_to "グループ連絡板", manager_group_message_path(group)%></i>
-    </div>
-    <div class="name">
-      <i class="fas fa-user-friends"><%= link_to "メンバー追加",new_member_registration_path(group_id: group.id) %></i>
-    </div>
-    <div class="name">
-      <i class="fas fa-edit"><%= link_to "グループ名編集" ,edit_manager_group_path %></i>
-    </div>
-    <div class="title text-center">
-      <%= form_with model: ability_title,url: manager_ability_titles_path,local:true do |f| %>
-        <%= f.label :title ,"能力項目"%>
-    </div>
-        <%= f.text_field :title ,class: "form-control"%>
-        <%= f.hidden_field :group_id,value: group.id %>
-        <%= f.submit "項目追加", class: "btn btn-secondary form-control" %>
-      <% end %>
-    <ul class="nav">
-      <% ability_titles.each do |ability_title| %>
-        <li class="nav-item bg-white" >
-          <%= form_with model: ability_title,url: manager_ability_title_path(ability_title),local:true do |f| %>
-            <%= f.text_field :title ,:size=>"15px"%>
-            <%= f.hidden_field :group_id,value: ability_title.group_id %>
-            <%= f.submit "変更", class: "btn btn-outline-success form-inline " %>
-            <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger",method: :delete %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+
+
+    

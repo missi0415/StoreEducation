@@ -2,8 +2,10 @@ class Manager::TasksController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @tasks = @member.tasks
-    @task = Task.find(params[:id])
     @member_id = @member.id
+    @group = @member.group
+    @members = @group.members
+    @task = Task.find(params[:id])
     @task_new = Task.new
   end
   

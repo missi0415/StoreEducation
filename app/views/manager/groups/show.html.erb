@@ -1,27 +1,32 @@
-<div class="row">
-<%= render partial: "ability_sidebar", locals: { group: @group, ability_title: @ability_title,ability_titles: @ability_titles }%>
-<div class=col-md-9>
-<table class="table">
-  <thead>
-    <tr>
-      <th>名前</th>
-      <th>メンバー情報</th>
-      <th>教育項目一覧</th>
-      <th>課題一覧</th>
-      <th>個人能力</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @members.each do |member| %>
-    <tr>
-      <%= link_to manager_member_path(member) do %>
-        <td><%= member.name %></td>
-      <% end %>
-    <td><%= link_to "情報" ,manager_member_path(member),class: "btn btn-success" %></td>
-    <td><%= link_to "教育" ,manager_education_path(member),class: "btn btn-success" %></td>
-    <td><%= link_to "課題" ,manager_task_path(member),class: "btn btn-success" %></td>
-    <td><%= link_to "能力" ,manager_ability_path(member),data: {"turbolinks" => false},class: "btn btn-success" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row" >
+    <div class = "col-md-2 sidebar">
+      <%= render partial: "ability_sidebar", locals: { group: @group, ability_title: @ability_title,ability_titles: @ability_titles }%>
+    </div>
+    <div class=col-md-9>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>メンバー情報</th>
+          <th>教育項目一覧</th>
+          <th>課題一覧</th>
+          <th>個人能力</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+        <tr>
+          <%= link_to manager_member_path(member) do %>
+            <td><%= member.name %></td>
+          <% end %>
+        <td><%= link_to "情報" ,manager_member_path(member),class: "btn btn-success" %></td>
+        <td><%= link_to "教育" ,manager_education_path(member),class: "btn btn-success" %></td>
+        <td><%= link_to "課題" ,manager_task_path(member),class: "btn btn-success" %></td>
+        <td><%= link_to "能力" ,manager_ability_path(member),data: {"turbolinks" => false},class: "btn btn-success" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

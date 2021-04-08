@@ -1,10 +1,17 @@
-<div class="name">
+<div class="text-center">
+  
+<%= link_to "　Profile" ,manager_member_path(@member),class: "btn btn-primary shadow rounded fas fa-address-card " %></td>
+<%= link_to "　Education" ,manager_education_path(@member),class: "btn btn-primary shadow rounded fas fa-book-reader" %></td>
+<%= link_to "　Task" ,manager_task_path(@member),class: "btn btn-primary shadow rounded fas fa-tasks " %></td>
+<%= link_to "　Ability" ,manager_ability_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-chart-pie" %></td>
+</div>
+<div class="page-title">
+  <i class="fas fa-users text-left "> Member</i>
+</div>
+<div class="sub-title">
   <i class="fas fa-user username"> <%= @member.name %></i>
 </div>
-<div class="title">
-  <i class="fas fa-users text-indigo text-left "> members</i>
-</div>
-    <% members.each do |member| %>
+    <% @members.each do |member| %>
   <div class="nav-item">
   <%= link_to manager_member_path(member) do %>
   <i class="fas fa-user text-white"> <%= member.name %></i>
