@@ -1,7 +1,13 @@
 <div class="container-fluid">
   <div class="row" >
     <div class = "col-md-2 sidebar">
-      <%= render partial: "ability_sidebar", locals: { group: @group, ability_title: @ability_title,ability_titles: @ability_titles }%>
+        <div class="page-title">
+          <i  class="fas fa-users"> Group Members</i>
+        </div>
+        <div class="nonborder-title text-center">
+          <i  class="fas fa-user-plus"> New Member</i>
+        </div>
+        <%#= render "members/registrations/new"%>
     </div>
     <div class=col-md-9>
     <table class="table">

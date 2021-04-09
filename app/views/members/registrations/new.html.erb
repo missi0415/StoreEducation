@@ -1,34 +1,56 @@
-<h2>メンバーSign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "members/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <p><%= f.hidden_field :group_id, value: @group_id %></p>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "members/shared/links" %>
+<div class="container-fluid">
+  <div class="row" style="height: 100%">
+    <!--sidebar-------------------------->
+    <div class = "col-md-2 sidebar">
+      <div class="page-title">
+        <i  class="fas fa-user-friends"> Plus Member</i>
+      </div>
+    </div>
+    <!--sidebar-------------------------->
+    <!--card----------------------------->
+    <div class="col-md-10 ">
+    <div class="row ml-1">
+      
+      <div class="card shadow rounded-start" >
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold title">Plus Member</h6>
+        </div>
+      <div class="card-body text-center">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "members/shared/error_messages", resource: resource %>
+          <div class="field ">
+            <%= f.label :name ,class: "form-control" %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name",class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :email ,class: "form-control"%><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
+          </div>
+        
+          <div class="field">
+            <%= f.label :password,class: "form-control" %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password",class: "form-control"%>
+          </div>
+        
+          <div class="field">
+            <%= f.label :password_confirmation,class: "form-control" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control"%>
+          </div>
+          <p><%= f.hidden_field :group_id, value: @group_id %></p>
+        
+          <div class="actions">
+            <%= f.submit "Sign up" ,class: "form-control"%>
+          </div>
+        <% end %>
+        
+        <%= render "members/shared/links" %>
+                    
+            </div>
+          </div>
+        </div> 
+    </div>
+              </div>
+    </div>

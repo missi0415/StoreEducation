@@ -1,6 +1,6 @@
 <header>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row" style="height: 100%">
     <div class="col-md-2 sidebar">
       <div class="name">
         <img src="/assets/logo.jpg" alt="logo" width="45" height="45">
@@ -8,6 +8,8 @@
       </div>
     </div>
     <div class="col-md-10">
+      <div class="row">
+        
       <% if manager_signed_in?  %>
         <%= link_to "　Log out", destroy_manager_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete%>
         <%= link_to "　Grops", manager_groups_path, class: "btn btn-primary shadow rounded fas fa-users "  %>
@@ -25,6 +27,15 @@
         <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download " %>  
         <%= link_to "　top", "", class: "btn btn-primary shadow rounded fas fa-download " %>
       <% end %>   
+      </div>
+      <div class="row mx-auto">
+        <% flash.each do |key, value| %>
+          <%#= content_tag(:div, value, class: key) %>
+          <div class="<%= key %> alert alert-info w-100" role="alert">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>    

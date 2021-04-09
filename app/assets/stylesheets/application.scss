@@ -78,7 +78,7 @@ header{
 
 }
 
-//card
+//card-------------------------
 .card{
   border-left: 5px solid #008cff;
   .card-header{
@@ -115,6 +115,15 @@ header{
     font-size: px;
     border-color: #fff;
     border-bottom: solid;
+  }
+  .nonborder-title{
+    font-size: 25px;
+    padding : 20px; 
+    text-align: center;
+    margin: 0 auto;
+    font-size: px;
+    border-color: #fff;
+    
   }
   .nav {
     color: #fff;

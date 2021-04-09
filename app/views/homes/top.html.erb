@@ -1,55 +1,51 @@
-  <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 ">
-            <h4 class="my-0 fw-normal">マネジャー</h4>
-          </div>
-          <img class="card-img-top" src="assets/figure_one_blue.jpg">
-          <div class="card-body">
-            <h1 class="card-title "><small class="text-muted fw-light"></small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-              <%= link_to "新規登録" ,new_manager_registration_path %>
-            </button>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-              <%= link_to "ログイン" ,new_manager_session_path %>
-            </button>
-          </div>
-        </div>
+
+<div class="container-fluid">
+  <div class="row" style="height: 100%">
+    <!--sidebar-------------------------->
+    <div class = "col-md-2 sidebar">
+      <div class="page-title">
+        <i  class="fas fa-users"> Top</i>
       </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 ">
-            <h4 class="my-0 fw-normal">メンバー</h4>
-          </div>
-          <img class="card-img-top" src="assets/figure_group_blue.jpg">
-          <div class="card-body">
-            <h1 class="card-title "><small class="text-muted fw-light"></small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-              <%= link_to "ログイン" ,new_member_session_path %>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3 ">
-            <h4 class="my-0 fw-normal">ゲスト</h4>
-          </div>
-          <img class="card-img-top" src="assets/figure_one_white">
-          <div class="card-body">
-            <h1 class="card-title "><small class="text-muted fw-light"></small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-              <%= link_to "ログイン" ,"#" %>
-            </button>
-          </div>
-        </div>
-      </div>
-      
     </div>
+    <!--sidebar-------------------------->
+    <!--card----------------------------------->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card shadow rounded-start" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">Manager</h6>
+            </div>
+              
+            <div class="card-body text-center">
+              <%= image_tag "figure_one_blue.jpg", :size => '200x200' %>
+              <%= link_to "新規登録" ,new_manager_registration_path ,class: "btn btn-outline-primary shadow rounded form-control fas fa-book-reader"%>
+              <%= link_to "ログイン" ,new_manager_session_path, class: "btn btn-outline-primary shadow rounded form-control fas fa-book-reader" %>
+            </div>
+          </div>
+        </div> 
+        <div class="col-md-3 ">
+          <div class="card shadow rounded-start h-100" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title ">Member</h6>
+            </div>
+            <div class="card-body text-center ">
+              <%= image_tag "figure_group_blue.jpg", :size => '200x200'  %>
+              <%= link_to "ログイン" ,new_member_session_path,class: "btn btn-outline-primary shadow rounded form-control fas fa-book-reader" %>
+            </div>
+          </div>
+        </div> 
+        <div class="col-md-3">
+          <div class="card shadow rounded-start h-100" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">Gest Login</h6>
+            </div>
+            <div class="card-body text-center">
+              <%= image_tag "figure_one_white", :size => '200x200' %>
+              <%= link_to "ログイン" ,"#",class: "btn btn-outline-primary shadow rounded form-control fas fa-book-reader" %>
+            </div>
+          </div>
+        </div> 
+          </div>  
+            </div>
+    </div>
+  </div>
