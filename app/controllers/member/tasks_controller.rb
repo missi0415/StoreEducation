@@ -1,5 +1,6 @@
 class Member::TasksController < ApplicationController
-    def create
+    before_action :authenticate_member!
+  def create
     @task_new = Task.new(task_params)
     if @task_new.save
       redirect_back(fallback_location: root_path)

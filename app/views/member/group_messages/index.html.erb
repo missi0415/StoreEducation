@@ -26,10 +26,11 @@
             <%= form_with model: @group_message_new,url: member_group_messages_path(@group_message),local: true do |f| %>
             <td></td>
             <td></td>
+            <td></td>
             <td><%= f.text_field :title %></td>
-            <td><%= f.text_field :body  %></td>
+            <td><%= f.text_area :body  %></td>
               <%= f.hidden_field :member_id, value: @member_id %>
-              <%= f.hidden_field :group_id, value: @group.id %>
+              <%= f.hidden_field :group_id, value: @group_id %>
             <td><%= f.submit "連絡事項追加", class: "btn btn-success" %></td>
             <% end %>
           </tr>

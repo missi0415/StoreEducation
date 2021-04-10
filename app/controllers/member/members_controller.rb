@@ -1,17 +1,17 @@
 class Member::MembersController < ApplicationController
-  def show
-    @member = Member.find(params[:id])
-    #@member_new = Member.new
+  before_action :authenticate_member!
+  def index
+    @member = current_member
     @group = @member.group
     @members = @group.members
     @member_id = @member.id
     #tasks-------------------
     @tasks = @member.tasks
-    @task = Task.find(params[:id])
+    @task = Task.find_by(member_id: current_member.id)
     @task_new = Task.new
     #education---------------
     @educations = @member.educations
-    @education = Education.find(params[:id])
+    @education = Education.find_by(member_id: current_member.id)
     @education_new = Education.new
   end
   

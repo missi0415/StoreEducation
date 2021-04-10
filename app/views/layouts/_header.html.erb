@@ -20,18 +20,17 @@
             <%= link_to "　GropEdit", edit_manager_group_path, class: "btn btn-primary shadow rounded fas fa-edit"  %>
           <% end %>
       <% elsif member_signed_in? %>
-        <%= link_to "　マイページ", member_member_path(current_member), class: "btn btn-primary shadow rounded fas fa-download "  %>
-        <%= link_to "　グループ連絡", member_group_message_path(current_member), class: "btn btn-primary shadow rounded fas fa-clipboard "  %>
+        <%= link_to "　マイページ", member_members_path, class: "btn btn-primary shadow rounded fas fa-address-card "  %>
+        <%= link_to "　グループ連絡", member_group_messages_path, class: "btn btn-primary shadow rounded fas fa-clipboard "  %>
         <%= link_to "　ログアウト", destroy_member_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete %>
       <% else %> 
         <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download " %>  
         <%= link_to "　top", "", class: "btn btn-primary shadow rounded fas fa-download " %>
       <% end %>   
       </div>
-      <div class="row mx-auto">
+      <div class="row mx-auto ">
         <% flash.each do |key, value| %>
-          <%#= content_tag(:div, value, class: key) %>
-          <div class="<%= key %> alert alert-info w-100" role="alert">
+          <div class="<%= key %> w-100" role="alert">
             <%= value %>
           </div>
         <% end %>

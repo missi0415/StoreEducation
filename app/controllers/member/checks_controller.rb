@@ -1,4 +1,5 @@
 class Member::ChecksController < ApplicationController
+  before_action :authenticate_member!
   def create
     group_message = GroupMessage.find(params[:group_message_id])
     check = current_member.checks.new(group_message_id: group_message.id)

@@ -1,4 +1,5 @@
 class Member::EducationsController < ApplicationController
+  before_action :authenticate_member!
   def create
     @education_new = Education.new(education_params)
     if @education_new.save

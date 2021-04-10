@@ -24,7 +24,7 @@ class Members::SessionsController < Devise::SessionsController
     if manager_signed_in?
     manager_groups_path
     elsif  member_signed_in?
-    member_member_path(current_member)
+    member_members_path
     else
     redirect_to root_path 
     end

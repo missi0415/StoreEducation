@@ -11,7 +11,7 @@
           <div class="card-body text-center" >
             <%= attachment_image_tag @member, :image ,:size=>"200x200", format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
             <div class="row">
-              <%= form_with model: @member, url: member_member_path, local:true do |f| %>
+              <%= form_with model: @member, url: member_members_path, local:true do |f| %>
               <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
               <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
