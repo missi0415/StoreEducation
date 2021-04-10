@@ -2,7 +2,7 @@
   <div class="row">
     <div class = "col-md-2 sidebar">
       <div class="page-title">
-        <i class="fas fa-chart-pie "> Education</i>
+        <i class="fas fa-book-reader "> Education</i>
       </div>
       <%= render "manager/members/sideber", members: @members %>
     </div> 
@@ -10,41 +10,10 @@
       <div class="row m-2">
         <div class="card shadow rounded-start"style="width: 100%">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Task</h6>
+            <h6 class="m-0 font-weight-bold title">Education</h6>
           </div>  
           <div class="card-body">  
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>教育項目</th>
-                  <th>補足</th>
-                  <th>進捗率</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <%= form_with model: @education_new,url: manager_educations_path(@education),local: true do |f| %>
-                  <td><%= f.text_field :title %></td>
-                  <td><%= f.text_field :body  %></td>
-                  <td><%= f.text_field :progress  %></td>
-                    <%= f.hidden_field :member_id, value: @member_id %>
-                  <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
-                  <% end %>
-                </tr>
-                
-                  <% @educations.each do |education| %>
-                  <%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
-                <tr>
-                  <td><%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none" %></td>
-                  <td><%= f.text_field :body  ,id: "education_body_#{education.id}",style: "border: none"%></td>
-                  <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
-                  <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
-                  <% end %>
-                  <td><%= link_to "消去",manager_education_path(education), class: "btn btn-danger" ,method: :delete %></td>
-                </tr>
-                  <% end %>
-              </tbody>
-            </table>
+             <%= render partial: "manager/members/education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
           </div>
         </div>  
       </div>  

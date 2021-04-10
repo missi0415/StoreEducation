@@ -41,8 +41,8 @@
               <td class="text text-success">マネジャー</td>
               <% end %>
               <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
-              <td style="width:8%"><%= f.text_field :title ,style: "border: none" %></td>
-              <td><%= f.text_area :body  ,:size=>"120x2",style: "border: none"%></td>
+              <td style="width:8%"><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none" %></td>
+              <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,:size=>"120x2",style: "border: none"%></td>
               <td><i class="far fa-check-square fa-3x text text-dark"></i>16</td>
               <td><%= f.submit "変更", class: "btn btn-success" %></td>
                <td><%= link_to "消去",manager_group_message_path(group_message), class: "btn btn-danger" ,method: :delete %></td>

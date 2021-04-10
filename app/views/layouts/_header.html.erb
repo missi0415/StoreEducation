@@ -15,13 +15,13 @@
         <%= link_to "　Grops", manager_groups_path, class: "btn btn-primary shadow rounded fas fa-users "  %>
           <% if (controller_path == 'manager/groups' && action_name == 'show'||controller_path == 'manager/members' && action_name == 'show'||controller_path == 'manager/group_messages' && action_name == 'show'
           )%>
-            <%= link_to "　GropMessages", manager_group_message_path(@group), class: "btn btn-primary shadow rounded far fa-clipboard"  %>
+            <%= link_to "　GropMessages", manager_group_message_path(@group), class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
             <%= link_to "　PlusMember", new_member_registration_path(group_id: @group.id), class: "btn btn-primary shadow rounded fas fa-user-friends"  %>
             <%= link_to "　GropEdit", edit_manager_group_path, class: "btn btn-primary shadow rounded fas fa-edit"  %>
           <% end %>
       <% elsif member_signed_in? %>
         <%= link_to "　マイページ", member_member_path(current_member), class: "btn btn-primary shadow rounded fas fa-download "  %>
-        <%= link_to "　グループ連絡", member_group_message_path(current_member), class: "btn btn-primary shadow rounded far fa-clipboard "  %>
+        <%= link_to "　グループ連絡", member_group_message_path(current_member), class: "btn btn-primary shadow rounded fas fa-clipboard "  %>
         <%= link_to "　ログアウト", destroy_member_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete %>
       <% else %> 
         <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download " %>  

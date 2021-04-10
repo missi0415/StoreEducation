@@ -11,4 +11,5 @@ class Member < ApplicationRecord
   has_many :group_messages
   has_many :checks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  
 end

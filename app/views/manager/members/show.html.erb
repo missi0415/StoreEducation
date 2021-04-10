@@ -14,7 +14,7 @@
         <div class="card-body" >  
           <div class="row">
             <div class="col-6 text-center">
-              <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+              <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg" ,size: "100x100" %><br>
             </div>
             <div class="col-6">
               <%= @member.name %><br>
@@ -42,7 +42,7 @@
         <h6 class="m-0 font-weight-bold title">Education</h6>
       </div>  
       <div class="card-body" style="height: 710px" >  
-    <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+        <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
       </div>
     </div>  
   </div>
@@ -59,8 +59,7 @@
       </div>
     </div>  
   </div>
-
-  <div class="row">
-    <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>
-  </div>
 </div>
+
+
+    <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>

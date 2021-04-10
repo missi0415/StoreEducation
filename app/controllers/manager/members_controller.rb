@@ -32,6 +32,7 @@ class Manager::MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
   
+  #
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)

@@ -67,41 +67,4 @@
   </div>  
 </div>        
         
-<script>
-$(document).on('turbolinks:load',function(){
-  $("#myChart").on("click",ctx)
-})
-let ctx = document.getElementById("myChart");
-//idmy
-let myChart = new Chart(ctx, {
-  type: 'radar',
-  data: {
-    labels: [
-      <% @ability_titles.each do |ability_title| %>
-      "<%= ability_title.title %>",
-      <% end %>
-      ],
-    datasets: 
-    [
-        {
-        label: 'ability',
-        backgroundColor: 'rgba(125,255,255,0.6)',
-        borderColor: 'rgba(122,122,129,0.5)',
-        data: [
-      <% @abilities.each do |ability| %>
-          <%= ability.value %>,
-      <% end %>
-          ]
-        },
-    ]
-  },
-  options: {
-      scale: {
-          ticks: {
-              suggestedMin: 0,
-              suggestedMax: 5
-          }
-      }
-  }
-});
-</script>
+  <%= render partial: "manager/members/chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>

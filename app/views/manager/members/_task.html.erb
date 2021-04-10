@@ -14,8 +14,8 @@
   <tbody>
     <tr>
       <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
-      <td><%= f.text_field :title %></td>
-      <td><%= f.text_field :body  %></td>
+      <td><%= f.text_field :title,class: "form-control",placeholder: "課題項目を入力" %></td>
+      <td><%= f.text_field :body ,class: "form-control",placeholder: "補足"  %></td>
       <td><%= date_field_tag 'task[start_on]', nil %></td>
       <td><%= date_field_tag 'post[end_on]', nil %></td>
         <%= f.hidden_field :member_id, value: member_id %>
@@ -25,11 +25,11 @@
 <% tasks.each do |task| %>
 <%= form_with model: task ,url: manager_task_path(task),local: true do |f| %>
     <tr>
-      <td><%= f.text_field :title ,style: "border: none" %></td>
-      <td><%= f.text_field :body  , style: "border: none"%></td>
-      <td><%= f.date_field :start_on,style: "border: none" %></td>
-      <td><%= f.date_field :end_on,style: "border: none" %></td>
-      <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
+      <td><%= f.text_field :title ,id: "task_title_#{task.id}",style: "border: none" %></td>
+      <td><%= f.text_field :body  ,id: "task_body_#{task.id}",style: "border: none"%></td>
+      <td><%= f.date_field :start_on ,id: "task_start_on_#{task.id}",style: "border: none" %></td>
+      <td><%= f.date_field :end_on ,id: "task_end_on_#{task.id}",style: "border: none" %></td>
+      <td><%= f.text_field :progress  ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
       <td><%= task.member_body %></td>
       <td><%= task.member_status %></td>
       <td><%= f.select :manager_status,Task.manager_statuses.keys,style: "border: none"%></td>
