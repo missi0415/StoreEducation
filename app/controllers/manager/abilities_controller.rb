@@ -5,7 +5,7 @@ class Manager::AbilitiesController < ApplicationController
     @members = @group.members
     @ability_titles = @group.ability_titles
     @abilities = @member.abilities
-    @ability = Ability.find(params[:id])
+    @ability = Ability.find_by(member_id: params[:id])
     @member_id = @member.id
     @ability_new = Ability.new
   end

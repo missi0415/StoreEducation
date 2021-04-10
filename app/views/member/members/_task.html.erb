@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <tr>
-      <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
+      <%= form_with model: task_new,url: member_tasks_path(task),local: true do |f| %>
       <td><%= f.text_field :title %></td>
       <td><%= f.text_field :body  %></td>
       <td><%= date_field_tag 'task[start_on]', nil %></td>
@@ -23,19 +23,19 @@
       <% end %>
     </tr>
 <% tasks.each do |task| %>
-<%= form_with model: task ,url: manager_task_path(task),local: true do |f| %>
+<%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
     <tr>
       <td><%= f.text_field :title ,style: "border: none" %></td>
-      <td><%= f.text_field :body  , style: "border: none"%></td>
+      <td><%= f.text_field :body  ,style: "border: none"%></td>
       <td><%= f.date_field :start_on,style: "border: none" %></td>
       <td><%= f.date_field :end_on,style: "border: none" %></td>
       <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
       <td><%= task.member_body %></td>
       <td><%= task.member_status %></td>
-      <td><%= f.select :manager_status,Task.manager_statuses.keys,style: "border: none"%></td>
+      <td><%#= f.select :member_status,Task.member_statuses.keys,style: "border: none"%></td>
       <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
 <% end %>
-      <td><%= link_to "消去",manager_task_path(task), class: "btn btn-danger" ,method: :delete %></td>
+      <td><%= link_to "消去",member_task_path(task), class: "btn btn-danger" ,method: :delete %></td>
     </tr>
 <% end %>
   </tbody>

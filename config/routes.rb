@@ -23,10 +23,11 @@ Rails.application.routes.draw do
   resources :ability_titles
  end
  #-------------------
- #--------manager---------
+ #--------member---------
  namespace :member do 
   resources :members
-  resources :tasks
+  resources :tasks, only: [:create, :destroy ,:update]
+  resources :educations, only: [:create, :destroy ,:update]
   resources :group_messages do
     resource :checks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

@@ -1,14 +1,58 @@
-<h1>member#show</h1>
-画像投稿フォーム<br>
-<%= form_with model: @member, url: member_member_path, local:true do |f| %>
-<%= f.attachment_field :image %>
-<%= f.submit '画像投稿' %>
-<% end %>
-<%= attachment_image_tag(@member, :image , :fill, 100 , 150, fallback: "no_image.jpg")%><br>
-<%= @member.name %><br>
-<%= @member.name_kana %><br>
-<%= @member.email %><br>
-<%= @member.encrypted_password %><br>
-<%= @member.phone_number %><br>
-<%= @member.is_deleted %><br>
-<%= link_to "edit" ,edit_member_registration_path %><br>
+<div class="container-fluid">
+  <div class="row" >
+    <div class = "col-md-2 sidebar">
+      <div class="page-title">
+        <i class="fas fa-chart-pie "> Profile</i>
+      </div>
+    </div>  
+    <div class = "col-md-3 mt-3">
+      <div class="card shadow rounded-start" >
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold title">Profile</h6>
+        </div>  
+        <div class="card-body" >
+          <div class="row">
+            <div class="col-6 text-center">           
+              画像投稿フォーム<br>
+              <%= form_with model: @member, url: member_member_path, local:true do |f| %>
+              <%= f.attachment_field :image %>
+              <%= f.submit '画像投稿' %>
+              <% end %>
+              <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+            </div>
+            <div class="col-6">
+              <%= @member.name %><br>
+              <%= @member.name_kana %><br>
+              <%= @member.email %><br>
+              <%= @member.phone_number %><br>
+              <%= @member.is_deleted %><br>
+              <%= link_to "edit" ,edit_manager_member_path %><br>
+            </div>  
+          </div>
+        </div>  
+      </div>
+    </div>  
+  <div class="col-md-7 mt-3">
+    <div class="card shadow rounded-start" style="height:100%;">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold title">Education</h6>
+      </div>  
+      <div class="card-body" style="height: 710px" >  
+    <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+      </div>
+    </div>  
+  </div>
+</div>
+</div>
+
+  <div class="row m-2">
+    <div class="card shadow rounded-start"style="width: 100%">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold title">Task</h6>
+      </div>  
+      <div class="card-body">  
+        <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+      </div>
+    </div>  
+  </div>
+</div>      

@@ -1,15 +1,4 @@
-class Manager::EducationsController < ApplicationController
-  def show
-    @member = Member.find(params[:id])
-    @group = @member.group
-    @members = @group.members
-    @educations = @member.educations
-    @education = Education.find_by(member_id: params[:id])
-    @member_id = @member.id
-    @education_new = Education.new
-  end
-  
-  
+class Member::EducationsController < ApplicationController
   def create
     @education_new = Education.new(education_params)
     if @education_new.save
@@ -45,5 +34,4 @@ class Manager::EducationsController < ApplicationController
     params.require(:education).permit(:member_id,:title,:body,:progress)
   end
 
-  
 end

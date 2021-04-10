@@ -1,16 +1,5 @@
-class Manager::TasksController < ApplicationController
-  def show
-    @member = Member.find(params[:id])
-    @tasks = @member.tasks
-    @member_id = @member.id
-    @group = @member.group
-    @members = @group.members
-    @task = Task.find_by(member_id: params[:id])
-    @task_new = Task.new
-  end
-  
-  
-  def create
+class Member::TasksController < ApplicationController
+    def create
     @task_new = Task.new(task_params)
     if @task_new.save
       redirect_back(fallback_location: root_path)

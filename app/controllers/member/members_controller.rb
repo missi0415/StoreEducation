@@ -1,7 +1,18 @@
 class Member::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
-    @member_new = Member.new
+    #@member_new = Member.new
+    @group = @member.group
+    @members = @group.members
+    @member_id = @member.id
+    #tasks-------------------
+    @tasks = @member.tasks
+    @task = Task.find(params[:id])
+    @task_new = Task.new
+    #education---------------
+    @educations = @member.educations
+    @education = Education.find(params[:id])
+    @education_new = Education.new
   end
   
   def create

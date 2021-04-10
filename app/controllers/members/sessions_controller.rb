@@ -21,10 +21,12 @@ class Members::SessionsController < Devise::SessionsController
   # protected
   
   def after_sign_in_path_for(resource)
-    if current_manager
+    if manager_signed_in?
     manager_groups_path
+    elsif  member_signed_in?
+    member_member_path(current_member)
     else
-    member_member_path(current_member)  
+    redirect_to root_path 
     end
   end  
   # If you have extra params to permit, append them to the sanitizer.

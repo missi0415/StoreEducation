@@ -31,17 +31,15 @@
                   <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
                   <% end %>
                 </tr>
+                
                   <% @educations.each do |education| %>
                   <%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
                 <tr>
-                  <td><%= f.text_field :title ,style: "border: none" %></td>
-                  <!--<td><%#= education.title %></td>-->
-                  <td><%= f.text_field :body  ,style: "border: none"%></td>
-                  <!--<td><%#= education.body %></td>-->
-                  <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
-                  <!--<td><%#= education.progress %>％</td>-->
+                  <td><%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none" %></td>
+                  <td><%= f.text_field :body  ,id: "education_body_#{education.id}",style: "border: none"%></td>
+                  <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
                   <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
-                    <% end %>
+                  <% end %>
                   <td><%= link_to "消去",manager_education_path(education), class: "btn btn-danger" ,method: :delete %></td>
                 </tr>
                   <% end %>

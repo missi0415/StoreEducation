@@ -8,16 +8,16 @@ class Manager::MembersController < ApplicationController
     
     #tasks-------------------
     @tasks = @member.tasks
-    @task = Task.find(params[:id])
+    @task = Task.find_by(member_id: params[:id])
     @task_new = Task.new
     #education---------------
     @educations = @member.educations
-    @education = Education.find(params[:id])
+    @education = Education.find_by(member_id: params[:id])
     @education_new = Education.new
     #-abilty-------------
     @ability_titles = @group.ability_titles
     @abilities = @member.abilities
-    @ability = Ability.find(params[:id])
+    @ability = Ability.find_by(member_id: params[:id])
     @ability_new = Ability.new
     
   end
