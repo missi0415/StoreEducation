@@ -25,12 +25,12 @@
 <% tasks.each do |task| %>
 <%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
     <tr>
-      <td><%= f.text_field :title ,style: "border: none" %></td>
-      <td><%= f.text_field :body  ,style: "border: none"%></td>
-      <td><%= f.date_field :start_on,style: "border: none" %></td>
-      <td><%= f.date_field :end_on,style: "border: none" %></td>
+      <td><%= task.title %></td>
+      <td><%= task.body %></td>
+      <td><%= task.start_on %></td>
+      <td><%= task.end_on %></td>
       <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
-      <td><%= task.member_body %></td>
+      <td><%= f.text_field :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
       <td><%= task.member_status %></td>
       <td><%#= f.select :member_status,Task.member_statuses.keys,style: "border: none"%></td>
       <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>

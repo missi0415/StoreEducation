@@ -1,17 +1,19 @@
 class Member::GroupMessagesController < ApplicationController
   before_action :authenticate_member!
   def index
-    @member = current_member
-    @group = @member.group
-    @group_messages = @group.group_messages
-    @member_id = current_member.id
-    @group_id = @group.id
+    # @member = current_member
+    # @group = @member.group
+    #@group = current_member.group
+    @group_messages = current_member.group.group_messages
+
     @group_message_new = GroupMessage.new
     #@group_message = GroupMessage.find(params[:id])  
   end
   
   def create
+    
     @group_message_new = GroupMessage.new(group_message_params)
+    @group_messages = current_member.group.group_messages
     if @group_message_new.save
       redirect_back(fallback_location: root_path)
     else

@@ -29,8 +29,8 @@
             <td></td>
             <td><%= f.text_field :title %></td>
             <td><%= f.text_area :body  %></td>
-              <%= f.hidden_field :member_id, value: @member_id %>
-              <%= f.hidden_field :group_id, value: @group_id %>
+              <%= f.hidden_field :member_id, value: @current_member.id %>
+              <%= f.hidden_field :group_id, value: @current_member.group.id %>
             <td><%= f.submit "連絡事項追加", class: "btn btn-success" %></td>
             <% end %>
           </tr>
