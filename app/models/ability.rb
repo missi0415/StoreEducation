@@ -4,5 +4,5 @@ class Ability < ApplicationRecord
   
   validates :member_id, presence: true
   validates :ability_title_id, presence: true
-  validates :value, presence: true, length: { maximum: 100 }
+  validates :value, presence: true, length: { maximum: 3 }
 end

@@ -34,7 +34,6 @@
                     <%= f.label :password_confirmation ,"password_confirmation"%><br />
                     <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control", placeholder: "確認用パスワード"%>
                   </div>
-                    <%= f.hidden_field :group_id, value: @group_id %>
                   <div class="actions">
                     <%= f.submit "Sign up" ,class: " btn btn-secondary form-control "%>
                   </div>

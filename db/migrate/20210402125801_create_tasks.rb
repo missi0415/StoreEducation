@@ -9,7 +9,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text :member_body
       t.integer :member_status,default: 0
       t.integer :manager_status,default: 0
-      t.integer :progress
+      t.integer :progress,default: 0
       t.timestamps
     end
   end
