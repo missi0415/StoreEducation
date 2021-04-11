@@ -9,9 +9,9 @@
             <h6 class="m-0 font-weight-bold title">Profile</h6>
           </div>  
           <div class="card-body text-center" >
-            <%= attachment_image_tag @member, :image ,:size=>"200x200", format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
+            <%= attachment_image_tag current_member, :image ,:size=>"200x200", format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
             <div class="row">
-              <%= form_with model: @member, url: member_members_path, local:true do |f| %>
+              <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
               <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
               <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
@@ -23,13 +23,17 @@
         </div>  
     </div>
     <div class="col-md-10">
+      <!--errormessage---------------->
+      <%= render 'layouts/errors', obj: @education  %>
+      <%= render 'layouts/errors', obj: @task %>
+      <!------------------------------>
       <div class= "row ml-1 mt-2 ml-2">
         <div class="card shadow rounded-start"style="width: 100%">
           <div class="card-header">
             <h6 class="m-0 font-weight-bold title">Task</h6>
           </div>  
           <div class="card-body">  
-            <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+            <%= render partial: "member/members/task", locals: { tasks: @tasks,task: @task,member_id: current_member.id  } %>
           </div>
         </div>
       </div>  
@@ -39,7 +43,7 @@
             <h6 class="m-0 font-weight-bold title">Education</h6>
           </div>  
           <div class="card-body">  
-            <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+            <%= render partial: "member/members/education", locals: { educations: @educations,education: @education,member_id: current_member.id  }%>
           </div>
         </div>
       </div>  

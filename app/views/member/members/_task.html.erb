@@ -12,16 +12,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <%= form_with model: task_new,url: member_tasks_path(task),local: true do |f| %>
-      <td><%= f.text_field :title %></td>
-      <td><%= f.text_field :body  %></td>
-      <td><%= date_field_tag 'task[start_on]', nil %></td>
-      <td><%= date_field_tag 'post[end_on]', nil %></td>
-        <%= f.hidden_field :member_id, value: member_id %>
-      <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
-      <% end %>
-    </tr>
 <% tasks.each do |task| %>
 <%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
     <tr>
@@ -29,10 +19,10 @@
       <td><%= task.body %></td>
       <td><%= task.start_on %></td>
       <td><%= task.end_on %></td>
-      <td><%= f.text_field :progress ,:size=>"1px",style: "border: none" %>%</td>
-      <td><%= f.text_field :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
-      <td><%= task.member_status %></td>
-      <td><%#= f.select :member_status,Task.member_statuses.keys,style: "border: none"%></td>
+      <td><%= f.text_field :progress ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
+      <td><%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
+      <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},style: "border: none"%></td>
+      <td><%= task.manager_status %></td>
       <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
 <% end %>
       <td><%= link_to "消去",member_task_path(task), class: "btn btn-danger" ,method: :delete %></td>

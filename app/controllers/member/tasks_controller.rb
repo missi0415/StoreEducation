@@ -1,25 +1,19 @@
 class Member::TasksController < ApplicationController
     before_action :authenticate_member!
-  def create
-    @task_new = Task.new(task_params)
-    if @task_new.save
-      redirect_back(fallback_location: root_path)
-    else
-      render:show
-    end
-  end
-
-  def edit
-    @task = Task.find(params[:id])
-    
-  end
   
   def update
+    @member = current_member
+    #tasks-------------------
+    @tasks = Task.where(member_id: current_member.id)
+    @task = Task.find_by(member_id: current_member.id)
+    #education---------------
+    @educations = Education.where(member_id: current_member.id)
+    @education = Education.find_by(member_id: current_member.id)
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to member_members_path
     else
-      render :edit
+      render "member/members/index"
     end
   end
   
@@ -32,6 +26,6 @@ class Member::TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:member_id,:title,:body,:start_on,:end_on,:membar_body,:membar_status,:manager_status,:progress,)
+    params.require(:task).permit(:member_id,:title,:body,:start_on,:end_on,:member_body,:member_status,:manager_status,:progress,)
   end
 end

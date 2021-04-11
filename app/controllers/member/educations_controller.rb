@@ -1,25 +1,19 @@
 class Member::EducationsController < ApplicationController
   before_action :authenticate_member!
-  def create
-    @education_new = Education.new(education_params)
-    if @education_new.save
-      redirect_back(fallback_location: root_path)
-    else
-      render:show
-    end
-  end
-
-  def edit
-    @education = Education.find(params[:id])
-    
-  end
   
   def update
+    @member = current_member
+    #tasks-------------------
+    @tasks = Task.where(member_id: current_member.id)
+    @task = Task.find_by(member_id: current_member.id)
+    #education---------------
+    @educations = Education.where(member_id: current_member.id)
+    @education = Education.find_by(member_id: current_member.id)
     @education = Education.find(params[:id])
     if @education.update(education_params)
-      redirect_back(fallback_location: root_path)
+      redirect_to member_members_path
     else
-      render :edit
+      render "member/members/index"
     end
   end
   

@@ -37,17 +37,10 @@
         <% @group_messages.each do |group_message| %>
           <tr>
               <!--チェック機能-------------------->
-            <td> 
-              <% if group_message.checkd_by?(current_member) %>
-                <%= link_to member_group_message_checks_path(group_message.id), method: :delete do %>
-                  <i class="far fa-check-square fa-3x text text-success"></i>
-                  <%= group_message.checks.count %>人既読
-                <% end %>
-              <% else %>
-                <%= link_to member_group_message_checks_path(group_message.id), method: :post do %>
-                  <i class="far fa-check-square fa-3x text text-dark"></i>
-                <% end %>
-              <% end %>
+            <td>
+              <div id="check_buttons_<%= group_message.id %>">
+              <%= render "check" ,group_message: group_message%> 
+              </div>
             </td>  
               <!---------------------------------->
             <td style="width:5%"><%= l group_message.created_at, format: :short %></td>
