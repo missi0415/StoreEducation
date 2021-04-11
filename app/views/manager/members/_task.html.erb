@@ -16,8 +16,8 @@
       <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
       <td><%= f.text_field :title,id: "task_title_#{task.id}",class: "form-control",placeholder: "課題項目を入力" %></td>
       <td><%= f.text_field :body ,id: "task_title_#{task.id}",class: "form-control",placeholder: "補足"  %></td>
-      <td><%= date_field_tag 'task[start_on]',id: "task_title_#{task.id}", nil %></td>
-      <td><%= date_field_tag 'post[end_on]',id: "task_title_#{task.id}", nil %></td>
+      <td><%= date_field_tag 'task[start_on]', nil %></td>
+      <td><%= date_field_tag 'post[end_on]', nil %></td>
         <%= f.hidden_field :member_id, value: member_id %>
       <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
       <% end %>

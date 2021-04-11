@@ -30,7 +30,7 @@ class Member::MembersController < ApplicationController
     if @member.update(member_params)
       redirect_to member_member_path(@member)
     else
-      render :show
+      render :index
     end  
   end  
   

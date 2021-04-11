@@ -25,6 +25,8 @@ Rails.application.routes.draw do
  #-------------------
  #--------member---------
  namespace :member do 
+  #デバイスサインアップ 
+  #get '/users', to: redirect("/users/sign_up") 
   resources :members
   resources :tasks, only: [:create, :destroy ,:update]
   resources :educations, only: [:create, :destroy ,:update]
