@@ -9,11 +9,11 @@
         <div class ="col-md-2">
           <div class="card shadow rounded-start" style="width: 100%" >
             <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">Abilty Title</h6>
+              <h6 class="m-0 font-weight-bold title">能力管理</h6>
             </div>
             <div class="card-body">
               <%= form_with model: @ability_title,url: manager_ability_titles_path,local:true do |f| %>
-              <%= f.text_field :title ,class: "form-control"%>
+              <%= f.text_field :title ,class: "form-control",placeholder: "評価項目を追加してください"%>
               <%= f.hidden_field :group_id,value: @group.id %>
               <%= f.submit "項目追加", class: "btn btn-secondary form-control" %>
               <% end %>
@@ -29,7 +29,7 @@
           </div>          
           <div class="card shadow rounded-start mt-3"style="width: 100%">
             <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">Abilty Status</h6>
+              <h6 class="m-0 font-weight-bold title">ステータス</h6>
             </div>  
             <div class="card-body">  
               <table class="ability">

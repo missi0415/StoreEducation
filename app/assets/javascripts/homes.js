@@ -13,3 +13,18 @@ $(document).on('turbolinks:load',function(){
     );
   });
 });
+$(document).on('turbolinks:load',function(){
+  $(".members ").each(function() {
+    $(this).hover(function(a, b) {
+        $(this)
+          .children("h5")
+          .fadeIn();
+      },
+      function() {
+        $(this)
+          .children("h5")
+          .fadeOut();
+      }
+    );
+  });
+});
