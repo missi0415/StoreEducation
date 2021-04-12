@@ -3,28 +3,35 @@
       <!--sidebar-------------------------->
       <div class = "col-md-2 sidebar">
         <div class="page-title">
-          <i  class="fas fa-user-friends"> Plus Member</i>
+          <i  class="fas fa-user-friends"> メンバー登録</i>
         </div>
       </div>
       <!--sidebar-------------------------->
       <!--card----------------------------->
       <div class="col-md-10 ">
         <div class="row">
+          <div class="email">
+            
+    
+          </div>
           <div class="mx-auto w-50">
             <div class="card shadow rounded-start" >
               <div class="card-header">
-                <h6 class="m-0 font-weight-bold title">Plus Member</h6>
+                <h6 class="m-0 font-weight-bold title">メンバー登録</h6>
               </div>
               <div class="card-body text-center">
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                 <%= render "members/shared/error_messages", resource: resource %>
                   <div class="form-group">
+                    <%= display_validation_errors("name","name")%>
                     <%= f.label :name ,"Member Name" %><br />
                     <%= f.text_field :name, autofocus: true, autocomplete: "name",class: "form-control", placeholder: "新メンバーの名前を入力してください" %>
                   </div>
                   <div class="form-group">
                     <%= f.label :email, "Email" %><br />
+                    <%= display_validation_errors("email","email")%>
                     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control", placeholder: "メールアドレスを入力してください" %>
+                    
                   </div>
                 
                   <div class="form-group">

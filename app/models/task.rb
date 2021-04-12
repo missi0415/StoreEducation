@@ -7,5 +7,5 @@ class Task < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 200 }
   validates :progress, presence: true, length: { maximum: 3 }
-  validates :member_body, presence: true, length: { maximum: 200 }
+  validates :member_body, length: { maximum: 200 }
 end

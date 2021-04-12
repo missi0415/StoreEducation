@@ -12,11 +12,9 @@ class Manager::TasksController < ApplicationController
   
   def create
     @task_new = Task.new(task_params)
-    if @task_new.save
+    @task_new.save
       redirect_back(fallback_location: root_path)
-    else
-      render:show
-    end
+
   end
 
   def edit
@@ -42,6 +40,6 @@ class Manager::TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:member_id,:title,:body,:start_on,:end_on,:membar_body,:membar_status,:manager_status,:progress,)
+    params.require(:task).permit(:member_id,:title,:body,:start_on,:end_on,:member_body,:member_status,:manager_status,:progress,)
   end
 end

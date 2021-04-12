@@ -13,7 +13,16 @@ class Members::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-     super
+    member = Member.new(sign_up_params)
+    #@group_id = member.group_id
+    @group_id = sign_up_params[:group_id]
+    unless member.valid?
+      flash[:alert] = member.errors.full_messages
+      #flash[:alert] = member.errors.full_messages_for(:email)
+      #flash[:alert] = member.errors.full_messages_for(:password)
+      redirect_to new_member_registration_path(group_id: @group_id)
+    end
+    #super
   end
 
   # GET /resource/edit

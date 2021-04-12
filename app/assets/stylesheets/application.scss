@@ -101,9 +101,9 @@ header{
 .card{
   border-left: 7px solid #008cff;
   .card-header{
-  font:  1.2em "Fira Sans", sans-serif;
+  font:  2em "Fira Sans", sans-serif;
   color: #008cff;
-  background-color: #F8F9FC;
+  background-color: #e9ebfc;
   }
   img{
     //height: auto;
@@ -247,3 +247,13 @@ header{
     color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     }
      
+  .members{
+    .card-body{
+      padding: 0 0;
+    }
+    p{
+      margin: 0;
+      font-size: 15px;
+      color: #495057;
+    }
+  }   

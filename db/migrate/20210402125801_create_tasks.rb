@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text  :body
       t.date  :start_on
       t.date :end_on
-      t.text :member_body
+      t.text :member_body,default: ""
       t.integer :member_status,default: 0
       t.integer :manager_status,default: 0
       t.integer :progress,default: 0
