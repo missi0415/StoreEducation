@@ -8,16 +8,23 @@
       </div>
     </div>
     <!--sidebar-------------------------->
-    <!--card----------------------------------->
+    
+    <!--card----------------------------->
+    <div class="col-md-10">
+      <div class="row">
+        <p>StoreEducationへようこそ！</p>
+        <p>StoreEducationはあなたの店舗教育を手助けするサイトです</p>
+        <p>マネジャー使い方から使い方を確認してみてください</p>
+      </div>
       <div class="row">
         <div class="col-md-3">
           <div class="card shadow rounded-start" >
             <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">Manager</h6>
+              <h6 class="m-0 font-weight-bold title">マネジャー</h6>
             </div>
               
             <div class="card-body text-center">
-              <%= image_tag "figure_one_blue.jpg", :size => '200x200' %>
+              <%= image_tag "figure_one_blue.jpg", :width=>"150px" ,:height=>"200px" %>
               <%= link_to "新規登録" ,new_manager_registration_path ,class: "btn btn-outline-primary shadow rounded form-control fas fa-user-plus"%>
               <%= link_to "ログイン" ,new_manager_session_path, class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt" %>
             </div>
@@ -26,10 +33,10 @@
         <div class="col-md-3 ">
           <div class="card shadow rounded-start h-100" >
             <div class="card-header">
-              <h6 class="m-0 font-weight-bold title ">Member</h6>
+              <h6 class="m-0 font-weight-bold title ">メンバー</h6>
             </div>
             <div class="card-body text-center ">
-              <%= image_tag "figure_group_blue.jpg", :size => '200x200'  %>
+              <%= image_tag "figure_group_blue.jpg", :width=>"200px" ,:height=>"200px"  %>
               <%= link_to "ログイン" ,new_member_session_path,class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt" %>
             </div>
           </div>
@@ -37,15 +44,18 @@
         <div class="col-md-3">
           <div class="card shadow rounded-start h-100" >
             <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">Gest Login</h6>
+              <h6 class="m-0 font-weight-bold title">マネジャーゲストログイン</h6>
             </div>
             <div class="card-body text-center">
-              <%= image_tag "figure_one_white", :size => '200x200' %>
-              <%= link_to "ログイン" ,"#",class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt" %>
+              <%= image_tag "figure_one_white", :size => '150x200' %>
+              <%= link_to 'マネジャーゲストログイン（閲覧用）', managers_guest_sign_in_path, method: :post,class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt"  %>
             </div>
           </div>
         </div> 
           </div>  
             </div>
+            
+    </div>
     </div>
   </div>
+</top>
