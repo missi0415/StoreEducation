@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  root to: "homes#top"
  get 'homes/about'
+# ゲストログイン
+devise_scope :manager do
+post 'managers/guest_sign_in', to: 'managers/sessions#guest_sign_in'
+ end
  
    devise_for :managers, :controllers => {
     :sessions => 'managers/sessions',

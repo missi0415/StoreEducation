@@ -5,6 +5,13 @@ class Managers::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     manager_groups_path
   end  
+  
+  def guest_sign_in
+    manager = Manager.guest
+    sign_in manager
+    redirect_to manager_groups_path, notice: 'ゲストマネジャーとしてログインしました。'
+  end
+  
   # GET /resource/sign_in
   # def new
   #   super
