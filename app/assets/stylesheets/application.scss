@@ -37,6 +37,7 @@
 
 body{
  background-color: #ebebeb;
+ font-family: 'Noto Sans JP', sans-serif;
 }
 //------------------header------------------------------
 
@@ -62,9 +63,6 @@ header{
   }
 }  
 
-  .btn-outline-primary{
-    border: 1px solid #fff;
-  }
   .btn-primary{
     text-align: left;
     background-color: #fff;
@@ -132,7 +130,7 @@ header{
   }
   .sub-title{
     font-size: 20px;
-    padding : 10px;
+    padding : 15px;
     text-align: center;
     margin: 0 auto;
     font-size: px;
@@ -157,6 +155,11 @@ header{
     padding : 5px; 
     color: #fff;
     
+  }
+  
+  .btn-outline-primary{
+    border: 1px solid #fff;
+    color: #6C757D;
   }
 }
 //---------------sidebar-----------------------

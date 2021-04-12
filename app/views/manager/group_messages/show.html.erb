@@ -2,16 +2,16 @@
   <div class="row" >
     <div class = "col-md-2 sidebar">
       <div class="page-title">
-        <i class="fas far fa-clipboard "> GroupMessage</i>
+        <i class="fas far fa-clipboard "> グループ連絡</i>
       </div>
     </div>
     <div class = "col-md-10 mt-3">
       <div class="card shadow rounded-start">
         <div class="card-header">
-          <h6 class="m-0 font-weight-bold title">GroupMessage</h6>
+          <h6 class="m-0 font-weight-bold title">グループ連絡</h6>
         </div>  
       <div class="card-body">
-        <table class="table">
+        <table class="table-responsive">
           <thead>
             <tr>
               <th>投稿日</th>
@@ -34,15 +34,15 @@
             </tr>
           <% @group_messages.each do |group_message| %>
             <tr>
-              <td style="width:5%"><%= l group_message.created_at, format: :short %></td>
+              <td><%= l group_message.created_at, format: :short %></td>
               <% if group_message.manager_id == nil %>
-              <td style="width:8%"><%= group_message.member.name %></td>
+              <td><%= group_message.member.name %></td>
               <% else %>
               <td class="text text-success">マネジャー</td>
               <% end %>
               <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
-              <td style="width:8%"><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none" %></td>
-              <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,:size=>"120x2",style: "border: none"%></td>
+              <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none" %></td>
+              <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none"%></td>
               <td><i class="far fa-check-square fa-3x text text-dark"></i>16</td>
               <td><%= f.submit "変更", class: "btn btn-success" %></td>
                <td><%= link_to "消去",manager_group_message_path(group_message), class: "btn btn-danger" ,method: :delete %></td>

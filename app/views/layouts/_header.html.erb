@@ -17,7 +17,6 @@
           )%>
             <%= link_to "　グループ連絡", manager_group_message_path(@group), class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
             <%= link_to "　メンバー一覧", manager_group_path(@group), class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
-            <%= link_to "　GropEdit", edit_manager_group_path, class: "btn btn-primary shadow rounded fas fa-edit"  %>
           <% end %>
       <% elsif member_signed_in? %>
         <%= link_to "　マイページ", member_members_path, class: "btn btn-primary shadow rounded fas fa-address-card "  %>
