@@ -2,17 +2,26 @@
   <div class="row" >
     <div class= "col-md-2 member-sidebar">
         <div class="page-title">
-          <i class="fas fa-chart-pie "> Profile</i>
+          <i class="fas fa-chart-pie "> プロフィール</i>
         </div>
         <div class="card shadow rounded-start">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Profile</h6>
+            <h6 class="m-0 font-weight-bold title">プロフィール</h6>
           </div>  
           <div class="card-body text-center" >
             <%= attachment_image_tag current_member, :image ,:size=>"200x200", format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
             <div class="row">
               <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
+              
+              <div class="image_wrapper">
+              <div class="item_image_btn">
               <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
+              </div>
+              <div id="img_field" onClick="$('#file').click()" >
+              <p>画像選択</p>
+              </div>
+              </div>
+              
               <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :phone_number,style: "border: none",class: "form-control m-1",placeholder: "電話番号を入力してください" %> 
@@ -30,7 +39,7 @@
       <div class= "row ml-1 mt-2 ml-2">
         <div class="card shadow rounded-start"style="width: 100%">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Task</h6>
+            <h6 class="m-0 font-weight-bold title">課題項目一覧</h6>
           </div>  
           <div class="card-body">  
             <%= render partial: "member/members/task", locals: { tasks: @tasks,task: @task,member_id: current_member.id  } %>
@@ -40,7 +49,7 @@
       <div class= "row ml-1 mt-3 ml-2">
         <div class="card shadow rounded-start" style="width: 100%">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Education</h6>
+            <h6 class="m-0 font-weight-bold title">教育項目一覧</h6>
           </div>  
           <div class="card-body">  
             <%= render partial: "member/members/education", locals: { educations: @educations,education: @education,member_id: current_member.id  }%>

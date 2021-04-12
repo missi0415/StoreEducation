@@ -214,3 +214,35 @@ header{
 }
 //---------------member-sidebar----------------
 
+.item_image_btn{
+    display: none;
+}
+
+#img_field {
+  font-size: 25px;
+  font-style: inherit;
+  margin: 0 auto;
+  color: white;
+  background-color: #5bc0de;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+
+    .btn:hover, .btn:focus, 
+    .btn:active, .btn:active:focus, .btn:active:hover, .btn:active.focus,
+    .btn.active, .btn.active:focus, .btn.active:hover, .btn.active.focus,
+    .open > .dropdown-toggle.btn, 
+    .open > .dropdown-toggle.btn:hover,
+    .open > .dropdown-toggle.btn:focus, 
+    .open > .dropdown-toggle.btn.focus,
+    .btn.disabled:hover, .btn[disabled]:hover, fieldset[disabled] .btn:hover,
+    .btn.disabled:focus, .btn[disabled]:focus, fieldset[disabled] .btn:focus,
+    .btn.disabled.focus, .btn[disabled].focus, fieldset[disabled] .btn.focus
+    {
+    background: #ccd9ff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #12141a; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    }
+     
+}
