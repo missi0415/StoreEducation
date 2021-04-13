@@ -3,12 +3,12 @@
   <div class="row" style="height: 100%">
     <div class="col-md-2 sidebar">
       <div class="name">
-        <img src="/assets/logo.jpg" alt="logo" width="45" height="45">
-        <%= link_to "StoreEducation", root_path, class: "font-italicn text-decoration-none logo-text "  %>
+        <img src="/assets/logo.jpg" alt="logo" width="30" height="30">
+        <%= link_to "Store Education", root_path, class: "font-italicn text-decoration-none logo-text "  %>
       </div>
     </div>
-    <div class="col-md-10">
-      <div class="row">
+    <div class="col-md-10 navbar">
+
         
       <% if manager_signed_in?  %>
         <%= link_to "　ログアウト", destroy_manager_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete%>
@@ -26,7 +26,6 @@
         <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download " %>  
         <%= link_to "　top", "", class: "btn btn-primary shadow rounded fas fa-download " %>
       <% end %>   
-      </div>
       <div class="row mx-auto ">
         <% flash.each do |key, value| %>
           <div class="<%= key %> w-100" role="alert">

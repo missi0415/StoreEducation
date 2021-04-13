@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row" style="height: 100%">
     <!--sidebar-------------------------->
-    <div class = "col-md-2 sidebar">
+    <div class = "col-lg-2 sidebar">
       <div class="page-title">
         <i  class="fas fa-users"> グループ一覧</i>
       </div>
@@ -19,10 +19,10 @@
     </div>
     <!--sidebar-------------------------->
     <!--card----------------------------------->
-    <div class="col-md-10">
+    <div class="col-lg-10">
       <div class="row">
         <% @groups.each do |group| %>  
-          <div class="col-md-3 mt-1">
+          <div class="col-lg-3 mt-1">
             <div class="card shadow rounded-start">
               <div class="card-header">
                 <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
