@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Education, type: :model do
-  describe 'のバリデーション' do
+  describe '教育項目のバリデーション' do
     let!(:manager) { FactoryBot.build(:manager) }
     let!(:member) { FactoryBot.build(:member) }
     let!(:education){ member.educations.build(member_id: 1,title: "教育タイトル",body: "教育ボディ")}
@@ -11,8 +11,8 @@ RSpec.describe Education, type: :model do
       expect(education).to be_valid
     end
     
-    context '商品名のバリデーション' do
-      it '教育タイトルが空欄でないこと' do
+    context '教育タイトルのバリデーション' do
+      it '空欄でないこと' do
         education.title = ''
         expect(education).to be_invalid
       end
@@ -24,7 +24,6 @@ RSpec.describe Education, type: :model do
     
     end
 
-
     context '補足部分のバリデーション' do
       it '空欄でないこと' do
         education.body = ''
@@ -32,9 +31,22 @@ RSpec.describe Education, type: :model do
       end
 
       it '300文字以内であること' do
-        education.body = "a" * 301
+        education.body = "a" * 201
         expect(education).to be_invalid
       end
     end
+    
+    context '進捗率のバリデーション' do
+      it '空欄でも入力され0が代入される' do
+        education.progress = ''
+        expect(education).to be_valid
+      end
+      
+      it "3桁以上の数値は入力されない" do
+        education.progress = 1000
+        expect(education).to be_invalid
+      end
+      
+    end  
   end
 end
