@@ -12,6 +12,5 @@ class Member < ApplicationRecord
   has_many :checks, dependent: :destroy
   has_many :comments, dependent: :destroy
   
-  validates :group_id, presence: true
   validates :name, presence: true, length: { maximum: 20 }
 end
