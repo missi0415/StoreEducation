@@ -1,0 +1,58 @@
+
+          <div class="card shadow rounded-start mt-3 ability-card" style="width: 100%" >
+            <div class="card-header">
+              <h6 class="m-0 font-weight-bold title">能力管理</h6>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-7">
+                  <div class="row">
+                    <%= form_with model: @ability_title,url: manager_ability_titles_path,local:true do |f| %>
+                      <%= f.text_field :title ,class: "form-control",placeholder: "評価項目を追加してください"%>
+                      <%= f.hidden_field :group_id,value: @group.id %>
+                      <%= f.submit "項目追加", class: "btn btn-secondary form-control" %>
+                    <% end %>
+                  </div>  
+                  <div class="row">
+                    <% @ability_titles.each do |ability_title| %>
+                      <div class="form-inline flex-nowrap">
+                        <%= form_with model: ability_title,url: manager_ability_title_path(ability_title),local:true do |f| %>
+                          <%= f.hidden_field :group_id,value: ability_title.group_id %>
+                          <%= f.text_field :title ,class: "form-custom "%>
+                          <%= f.submit "変更", class: "btn btn-outline-success " %>
+                          <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger",method: :delete %><br>
+                        <% end %>
+                      </div>
+                  <% end %>
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="row ">
+                    <div class="table-responsive overflow-x: auto;">
+                    <table class="table ability text-nowrap">
+                      <thead>
+                        <tr>
+                        <% @ability_titles.each do | ability_title| %>
+                          <th><%= ability_title.title %></th>
+                        <% end %>                 
+                        </tr>
+                      </thead> 
+                      <tbody>
+                        <tr>
+                          <% @abilities.each do |ability| %>
+                          <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
+                        <td align="left" valign="top"><%= f.text_field :value,class: "form-custom" %>
+                        <%= f.submit "変更", class: "btn btn-success btn-sm" %></td>
+                          <% end %>
+                          <% end %>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+              </div>  
+            </div>
+                
+            </div>  
+            </div>  
+ 

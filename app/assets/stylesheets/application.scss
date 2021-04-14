@@ -171,6 +171,7 @@ header{
   }
   
   .btn-outline-primary{
+    height: 25px;
     border: 1px solid #fff;
     color: #6C757D;
   }
@@ -208,6 +209,11 @@ header{
     
   }
 //---------------member-card-----------------------
+
+#myChart{
+  font-size: 25px;
+
+}
 .card{
   border: 7px solid #008cff;
   position: absolute;
@@ -278,11 +284,41 @@ header{
     }
   }   
   
+  .table.ability {
+  text-align: none;
+  table-layout: fixed;
+  word-wrap: break-word;
+  display: flex;
+  border: solid 2px #eee;
+  th{
+     border: solid 2px #eee;
+  }
+  td{
+    
+    text-align: left;
+     border: solid 2px #eee;
+     padding-left: 0px;
+  }
+  input{
+    text-align: left;
+    margin-left: 0;
+  }
   
-  table {
-width: 100%;
-table-layout: fixed;
-word-break: break-all;
-word-wrap: break-all;
+  
+}
+
+.form-custom{
+    width: 40%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
