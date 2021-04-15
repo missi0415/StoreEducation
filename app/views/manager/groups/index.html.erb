@@ -28,16 +28,16 @@
                 <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
               </div>  
               <div class="card-body text-center ">  
-                <div class="list">
+                <!--<div class="list">-->
                   <img>
-                    <%= link_to manager_group_path(group.id) do %>
                     <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "figure_group_blue.jpg",size: "150x150" %>
-                    <% end %>
-                  <p>メンバー一覧に遷移します</p>
+                  <!--<p>メンバー一覧に遷移します</p>-->
                   </img>
-                </div>  
+                    
+                <!--</div>  -->
                 <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
                   <%= f.text_field :name, style: "border: none",class: "form-control mt-2" %>
+                  <%= link_to "メンバー一覧",manager_group_path(group.id),id: "member-show",class: "btn btn-secondary form-control mb-2" %>
                   <div class="image_wrapper w-100">
                   <div class="item_image_btn w-100">
                   <%= f.attachment_field :group_image ,style: "border: none",class: "form-control"%>
