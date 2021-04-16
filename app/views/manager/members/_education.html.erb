@@ -13,7 +13,7 @@
       <td><%= f.text_field :body ,class: "form-control",placeholder: "補足を入力"  %></td>
       <td><%= f.text_field :progress,class: "form-control",placeholder: "進捗率を入力(0～100)"   %></td>
         <%= f.hidden_field :member_id, value: member_id %>
-      <td><%= f.submit "新規項目追加", class: "btn btn-success" %></td>
+      <td><%= f.submit "教育項目追加", class: "btn btn-success" %></td>
       <% end %>
     </tr>
 <% educations.each do |education| %>
@@ -22,7 +22,7 @@
       <td><%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none" %></td>
       <td><%= f.text_field :body  ,id: "education_body_#{education.id}",style: "border: none"%></td>
       <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
-      <td><%= f.submit "変更", class: "btn btn-success" %></td>
+      <td><%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-success" %></td>
 <% end %>
       <td><%= link_to "消去",manager_education_path(education), class: "btn btn-danger" ,method: :delete %></td>
     </tr>
