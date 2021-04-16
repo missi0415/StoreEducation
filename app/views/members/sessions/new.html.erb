@@ -3,7 +3,7 @@
       <!--sidebar-------------------------->
       <div class = "col-md-2 sidebar">
         <div class="page-title">
-          <i  class="fas fa-sign-in-alt"> Member Login</i>
+          <i  class="fas fa-sign-in-alt"> メンバー ログイン</i>
         </div>
       </div>
       <!--sidebar-------------------------->
@@ -13,27 +13,27 @@
           <div class="mx-auto w-50">
             <div class="card shadow rounded-start" >
               <div class="card-header">
-                <h6 class="m-0 font-weight-bold title">Plus Member</h6>
+                <h6 class="m-0 font-weight-bold title">メンバー ログイン</h6>
               </div>
               <div class="card-body text-center">      
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="form-group">
-                    <%= f.label :email %><br />
+                    <%= f.label :email,"メールアドレス" %><br />
                     <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control", placeholder: "メールアドレスを入力してください"%>
                   </div>
                   <div class="form-group">
-                    <%= f.label :password %><br />
+                    <%= f.label :password,"パスワード"  %><br />
                     <%= f.password_field :password, autocomplete: "current-password",class: "form-control", placeholder: "パスワードを入力してください" %>
                   </div>
                   <% if devise_mapping.rememberable? %>
                     <div class="form-group">
-                      <%= f.check_box :remember_me %>
-                      <%= f.label :remember_me %>
+                      <%= f.check_box :remember_me  %>
+                      <%= f.label :remember_me ,"パスワードを記憶する"%>
                     </div>
                   <% end %>
                 
                   <div class="actions">
-                    <%= f.submit "Log in" %>
+                    <%= f.submit  "メンバーログイン", class: "btn btn-secondary form-control" %>
                   </div>
                 <% end %>
                 <%= render "members/shared/links" %>

@@ -22,7 +22,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
       #flash[:alert] = member.errors.full_messages_for(:password)
       redirect_to new_member_registration_path(group_id: @group_id)
     end
-    #super
+    super
   end
 
   # GET /resource/edit

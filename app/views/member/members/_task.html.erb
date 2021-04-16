@@ -21,11 +21,10 @@
       <td><%= task.end_on %></td>
       <td><%= f.text_field :progress ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
       <td><%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
-      <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},style: "border: none"%></td>
+      <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},id: "task_member_status_#{task.id}",style: "border: none"%></td>
       <td><%= task.manager_status %></td>
-      <td><%= f.submit "変更を保存する", class: "btn btn-success" %></td>
+      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-success" %></td>
 <% end %>
-      <td><%= link_to "消去",member_task_path(task), class: "btn btn-danger" ,method: :delete %></td>
     </tr>
 <% end %>
   </tbody>
