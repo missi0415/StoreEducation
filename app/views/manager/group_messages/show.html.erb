@@ -44,7 +44,21 @@
                   <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
                   <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none" %></td>
                   <td style="width:40%"><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none ",class: "form-control"%></td>
-                  <td><i class="far fa-check-square fa-3x text text-dark"></i>16</td>
+                 
+                    
+                  <td>
+                    <i class="far fa-check-square fa-3x text text-dark check "><%=group_message.checks.count%>
+                    <!---------------------------------------------------------->
+                    <p>-----既読済みメンバー-----<br>
+                    <% group_message.checks.each do |check| %>
+                  	
+                  	  <%= check.member.name %><br>
+                    <% end %>
+                    </p>
+                    </i>
+                  </td>
+                  <!--------------------------------------------------------->
+                  </td>
                   <td><%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-success" %></td>
                   <td><%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-danger" ,method: :delete %></td>
                   <% end %>
