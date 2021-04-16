@@ -4,13 +4,12 @@
         <div class="page-title">
           <i class="fas fa-chart-pie "> プロフィール</i>
         </div>
-        <div class="card shadow rounded-start">
+        <div class="card shadow rounded-start" style="display:inline-block;">
           <div class="card-header">
             <h6 class="m-0 font-weight-bold title">プロフィール</h6>
           </div>  
-          <div class="card-body text-center" >
-            <%= attachment_image_tag current_member, :image ,:size=>"200x200", format: 'jpeg', fallback: "no_image.jpg", size: "150x150"%><br>
-            <div class="row">
+          <div class="card-body text-center"  >
+            <%= attachment_image_tag current_member, :image ,:size=>"150x150", format: 'jpeg', fallback: "no_image.jpg"%><br>
               <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
               <div class="image_wrapper">
               <div class="item_image_btn">
@@ -24,16 +23,16 @@
               <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :phone_number,style: "border: none",class: "form-control m-1",placeholder: "電話番号を入力してください" %> 
-              <%= f.submit '変更を保存',class: "btn btn-secondary form-control"  %>
+              <%= f.submit '変更を保存',id: "profile-update",class: "btn btn-secondary form-control "  %>
               <% end %>
-            </div>
+          
           </div>
         </div>  
     </div>
     <div class="col-md-10">
       <!--errormessage---------------->
-      <%= render 'layouts/errors', obj: @education  %>
-      <%= render 'layouts/errors', obj: @task %>
+      <%#= render 'layouts/errors', obj: @education  %>
+      <%#= render 'layouts/errors', obj: @task %>
       <!------------------------------>
       <div class= "row ml-1 mt-2 ml-2">
         <div class="card shadow rounded-start"style="width: 100%">

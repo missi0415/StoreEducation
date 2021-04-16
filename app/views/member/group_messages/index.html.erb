@@ -55,14 +55,13 @@
                 <td><%= group_message.body %></td>
               <% else %>
                 <%= form_with model: group_message ,url: member_group_message_path(group_message),local: true do |f| %>
-                  <td style="width:8%"><%= f.text_field :title ,style: "border: none" %></td>
-                  <td><%= f.text_area :body  ,:size=>"120x2",style: "border: none"%></td>
-                  <td><%= f.submit "変更", class: "btn btn-success" %></td>
-                  <td><%= link_to "消去",member_group_message_path(group_message), class: "btn btn-danger" ,method: :delete %></td>
+                  <td style="width:8%"><%= f.text_field :title,id: "group_message_title_#{group_message.id}" ,style: "border: none" %></td>
+                  <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,:size=>"120x2",style: "border: none"%></td>
+                  <td><%= f.submit "変更",id: "group_message_update_#{group_message.id}" , class: "btn btn-success" %></td>
+                  <td><%= link_to "削除", member_group_message_path(group_message),id: "group_message_delete_#{group_message.id}" ,class: "btn btn-danger" ,method: :delete %></td>
               <% end %>
             <% end %>
           </tr>
-          
         <% end %>
           </tbody>
         </table>

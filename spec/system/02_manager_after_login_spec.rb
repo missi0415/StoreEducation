@@ -30,7 +30,7 @@ RSpec.describe "マネジャー機能のテスト", type: :system do
         fill_in 'title', with: "能力タイトル"
         click_button "項目追加"
         fill_in "ability_value",with: 5
-        click_button "値変更"
+        click_button "値の変更"
         expect(page).to have_field'ability[value]', with: 5
       end
     end
@@ -50,6 +50,13 @@ RSpec.describe "マネジャー機能のテスト", type: :system do
           click_button "変更を保存"
         expect(page).to have_field'task[title]', with: "課題タイトル変更"
       end
+      it "項目の消去" do
+        fill_in 'task[title]', with: "課題タイトル"
+        fill_in 'task[body]', with: "補足"
+        click_button "課題項目追加"
+        find("#task_delete_1").click
+        expect(page).to_not have_field'task_title_1', with: "課題タイトル"
+      end
     end
     context "教育管理機能のテスト" do
       it "教育項目の追加" do
@@ -67,6 +74,13 @@ RSpec.describe "マネジャー機能のテスト", type: :system do
         find_by_id('education_update_1').click
         expect(page).to have_field'education_title_1', with: "教育タイトル変更"
       end
+      it "項目の消去" do
+        fill_in 'education_title', with: "課題タイトル"
+        fill_in 'education_body', with: "補足"
+        click_button "教育項目追加"
+        find("#education_delete_1").click
+        expect(page).to_not have_field'education_title_1', with: "教育タイトル"
+      end
     end
     context "グループ連絡機能のテスト" do
       it "グループ連絡の投稿"do
@@ -77,7 +91,7 @@ RSpec.describe "マネジャー機能のテスト", type: :system do
         expect(page).to have_field'group_message_title_1', with: "グループ連絡タイトル"
         expect(page).to have_field'group_message_body_1', with: "連絡内容"
       end
-      it "値の変更" do
+      it "グループメッセージの編集" do
         click_link 'グループ連絡'
         fill_in 'group_message_title', with: 'グループ連絡タイトル'
         fill_in 'group_message_body', with: '連絡内容'
@@ -85,8 +99,15 @@ RSpec.describe "マネジャー機能のテスト", type: :system do
         fill_in 'group_message_body_1', with: '内容変更'
         find_by_id('group_message_update1').click
         expect(page).to have_field'group_message_body_1', with: "内容変更"
-        
       end
+        it "グループメッセージの削除" do
+        click_link 'グループ連絡'
+        fill_in 'group_message_title', with: "グループ連絡タイトル"
+        fill_in 'group_message_body', with: "連絡内容"
+        click_button '連絡事項追加'
+        click_link "削除"
+        expect(page).to_not have_field'group_message_title_1', with: "連絡内容"
+      end  
     end
   end    
 end

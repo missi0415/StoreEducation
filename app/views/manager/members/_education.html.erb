@@ -24,7 +24,7 @@
       <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
       <td><%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-success" %></td>
 <% end %>
-      <td><%= link_to "消去",manager_education_path(education), class: "btn btn-danger" ,method: :delete %></td>
+      <td><%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-danger" ,method: :delete %></td>
     </tr>
 <% end %>
   </tbody>
