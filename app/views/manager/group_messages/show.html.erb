@@ -45,7 +45,7 @@
                   <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none" %></td>
                   <td style="width:40%"><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none ",class: "form-control"%></td>
                   <td><i class="far fa-check-square fa-3x text text-dark"></i>16</td>
-                  <td><%= f.submit "変更", class: "btn btn-success" %></td>
+                  <td><%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-success" %></td>
                   <td><%= link_to "消去",manager_group_message_path(group_message), class: "btn btn-danger" ,method: :delete %></td>
                   <% end %>
                 </tr>
