@@ -83,7 +83,6 @@ RSpec.describe "マネジャーログイン", type: :system do
       it "メンバープロフィールへの遷移" do
         click_link 'メンバー一覧'
         click_on "テストメンバー"
-        #expect(page).to have_content('Emailまたはパスワードが違います')
         expect(current_path).to eq manager_member_path(@member.id)
       end 
     end

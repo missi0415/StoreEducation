@@ -42,7 +42,7 @@
                           <% @abilities.each do |ability| %>
                           <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
                         <td align="left" valign="top"><%= f.text_field :value,class: "form-custom ability_value[update]" %>
-                        <%= f.submit "値変更", class: "btn btn-success btn-sm" %></td>
+                        <%= f.submit "値の変更", class: "btn btn-success btn-sm" %></td>
                           <% end %>
                           <% end %>
                         </tr>
