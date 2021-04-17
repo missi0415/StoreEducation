@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>課題</th>
+      <th>補足</th>
+      <th>開始日</th>
+      <th>期日</th>
+      <th>進捗率</th>
+      <th>メンバーコメント</th>
+      <th>メンバー完了チェック</th>
+      <th>マネジャー確認</th>
+    </tr>
+  </thead>
+  <tbody>
+<% tasks.each do |task| %>
+<%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.body %></td>
+      <td><%= task.start_on %></td>
+      <td><%= task.end_on %></td>
+      <td><%= f.text_field :progress ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
+      <td><%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
+      <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},id: "task_member_status_#{task.id}",style: "border: none"%></td>
+      <td><%= task.manager_status %></td>
+      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-success" %></td>
+<% end %>
+    </tr>
+<% end %>
+  </tbody>
+</table>

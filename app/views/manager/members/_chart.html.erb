@@ -1,0 +1,38 @@
+<script>
+$(document).on('turbolinks:load',function(){
+  $("#myChart").on("click",ctx)
+})
+let ctx = document.getElementById("myChart");
+//idmy
+let myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: [
+      <% ability_titles.each do |ability_title| %>
+      "<%= ability_title.title %>",
+      <% end %>
+      ],
+    datasets: 
+    [
+        {
+        label: 'ability',
+        backgroundColor: 'rgba(49,200,138,0.3)',
+        borderColor: 'rgba(28,200,138,0.5)',
+        data: [
+      <% abilities.each do |ability| %>
+          <%= ability.value %>,
+      <% end %>
+          ]
+        },
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }
+  }
+});
+</script>

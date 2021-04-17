@@ -1,31 +1,34 @@
 class Member::MembersController < ApplicationController
-  def show
-    @member = Member.find(params[:id])
-    @member_new = Member.new
-  end
-  
-  def create
-    @member_new = Member.new(member_params)
-    @member_new.save
-    redirect_back(fallback_location: root_path)
-  end
-  
-  def edit
-    @member = Member.find(params[:id])
+  before_action :authenticate_member!
+  def index
+    @member = current_member
+    #tasks-------------------
+    @tasks = Task.where(member_id: current_member.id)
+    @task = Task.find_by(member_id: current_member.id)
+    #education---------------
+    @educations = Education.where(member_id: current_member.id)
+    @education = Education.find_by(member_id: current_member.id)
   end
   
   def update
+    @member = current_member
+    #tasks-------------------
+    @tasks = Task.where(member_id: current_member.id)
+    @task = Task.find_by(member_id: current_member.id)
+    #education---------------
+    @educations = Education.where(member_id: current_member.id)
+    @education = Education.find_by(member_id: current_member.id)
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to member_member_path(@member)
+      redirect_to member_members_path
     else
-      render :show
+      render :index
     end  
   end  
   
   private
   
   def member_params
-    params.require(:member).permit(:name,:name_kana,:image,:phone_number,:is_deleted,:group_id)
+    params.require(:member).permit(:name,:name_kana,:email,:image,:phone_number,:is_deleted,:group_id)
   end  
 end

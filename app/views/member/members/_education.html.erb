@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>教育項目</th>
+      <th>補足</th>
+      <th>進捗率</th>
+    </tr>
+  </thead>
+  <tbody>
+<% educations.each do |education| %>
+<%= form_with model: education ,url: member_education_path(education),local: true do |f| %>
+    <tr>
+      <td><%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none" %></td>
+      <td><%= f.text_field :body  ,id: "education_body_#{education.id}",style: "border: none"%></td>
+      <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
+      <td><%= f.submit "変更を保存",id: "education_update_#{education.id}", class: "btn btn-success" %></td>
+<% end %>
+     
+    </tr>
+<% end %>
+  </tbody>
+</table>

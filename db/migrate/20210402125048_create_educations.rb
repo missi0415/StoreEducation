@@ -4,7 +4,7 @@ class CreateEducations < ActiveRecord::Migration[5.2]
       t.integer :member_id
       t.string :title
       t.text  :body
-      t.integer :progress
+      t.integer :progress,default: 0
       t.timestamps
     end
   end

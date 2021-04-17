@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  root to: "homes#top"
  get 'homes/about'
+# ゲストログイン
+devise_scope :manager do
+post 'managers/guest_sign_in', to: 'managers/sessions#guest_sign_in'
+ end
  
    devise_for :managers, :controllers => {
     :sessions => 'managers/sessions',
@@ -20,12 +24,16 @@ Rails.application.routes.draw do
   resources :tasks
   resources :abilities
   resources :group_messages
+  resources :ability_titles
  end
  #-------------------
- #--------manager---------
+ #--------member---------
  namespace :member do 
-  resources :members
-  resources :tasks
+  #デバイスサインアップ 
+  #get '/users', to: redirect("/users/sign_up") 
+  resources :members,only:[:index,:update,:destroy,]
+  resources :tasks, only: [:destroy ,:update]
+  resources :educations, only: [:destroy ,:update]
   resources :group_messages do
     resource :checks, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

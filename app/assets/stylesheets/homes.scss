@@ -1,3 +1,59 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//
+.list {
+}
+.active{
+  display: block !important;
+    -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  
+}
+.list p {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: none;
+  width: auto;
+  color: #fff;
+  background: #000;
+  opacity: 0.7;
+  position: fixed;
+  z-index: 100;
+  left:auto;
+  // top:0;
+  // margin:0 0 0 100px;
+}
+
+.check p {
+  font-size: 20px;
+  height: 200px;
+  margin: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  display: none;
+  width: 300px;
+  color: #fff;
+  background: #000;
+  opacity: 0.7;
+  // bottom: 0;
+  position: fixed;
+  z-index: 100;
+  left:auto;
+  // top:0;
+  // margin:0 0 0 100px;
+}
+
+
+
+
+
+.members h5{
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: none;
+  width: 100%;
+  color: #fff;
+  background: #000;
+  opacity: 0.7;
+  bottom: 0;
+}

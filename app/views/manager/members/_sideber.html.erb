@@ -1,0 +1,15 @@
+<div class="text-center">
+  
+  <%= link_to "　プロフィール" ,manager_member_path(@member),"data-turbolinks": false ,class: "btn btn-primary shadow rounded fas fa-address-card " %></td>
+  <%= link_to "　教育管理" ,manager_education_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-book-reader" %></td>
+  <%= link_to "　課題管理" ,manager_task_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-tasks " %></td>
+  <%= link_to "　能力管理" ,manager_ability_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-chart-pie" %></td>
+</div>
+<div class="sub-title">
+  <i class="fas fa-user username"> <%= @member.name %></i>
+</div>
+  <% @members.each do |member| %>
+  <div class="nav-item">
+    <%= link_to "  #{member.name}" ,manager_member_path(member),data: {"turbolinks" => false} ,class:"btn btn-sm btn-outline-primary fas fa-user text-white form-control" %>
+  </div>  
+  <% end %>

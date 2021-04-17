@@ -135,27 +135,21 @@ Task.create!(
                   manager_status: 0,
                   progress: 50
                   )              
+AbilityTitle.create!(
+                group_id:1,
+                title: "接客"
+                    )
+Ability.create!(
+                member_id: 1,
+                ability_title_id: 1,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 2,
+                ability_title_id: 1,
+                value: 5,
+                )                             
 
-Ability.create!(
-                member_id: 1,
-                title: "接客",
-                value: 5,
-                )                             
-Ability.create!(
-                member_id: 1,
-                title: "調理",
-                value: 2,
-                )                             
-Ability.create!(
-                member_id: 1,
-                title: "人格",
-                value: 4,
-                )                             
-Ability.create!(
-                member_id: 1,
-                title: "元気の良さ",
-                value: 5,
-                )  
 GroupMessage.create!(
                 group_id: 1,
                 manager_id: 1,

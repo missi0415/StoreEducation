@@ -1,18 +1,17 @@
 class Member::GroupMessagesController < ApplicationController
-  def show
-    @group = Group.find(params[:id])
-    @group_messages = @group.group_messages
-    @member_id = current_member.id
+  before_action :authenticate_member!
+  def index
+    @group_messages = current_member.group.group_messages
     @group_message_new = GroupMessage.new
-    @group_message = GroupMessage.find(params[:id])  
   end
   
   def create
     @group_message_new = GroupMessage.new(group_message_params)
+    @group_messages = current_member.group.group_messages
     if @group_message_new.save
       redirect_back(fallback_location: root_path)
     else
-      render:show
+      render:index
     end
   end
   
@@ -21,7 +20,7 @@ class Member::GroupMessagesController < ApplicationController
     if @group_message.update(group_message_params)
       redirect_back(fallback_location: root_path)
     else
-      render :show
+      render :index
     end
   end
   

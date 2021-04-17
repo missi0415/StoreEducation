@@ -1,0 +1,11 @@
+<% if group_message.checkd_by?(current_member) %>
+  <%= link_to member_group_message_checks_path(group_message.id), method: :delete ,remote: true do %>
+    <i class="far fa-check-square fa-3x text text-success"></i>
+    <%= group_message.checks.count %>人既読
+  <% end %>
+<% else %>
+  <%= link_to member_group_message_checks_path(group_message.id), method: :post ,remote: true do %>
+    <i class="far fa-check-square fa-3x text text-dark"></i>
+    <%= group_message.checks.count %>人既読
+  <% end %>
+<% end %>

@@ -5,6 +5,8 @@ class Manager::GroupsController < ApplicationController
     @group = Group.new
     #groupのFkであるmanager_idにそのページにログインしている人のIDを代入しておくという記述
     @group.manager_id = current_manager.id
+    #@abilitie_title = AbilityTitle.new
+    #@group = Group.find(params[:id])
   end
   
   def create
@@ -20,6 +22,7 @@ class Manager::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     #送られてくるパラメータを指定している
     @members = @group.members
+    @ability_titles = @group.ability_titles
     
   end
   
@@ -31,7 +34,7 @@ class Manager::GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to managergroups_path(@group)
+      redirect_to manager_groups_path(@group)
     else
       render :edit
     end
@@ -46,6 +49,6 @@ class Manager::GroupsController < ApplicationController
   private
   
   def group_params
-    params.require(:group).permit(:manager_id,:name)
+    params.require(:group).permit(:manager_id,:name,:group_image,:abilitie_title)
   end
 end

@@ -1,8 +1,10 @@
 class Manager::EducationsController < ApplicationController
   def show
     @member = Member.find(params[:id])
+    @group = @member.group
+    @members = @group.members
     @educations = @member.educations
-    @education = Education.find(params[:id])
+    @education = Education.find_by(member_id: params[:id])
     @member_id = @member.id
     @education_new = Education.new
   end
@@ -10,7 +12,6 @@ class Manager::EducationsController < ApplicationController
   
   def create
     @education_new = Education.new(education_params)
-    #@education.member_id = @member.id
     if @education_new.save
       redirect_back(fallback_location: root_path)
     else
