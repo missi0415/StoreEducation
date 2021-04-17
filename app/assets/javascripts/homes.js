@@ -4,7 +4,14 @@ $(".list").hover(function() {
     $(this).children("p").toggleClass("active")
   //トグルはクラスが付与してあったら外す
 });
+});
 
+$(function() {
+$(".check").hover(function() {
+  //ホバーはマウスがあたっているときだけ
+    $(this).children("p").toggleClass("active")
+  //トグルはクラスが付与してあったら外す
+});
 });
 
 
