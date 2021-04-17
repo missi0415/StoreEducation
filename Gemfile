@@ -78,3 +78,8 @@ gem 'cancancan'
 gem 'rolify'
 gem 'gon'
 
+# デプロイ環境で仕様
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
