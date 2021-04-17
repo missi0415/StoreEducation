@@ -77,3 +77,4 @@ gem 'devise-bootstrap-views'
 gem 'cancancan'
 gem 'rolify'
 gem 'gon'
+
