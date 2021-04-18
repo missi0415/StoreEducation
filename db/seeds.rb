@@ -9,11 +9,19 @@ Manager.create!(
               
 Group.create!(
             manager_id: 1,
-            name: "グループ１－１"
+            name: "〇〇店　1号店"
             )
 Group.create!(
             manager_id: 1,
-            name: "グループ１－２"
+            name: "〇〇店　2号店"
+            )  
+Group.create!(
+            manager_id: 1,
+            name: "〇〇店　3号店"
+            )  
+Group.create!(
+            manager_id: 1,
+            name: "〇〇店　4号店"
             )  
 Group.create!(
             manager_id: 2,
@@ -21,20 +29,74 @@ Group.create!(
             )
 Member.create!(
             group_id: 1,
-            name: "グループ1のメンバー１",
-            name_kana: "ふりがな",
-            email: "member11@example.com",
+            name: "田中 太郎",
+            name_kana: "たなか たろう",
+            email: "member01@example.com",
             password: "password",
-            phone_number: "00000000",
+            phone_number: "00000000001",
             is_deleted: false,
               )
 Member.create!(
             group_id: 1,
-            name: "グループ1のメンバー2",
-            name_kana: "ふりがな",
-            email: "member12@example.com",
+            name: "鈴木 次郎",
+            name_kana: "すずき じろう",
+            email: "member02@example.com",
             password: "password",
-            phone_number: "00000000",
+            phone_number: "00000000002",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "阿部 晃",
+            name_kana: "あべ あきら",
+            email: "member03@example.com",
+            password: "password",
+            phone_number: "00000000003",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "鈴木 紋子",
+            name_kana: "すずき あやこ",
+            email: "member04@example.com",
+            password: "password",
+            phone_number: "00000000004",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "川崎 はるか",
+            name_kana: "かわさき はるか",
+            email: "member05@example.com",
+            password: "password",
+            phone_number: "00000000005",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "高岡 茜",
+            name_kana: "たかおか あかね",
+            email: "member06@example.com",
+            password: "password",
+            phone_number: "00000000006",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "坂本 真",
+            name_kana: "さかもと まこと",
+            email: "member07@example.com",
+            password: "password",
+            phone_number: "00000000007",
+            is_deleted: false,
+              )              
+Member.create!(
+            group_id: 1,
+            name: "石井 茂樹",
+            name_kana: "いしい しげき",
+            email: "member08@example.com",
+            password: "password",
+            phone_number: "00000000008",
             is_deleted: false,
               )              
 Member.create!(
@@ -139,16 +201,223 @@ AbilityTitle.create!(
                 group_id:1,
                 title: "接客"
                     )
+AbilityTitle.create!(
+                group_id:1,
+                title: "調理"
+                    )
+AbilityTitle.create!(
+                group_id:1,
+                title: "清掃"
+                    )
+AbilityTitle.create!(
+                group_id:1,
+                title: "モラル"
+                    )
+AbilityTitle.create!(
+                group_id:1,
+                title: "労務管理"
+                    )
 Ability.create!(
                 member_id: 1,
                 ability_title_id: 1,
                 value: 5,
                 )                             
 Ability.create!(
+                member_id: 1,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 1,
+                ability_title_id: 3,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 1,
+                ability_title_id: 4,
+                value: 3,
+                )                             
+Ability.create!(
+                member_id: 1,
+                ability_title_id: 5,
+                value: 4,
+                )                             
+Ability.create!(
                 member_id: 2,
                 ability_title_id: 1,
                 value: 5,
                 )                             
+Ability.create!(
+                member_id: 2,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 2,
+                ability_title_id: 3,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 2,
+                ability_title_id: 4,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 2,
+                ability_title_id: 5,
+                value: 3,
+                )                             
+Ability.create!(
+                member_id: 3,
+                ability_title_id: 1,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 3,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 3,
+                ability_title_id: 3,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 3,
+                ability_title_id: 4,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 3,
+                ability_title_id: 5,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 4,
+                ability_title_id: 1,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 4,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 4,
+                ability_title_id: 3,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 4,
+                ability_title_id: 4,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 4,
+                ability_title_id: 5,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 5,
+                ability_title_id: 1,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 5,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 5,
+                ability_title_id: 3,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 5,
+                ability_title_id: 4,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 5,
+                ability_title_id: 5,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 6,
+                ability_title_id: 1,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 6,
+                ability_title_id: 2,
+                value: 1,
+                )                             
+Ability.create!(
+                member_id: 6,
+                ability_title_id: 3,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 6,
+                ability_title_id: 4,
+                value: 1,
+                )                             
+Ability.create!(
+                member_id: 6,
+                ability_title_id: 5,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 7,
+                ability_title_id: 1,
+                value: 2,
+                )                             
+Ability.create!(
+                member_id: 7,
+                ability_title_id: 2,
+                value: 3,
+                )                             
+Ability.create!(
+                member_id: 7,
+                ability_title_id: 3,
+                value: 1,
+                )                             
+Ability.create!(
+                member_id: 7,
+                ability_title_id: 4,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 7,
+                ability_title_id: 5,
+                value: 3,
+                )                             
+Ability.create!(
+                member_id: 8,
+                ability_title_id: 1,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 8,
+                ability_title_id: 2,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 8,
+                ability_title_id: 3,
+                value: 5,
+                )                             
+Ability.create!(
+                member_id: 8,
+                ability_title_id: 4,
+                value: 4,
+                )                             
+Ability.create!(
+                member_id: 8,
+                ability_title_id: 5,
+                value: 3,
+                )                             
+                          
 
 GroupMessage.create!(
                 group_id: 1,

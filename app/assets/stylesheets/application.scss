@@ -122,7 +122,7 @@ header{
   background-color: #e9ebfc;
   }
   img{
-    //height: auto;
+    width: auto;
   }
   .card-body{
   background-color: #fff;
@@ -169,7 +169,6 @@ header{
     text-align: center;
     padding : 5px; 
     color: #fff;
-    
   }
   
   .btn-outline-primary{
@@ -228,9 +227,9 @@ header{
   background-color: #F8F9FC;
   
   }
-  img{
-    height: auto;
-  }
+  // img{
+  //   height: auto;
+  // }
   .card-body{
   background-color: #fff;
   
@@ -285,27 +284,34 @@ header{
     }
   }   
   
+  .ability-title {
+     white-space: nowrap;
+  }
   .table.ability {
   text-align: none;
   table-layout: fixed;
   word-wrap: break-word;
   display: flex;
-  border: solid 2px #eee;
+  border: solid 1px #eee;
+  padding: 0;
   th{
-     border: solid 2px #eee;
+    
+    height: 40px;
+    border: solid 1px #eee;
+    padding: 5px;
+    text-align: center;
   }
   td{
-    
+    height: 40px;
     text-align: left;
-     border: solid 2px #eee;
+     border: solid 1px #eee;
      padding-left: 0px;
+     padding: 0;
   }
   input{
     text-align: left;
     margin-left: 0;
   }
-  
-  
 }
 
 .form-custom{
@@ -324,3 +330,34 @@ header{
 }
 
 // ----------------------------------------
+::placeholder {
+  font-style: italic;
+   font-size: 1em;
+   color: #b7b7b7;   
+}
+.form-control::placeholder{
+  font-style: italic;
+   font-size: 1em;
+   color: #b7b7b7;  
+}
+
+
+textarea {
+  resize: vertical;
+  width:300px;
+  height:200px;
+}
+.form-custom-group{
+    width: auto;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
