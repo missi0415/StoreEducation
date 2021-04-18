@@ -7,6 +7,10 @@
       <%= render "manager/members/sideber", members: @members %>
     </div>
     <div class="col-md-10">
+      <!--errormessage---------------->
+      <%= render 'layouts/errors', obj: @education  %>
+      <%= render 'layouts/errors', obj: @task %>
+      <!------------------------------>
         <div class="row">
         <div class ="col-md-5">
       <%= render "manager/members/ability"%>

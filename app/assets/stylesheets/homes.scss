@@ -43,6 +43,20 @@
 }
 
 
+   .check:hover, .check:focus, 
+    .check:active, .check:active:focus, .check:active:hover, .check:active.focus,
+    .check.active, .check.active:focus, .check.active:hover, .check.active.focus,
+    .open > .dropdown-toggle.check, 
+    .open > .dropdown-toggle.check:hover,
+    .open > .dropdown-toggle.check:focus, 
+    .open > .dropdown-toggle.check.focus,
+    .check.disabled:hover, .check[disabled]:hover, fieldset[disabled] .check:hover,
+    .check.disabled:focus, .check[disabled]:focus, fieldset[disabled] .check:focus,
+    .check.disabled.focus, .check[disabled].focus, fieldset[disabled] .check.focus
+    {
+    background: #00cc33; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #12141a; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    }
 
 
 
