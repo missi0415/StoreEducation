@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
  root to: "homes#top"
  get 'homes/about'
 # ゲストログイン
@@ -14,6 +15,12 @@ post 'managers/guest_sign_in', to: 'managers/sessions#guest_sign_in'
     :sessions => 'members/sessions',
     :registrations => 'members/registrations',
   }
+  
+ #-------chatroom----------
+   resources :rooms, :only => [:show, :create] do
+    resources :messages, :only => [:create]
+  end
+ #-------------------------
   
  #--------manager---------
  namespace :manager do 

@@ -3,6 +3,16 @@
     <div class = "col-lg-2 sidebar">
       <div class="page-title">
         <i class="fas fa-address-card "> プロフィール</i>
+        <!--チャット機能リンク---------------------->
+          <% if @member_ids.include?(@member.id) %>
+            <%= link_to "チャットへ", room_path(current_manager.rooms.find_by(member_id: @member.id)) %><br>
+          <% else %>
+            <%= form_for Room.new do |f| %>
+              <%= f.hidden_field :member_id, :value => @member.id %>
+              <%= f.submit "メンバーDM" %>
+            <% end %>
+          <% end %>
+        <!--チャット機能リンク---------------------->
       </div>
       <%= render "sideber", members: @members %>
     </div>

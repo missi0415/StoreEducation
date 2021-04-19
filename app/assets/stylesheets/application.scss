@@ -36,21 +36,21 @@
 }
 
 body{
- background-color: #ebebeb;
+ background-color: #f2f2f2;
  font-family: 'Noto Sans JP', sans-serif;
 }
 //------------------header------------------------------
 
 header{
   .sidebar{
-  background-color: #008cff;
+  background-color: #0091DC;
   color: #fff;
     a{
     color: #fff;
     } 
     .name{
       // border-bottom: solid;
-      padding: 15px 5px;
+      padding: 5px 5px;
       text-align: center;
       margin: 0 auto;
       font-size: 20px;
@@ -59,7 +59,6 @@ header{
   } 
   
   .btn-primary{
-      transform:skewX(-25deg) scale(1);
        border-bottom: 5px solid #008cff;
        border-left: 5px solid #008cff;
        width: 200px;
@@ -75,7 +74,7 @@ header{
   }
   
   .navbar{
-    background-color: #008cff; 
+    background-color: #e5e5e5; 
     padding: 15px 0 0 15px;
   }
 }
@@ -119,11 +118,12 @@ header{
 
 //---------------card-----------------------
 .card{
-  border-left: 7px solid #008cff;
+  
   .card-header{
   font:  2em "Fira Sans", sans-serif;
   color: #008cff;
   background-color: #e9ebfc;
+  border-left: 5px solid #0091DC;
   }
   img{
     width: auto;
@@ -137,7 +137,7 @@ header{
 //---------------sidebar-----------------------
 
 .sidebar{
-  background-color: #008cff;
+  background-color: #0091DC;
   color: #fff;
   .page-title{
     border-bottom: solid;
@@ -367,3 +367,12 @@ textarea {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+//チャット機能------------------
+.left-message{
+  text-align: left;
+}
+
+.right-message{
+  text-align: right;
+}
+//チャット機能------------------
