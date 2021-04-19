@@ -68,6 +68,10 @@ header{
        margin: 0;
         text-align: center;
        font-size: 15px;
+        span{
+            transform:skewX(25deg) scale(1);
+            }
+    
   }
   
   .navbar{
@@ -344,9 +348,10 @@ header{
 
 textarea {
   resize: vertical;
-  width:300px;
-  height:200px;
+  width: 600px;
+  height: 100%;
 }
+
 .form-custom-group{
     width: auto;
     height: calc(1.5em + 0.75rem + 2px);
@@ -361,3 +366,4 @@ textarea {
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+

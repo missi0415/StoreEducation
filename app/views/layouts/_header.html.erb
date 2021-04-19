@@ -11,20 +11,22 @@
 
         
       <% if manager_signed_in?  %>
-        <%= link_to "　ログアウト", destroy_manager_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete%>
-        <%= link_to "　グループ一覧", manager_groups_path, class: "btn btn-primary shadow rounded fas fa-users "  %>
+        <%= link_to destroy_manager_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete do %>
+        <span>　ログアウト </span>
+        <% end %>
+        <%= link_to "　グループ一覧", manager_groups_path,data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-users "  %>
           <% if (controller_path == 'manager/groups' && action_name == 'show'||controller_path == 'manager/members' && action_name == 'show'||controller_path == 'manager/group_messages' && action_name == 'show'
           )%>
-            <%= link_to "　グループ連絡", manager_group_message_path(@group), class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
-            <%= link_to "　メンバー一覧", manager_group_path(@group), class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
+            <%= link_to "　グループ連絡", manager_group_message_path(@group),data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
+            <%= link_to "　メンバー一覧", manager_group_path(@group),data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-clipboard"  %>
           <% end %>
       <% elsif member_signed_in? %>
-        <%= link_to "　マイページ", member_members_path, class: "btn btn-primary shadow rounded fas fa-address-card "  %>
-        <%= link_to "　グループ連絡", member_group_messages_path, class: "btn btn-primary shadow rounded fas fa-clipboard "  %>
+        <%= link_to "　マイページ", member_members_path,data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-address-card "  %>
+        <%= link_to "　グループ連絡", member_group_messages_path,data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-clipboard "  %>
         <%= link_to "　ログアウト", destroy_member_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete %>
       <% else %> 
-        <%= link_to "　About", "", class: "btn btn-primary shadow rounded fas fa-download " %>  
-        <%= link_to "　top", "", class: "btn btn-primary shadow rounded fas fa-download " %>
+        <%= link_to "　About", "",data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-download " %>  
+        <%= link_to "　top", "",data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-download " %>
       <% end %>   
       <div class="row mx-auto ">
         <% flash.each do |key, value| %>
