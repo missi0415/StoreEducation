@@ -3,19 +3,19 @@
     <!--sidebar-------------------------->
     <div class = "col-lg-2 sidebar">
       <div class="page-title">
-        <i  class="fas fa-users"> グループ一覧</i>
+        <i  class="fas fa-store-alt"> 店舗一覧</i>
       </div>
       <div class="list">
       <div class="nonborder-title text-center">
-        <i  class="fas fa-plus-circle"> グループ追加</i>
+        <i  class="fas fa-plus-circle"> 店舗登録</i>
       </div>
         <%= form_with model: @group,url: manager_groups_path, local:true do |f| %>
-          <%= f.text_field :name, class: 'form-control goup_name', placeholder: "グループ名を入力してください" %>
+          <%= f.text_field :name, class: 'form-control goup_name', placeholder: "店舗名を入力してください" %>
           <%= f.submit class: 'btn btn-secondary form-control mt-2' %>
         <% end %>
       
-      <p>グループ名を入力すると<br>
-      新たにグループを登録できます。</p>
+      <p>店舗名を入力すると<br>
+      新たに店舗を登録できます。</p>
       </div>
     </div>
     <!--sidebar-------------------------->
@@ -23,7 +23,7 @@
     <div class="col-lg-10">
       <div class="row">
         <% @groups.each do |group| %>  
-          <div class="col-lg-3 mt-1">
+          <div class="col-lg-3 m-3">
             <div class="card shadow rounded-start">
               <div class="card-header">
                 <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
@@ -31,7 +31,7 @@
               <div class="card-body text-center ">  
                 <!--<div class="list">-->
                   <img>
-                    <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "figure_group_blue.jpg",size: "150x150" %>
+                    <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "shop-icon.jpg",size: "150x150" %>
                   <!--<p>メンバー一覧に遷移します</p>-->
                   </img>
                     
@@ -41,10 +41,10 @@
                   <%= link_to "メンバー一覧",manager_group_path(group.id),id: "member-show",class: "btn btn-secondary form-control mb-2" %>
                   <div class="image_wrapper w-100">
                   <div class="item_image_btn w-100">
-                  <%= f.attachment_field :group_image ,style: "border: none",class: "form-control"%>
+                  <%= f.attachment_field :group_image ,style: "border: none", id: "file",class: "form-control"%>
                   </div>
                   <div id="img_field" onClick="$('#file').click()" >
-                  <p>グループ画像編集</p>
+                    <p>店舗画像編集</p>
                   </div>
                   </div>
                   <%= f.submit "更新", class: "btn btn-success form-control mt-2 " %>

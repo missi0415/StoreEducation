@@ -10,7 +10,7 @@
             <h6 class="m-0 font-weight-bold title">プロフィール</h6>
           </div>  
           <div class="card-body text-center"  >
-            <%= attachment_image_tag current_member, :image ,:size=>"150x150", format: 'jpeg', fallback: "no_image.jpg"%><br>
+            <%= attachment_image_tag current_member, :image ,:size=>"150x150", format: 'jpeg', fallback: "member-no-image.jpg"%><br>
               <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
               <div class="image_wrapper">
               <div class="item_image_btn">

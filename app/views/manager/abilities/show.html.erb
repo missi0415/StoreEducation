@@ -2,36 +2,30 @@
   <div class="row">
     <div class = "col-md-2 sidebar">
       <div class="page-title">
-        <i class="fas fa-chart-pie "> Abilty</i>
+        <i class="fas fa-chart-pie "> 能力管理</i>
       </div>
       <%= render "manager/members/sideber", members: @members %>
-    </div>
-    <div class="col-md-10">
-      <!--errormessage---------------->
-      <%= render 'layouts/errors', obj: @education  %>
-      <%= render 'layouts/errors', obj: @task %>
-      <!------------------------------>
+      </div>
+      <div class="col-md-10">
+        <!--errormessage---------------->
+        <%= render 'layouts/errors', obj: @ability  %>
+        <!------------------------------>
         <div class="row">
-        <div class ="col-md-5">
-      <%= render "manager/members/ability"%>
-               </div>
-        </div> 
-    </div>
-    </div>  
-
-      <div class="row">
-        <div class="col-md-5">
-          <div class="card shadow rounded-start" >
-            <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">Abilty Chart</h6>
-            </div>
-            <div class="card-body">
-              <canvas id="myChart" height="100%" width="100"></canvas>
-            </div>
+          <div class ="col-md-5">
+            <%= render "manager/members/ability"%>
           </div>
+          <div class="col-md-5 mt-3">
+            <div class="card shadow rounded-start" >
+              <div class="card-header">
+                <h6 class="m-0 font-weight-bold title">Abilty Chart</h6>
+              </div>
+              <div class="card-body">
+                <canvas id="myChart" height="100%" width="100"></canvas>
+              </div>
+            </div>
+          </div>  
         </div>  
-      </div>  
-    </div>
+      </div>
   </div>  
 </div>        
         

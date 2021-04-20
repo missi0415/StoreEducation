@@ -10,7 +10,7 @@ class Member::MembersController < ApplicationController
     @educations = Education.where(member_id: current_member.id)
     @education = Education.find_by(member_id: current_member.id)
     
-        #chat----------------------------
+    #chat----------------------------
     @group = @member.group #メンバーのグループid
     @manager = @group.manager #グループidに紐付いたマネジャーのid
     rooms = current_member.rooms

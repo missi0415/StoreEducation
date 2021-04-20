@@ -1,0 +1,29 @@
+
+[1mFrom:[0m /home/ec2-user/environment/StoreEducation/app/controllers/rooms_controller.rb:7 RoomsController#show:
+
+     [1;34m2[0m: [32mdef[0m [1;34mshow[0m
+     [1;34m3[0m:   @room = [1;34;4mRoom[0m.find(params[[33m:id[0m]) [1;34m#ルーム情報の取得[0m
+     [1;34m4[0m:   @group = @room.member.group.id
+     [1;34m5[0m:   @member = @room.member.id
+     [1;34m6[0m:   binding.pry
+ =>  [1;34m7[0m:   @members = @room.group.members
+     [1;34m8[0m:   @message = [1;34;4mMessage[0m.new [1;34m#新規メッセージ投稿[0m
+     [1;34m9[0m:   @messages = @room.messages [1;34m#このルームのメッセージを全て取得[0m
+    [1;34m10[0m:   [32mif[0m member_signed_in?
+    [1;34m11[0m:     [32mif[0m @room.member.id == current_member.id
+    [1;34m12[0m:       @manager = @room.manager
+    [1;34m13[0m:     [32melse[0m
+    [1;34m14[0m:       redirect_to [31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m
+    [1;34m15[0m:     [32mend[0m
+    [1;34m16[0m:   [32melsif[0m manager_signed_in?
+    [1;34m17[0m:     [32mif[0m @room.manager.id == current_manager.id
+    [1;34m18[0m:       @member = @room.member
+    [1;34m19[0m:     [32melse[0m
+    [1;34m20[0m:       redirect_to [31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m
+    [1;34m21[0m:     [32mend[0m
+    [1;34m22[0m: 
+    [1;34m23[0m:   [32melse[0m
+    [1;34m24[0m:     redirect_to [31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m
+    [1;34m25[0m:   [32mend[0m
+    [1;34m26[0m: [32mend[0m
+

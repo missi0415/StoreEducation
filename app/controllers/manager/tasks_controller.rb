@@ -7,6 +7,14 @@ class Manager::TasksController < ApplicationController
     @members = @group.members
     @task = Task.find_by(member_id: params[:id])
     @task_new = Task.new
+    #chat----------------------------
+    rooms = current_manager.rooms
+    #自分が入ってるroomの相手のidを格納する
+    @member_ids = []
+      rooms.each do |r|
+        @member_ids << r.member_id
+      end
+    #-------------------------------
   end
   
   

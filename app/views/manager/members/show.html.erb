@@ -16,7 +16,7 @@
             <div class="card-body text-nowrap">  
               <div class="row member-show text-nowrap">
                 <div class="col-md-6 text-center">
-                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "no_image.jpg" ,:height => '200' %><br>
+                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,:height => '200' %><br>
                 </div>
                 <div class="col-md-6">
                   <%= @member.name %><br>
@@ -24,7 +24,7 @@
                   <%= @member.email %><br>
                   <%= @member.phone_number %><br>
                   <%= @member.is_deleted %><br>
-                  <%= link_to "edit" ,edit_manager_member_path %><br>
+                  <%= link_to "プロフィール編集" ,edit_manager_member_path ,class: "btn btn-sm btn-secondary "%><br>
                 </div>  
               </div>
             </div>  
@@ -32,7 +32,7 @@
           <%= render "ability"%>
         </div>
         <div class="col-lg-6">
-          <div class="card shadow rounded-start m-3" >
+          <div class="card shadow rounded-start mt-3" >
             <div class="card-header">
             <h6 class="m-0 font-weight-bold title">能力ステータス</h6>
             </div>

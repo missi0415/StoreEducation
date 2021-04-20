@@ -130,6 +130,10 @@ li a:hover:before {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  margin-bottom: 0;
+  top: 10px;
+  z-index: 1;
    .logo{
      font-size: 20px;
    }
@@ -440,9 +444,34 @@ textarea {
 //チャット機能------------------
 .left-message{
   text-align: left;
+  margin: 7px 0 7px 0;
+  span {
+  padding: 0 10px 0px 10px;
+  background-color: #e5e5e5;
+  color:#000;
+  font-size: 17px;
+  font: bold;
+  border-radius: 10px;
+  }
 }
 
 .right-message{
   text-align: right;
+  margin: 7px 0 7px 0;
+  
+  
+  .message{
+    max-width: 60%;
+    width: auto;
+    margin-left: auto;
+    // background-color: #0091DC;
+    background-color: rgba(0,145,220,0.7);
+    display: inline-block;
+    border-radius: 17px;
+    padding: 0 10px 0px 10px;
+    color:#fff;
+    font-size: 17px;
+  }
+ 
 }
 //チャット機能------------------
