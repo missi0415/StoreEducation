@@ -9,7 +9,7 @@
     <% else %>
       <%= form_for Room.new do |f| %>
         <%= f.hidden_field :member_id, :value => @member.id %>
-        <%= f.submit "  メッセージ",class: "shadow rounded fas fa-comments btn btn-primary" %>
+        <%= f.submit "  メッセージ",class: "btn btn-primary shadow rounded fas fa-comments" %>
       <% end %>
     <% end %>
   <!--チャット機能リンク---------------------->

@@ -14,9 +14,9 @@
         <% @ability_titles.each do |ability_title| %>
           <%= form_with model: ability_title,url: manager_ability_title_path(ability_title),local:true do |f| %>
             <%= f.hidden_field :group_id,value: ability_title.group_id %>
-            <%= f.text_field :title ,class: "form-custom "%>
-            <%= f.submit "変更", class: "btn btn-outline-success " %>
-            <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger",method: :delete %><br>
+            <%= f.text_field :title ,class: "form-custom w-50"%>
+            <%= f.submit "変更", class: "btn btn-outline-success w-25" %>
+            <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger w-25",method: :delete %><br>
           <% end %>	
     		<% end %>
       </div>
@@ -35,7 +35,7 @@
                 <% @abilities.each do |ability| %>
                 <%= form_with model: ability ,url: manager_ability_path(ability),local: true do |f| %>
               <td align="left" valign="top"><%= f.text_field :value,class: "form-custom ability_value[update]" %>
-              <%= f.submit "値の変更", class: "btn btn-success btn-sm" %></td>
+              <%= f.submit "値の変更", class: "btn btn-outline-success " %></td>
                 <% end %>
                 <% end %>
               </tr>

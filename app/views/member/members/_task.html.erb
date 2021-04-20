@@ -23,7 +23,7 @@
       <td><%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
       <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},id: "task_member_status_#{task.id}",style: "border: none"%></td>
       <td><%= task.manager_status %></td>
-      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-success" %></td>
+      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-outline-success" %></td>
 <% end %>
     </tr>
 <% end %>

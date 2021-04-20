@@ -27,9 +27,9 @@
       <li class="<%= "active" if (controller_path == 'manager/groups' && action_name == 'show')%>"><%= link_to "メンバー一覧", manager_group_path(@group),data: {"turbolinks" => false}, class: " fas fa-users"  %></li>
       <% end %>
       <% elsif member_signed_in? %>
-      <li class="<%= "active" if (controller_path == 'member/members' && action_name == 'index')%>"><%= link_to "マイページ", member_members_path,data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-address-card "  %></li>
-      <li class="<%= "active" if (controller_path == 'manager/group_messages' && action_name == 'index')%>"><%= link_to "　店舗連絡", member_group_messages_path,data: {"turbolinks" => false}, class: "btn btn-primary shadow rounded fas fa-clipboard "  %></li>
-      <li><%= link_to "ログアウト", destroy_member_session_path, class: "btn btn-primary shadow rounded fas fa-sign-out-alt " , method: :delete %></li>
+      <li><%= link_to "ログアウト", destroy_member_session_path, class: " fas fa-sign-out-alt " , method: :delete %></li>
+      <li class="<%= "active" if (controller_path == 'member/members' && action_name == 'index')%>"><%= link_to "マイページ", member_members_path,data: {"turbolinks" => false}, class: "fas fa-address-card "  %></li>
+      <li class="<%= "active" if (controller_path == 'member/group_messages' && action_name == 'index')%>"><%= link_to "　店舗連絡", member_group_messages_path,data: {"turbolinks" => false}, class: " fas fa-clipboard "  %></li>
       <% else %>
       <li><%= link_to "　About", "",data: {"turbolinks" => false}, class: " fas fa-download " %></li>
       <li><%= link_to "　top", "",data: {"turbolinks" => false}, class: " fas fa-download " %></li>

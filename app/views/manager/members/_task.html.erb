@@ -15,12 +15,12 @@
   <tbody>
     <tr>
       <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
-      <td><%= f.text_field :title,class: "form-control",placeholder: "課題項目を入力" %></td>
+      <td><%= f.text_field :title,class: " " ,placeholder: "課題項目を入力" %></td>
       <td><%= f.text_field :body ,class: "form-control",placeholder: "補足"  %></td>
       <td><%= date_field_tag 'task[start_on]',  Date.today %></td>
       <td><%= date_field_tag 'task[end_on]', nil %></td>
         <%= f.hidden_field :member_id, value: member_id %>
-      <td><%= f.submit "課題項目追加", class: "btn btn-success" %></td>
+      <td><%= f.submit "課題項目追加", class: " form-control btn btn-secondary" %></td>
       <% end %>
     </tr>
 <% tasks.each do |task| %>
@@ -34,9 +34,9 @@
       <td><%= task.member_body %></td>
       <td><%= task.member_status %></td>
       <td><%= f.select :manager_status,Task.manager_statuses.keys,id: "task_manager_statuse_#{task.id}",style: "border: none"%></td>
-      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-success" %></td>
+      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-outline-success" %></td>
 <% end %>
-      <td><%= link_to "削除",manager_task_path(task),id: "task_delete_#{task.id}", class: "btn btn-danger" ,method: :delete %></td>
+      <td><%= link_to "削除",manager_task_path(task),id: "task_delete_#{task.id}", class: "btn btn-outline-danger" ,method: :delete %></td>
     </tr>
 <% end %> 
   </tbody>
