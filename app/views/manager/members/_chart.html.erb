@@ -4,10 +4,11 @@ $(document).on('turbolinks:load',function(){
 })
 let ctx = document.getElementById("myChart");
 //idmy
+Chart.defaults.global.defaultFontSize = 20;
 let myChart = new Chart(ctx, {
   type: 'radar',
   data: {
-    labels: [
+    labels:[
       <% ability_titles.each do |ability_title| %>
       "<%= ability_title.title %>",
       <% end %>
@@ -15,7 +16,7 @@ let myChart = new Chart(ctx, {
     datasets: 
     [
         {
-        label: 'ability',
+        label: '能力ステータス',
         backgroundColor: 'rgba(49,200,138,0.3)',
         borderColor: 'rgba(28,200,138,0.5)',
         data: [
@@ -27,10 +28,13 @@ let myChart = new Chart(ctx, {
     ]
   },
   options: {
-      scale: {
+      scale: {pointLabels: {
+            fontSize: 20
+        },
           ticks: {
               suggestedMin: 0,
-              suggestedMax: 5
+              suggestedMax: 5,
+              
           }
       }
   }

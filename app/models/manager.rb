@@ -5,6 +5,7 @@ class Manager < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :groups
   has_many :group_messages
+  has_many :rooms
   
   def self.guest
     find_or_create_by!(email: 'manager@example.com') do |manager|

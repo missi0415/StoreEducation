@@ -3,6 +3,7 @@
     <div class= "col-md-2 member-sidebar">
         <div class="page-title">
           <i class="fas fa-chart-pie "> プロフィール</i>
+
         </div>
         <div class="card shadow rounded-start" style="display:inline-block;">
           <div class="card-header">
@@ -25,7 +26,16 @@
               <%= f.text_field :phone_number,style: "border: none",class: "form-control m-1",placeholder: "電話番号を入力してください" %> 
               <%= f.submit '変更を保存',id: "profile-update",class: "btn btn-secondary form-control "  %>
               <% end %>
-          
+            <!--チャット機能リンク---------------------->
+              <% if @manager_ids.include?(@manager.id) %>
+                <%= link_to "チャットへ", room_path(current_member.rooms.find_by(manager_id: @manager.id)) %><br>
+              <% else %>
+                <%= form_for Room.new do |f| %>
+                  <%= f.hidden_field :manager_id, :value => @manager.id %>
+                  <%= f.submit "マネジャーDM"%>
+                <% end %>
+              <% end %>
+            <!--チャット機能リンク---------------------->              
           </div>
         </div>  
     </div>

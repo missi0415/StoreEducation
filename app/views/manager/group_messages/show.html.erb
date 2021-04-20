@@ -52,8 +52,8 @@
                   <td class="text text-success">マネジャー</td>
                   <% end %>
                   <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
-                  <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none",class: "form-custom-group " %></td>
-                  <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none" %></td>
+                  <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none",class: "form-control form-custom-group " %></td>
+                  <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %></td>
                   <td>
                     <i class="far fa-check-square fa-2x text text-success check ">
                     <!---------------------------------------------------------->

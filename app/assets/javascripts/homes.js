@@ -50,3 +50,20 @@ $(document).on('turbolinks:load',function(){
     );
   });
 });
+
+
+$(function(){
+  $('textarea.auto-resize')
+  .on('change keyup keydown paste cut online', function(){
+    if ($(this).outerHeight() > this.scrollHeight){
+      $(this).height(1)
+    }
+    while ($(this).outerHeight() < this.scrollHeight){
+      $(this).height($(this).height() + 1)
+    }
+  }).trigger('change');
+});
+
+$(function(){
+	 $(".sidebar").frix();
+});
