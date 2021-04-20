@@ -13,7 +13,16 @@ class RoomsController < ApplicationController
     if member_signed_in?
       if @room.member.id == current_member.id
         @manager = @room.manager
-        @member = current_member
+        @member_edit = current_member
+    #chat----------------------------
+        @group = current_member.group #メンバーのグループid
+        @manager = @group.manager #グループidに紐付いたマネジャーのid
+        rooms = current_member.rooms
+        @manager_ids = []
+          rooms.each do |r|
+        @manager_ids << r.manager_id
+      end
+    #-------------------------------
         
         
       else

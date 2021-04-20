@@ -8,7 +8,7 @@
         <div class="card shadow rounded-start mt-1" style="display:inline-block;">
           <div class="card-body text-center"  >
             <%= attachment_image_tag current_member, :image , format: 'jpeg', fallback: "member-no-image.jpg",:height => "100" %><br>
-              <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
+              <%= form_with model: @member_edit, url: member_member_path(current_member), local:true do |f| %>
               <div class="image_wrapper">
               <div class="item_image_btn">
               <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
