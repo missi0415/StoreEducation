@@ -20,5 +20,11 @@ module ApplicationHelper
     end
   end
   
+#tabメニュー----------------------------------------  
+  def active?(controller_name)
+     return "active" if controller_name == params[:controller]
+  end
+  
+  
   
 end
