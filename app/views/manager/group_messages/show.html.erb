@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row" >
-    <div class = "col-md-2 sidebar">
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
       <div class="page-title">
         <i class="fas far fa-clipboard "> 店舗連絡</i>
       </div>
@@ -9,13 +9,15 @@
       </div>      
         <%= form_with model: @group_message_new,url: manager_group_messages_path(@group_message),local: true do |f| %>
           <%= f.text_field :title,class: "form-control mt-1",placeholder: "タイトルを入力してください" %>
-          <%= f.text_field :body ,class: "form-control mt-1",placeholder: "内容を入力してください" %>
+          <%= f.text_area :body ,class: "mt-1 form-control",id: "auto-resize" , placeholder: "内容を入力してください" %>
           <%= f.hidden_field :manager_id, value: @manager_id %>
           <%= f.hidden_field :group_id, value: @group.id %>
           <%= f.submit "連絡事項追加", class: "btn btn-secondary form-control mt-1" %>
         <% end %>
       </div>
-    <div class = "col-md-10 mt-3">
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+    <!--card----------------------------------->
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10 mt-3">
       <div class="card shadow rounded-start">
         <div class="card-header">
           <h6 class="m-0 font-weight-bold title">店舗連絡</h6>
@@ -32,7 +34,6 @@
                 </tr>
               </thead>
               <tbody>
-
                 <% @group_messages.each do |group_message| %>
                 <tr>
                   <td><%= l group_message.created_at, format: :short %></td>
@@ -54,7 +55,6 @@
                       </p>
                       </i>
                     <%=group_message.checks.count%>人既読
-                  
                   <!--------------------------------------------------------->
                   <%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
                   <%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-sm btn-outline-danger" ,method: :delete %></td>

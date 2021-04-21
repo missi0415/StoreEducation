@@ -1,25 +1,15 @@
-<div class="container-fluid">
+<div class="container-field">
   <div class="row" >
-    <div class = "col-lg-2 sidebar">
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
       <div class="page-title">
         <i class="fas fa-address-card "> プロフィール</i>
       </div>
       <%= render "sideber", members: @members %>
     </div>
-    <div class = "col-lg-10">
-      <!--エラーメッセージ-->
-        <% if flash[:error].present? %>
-          <% flash[:error].each do |e| %>
-            <div class="alert alert-danger mx-auto alert-dismissible fade show" id="alert1" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-            </button>
-              <p><%= e %></p>
-            </div>
-          <% end %>
-        <% end %>
-      <!--エラーメッセージ-->
-      
+    <!--sidebar-------------------------->
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+    <!--card----------------------------------->
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
       <div class = "row">
         <div class = "col-lg-6">
           <div class="card shadow rounded-start mt-3"style="height: 18rem;" >

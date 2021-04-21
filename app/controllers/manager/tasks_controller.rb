@@ -21,7 +21,7 @@ class Manager::TasksController < ApplicationController
   def create
     @task_new = Task.new(task_params)
     if @task_new.save 
-      flash[:notice] = '課題の追加が完了しました'
+      flash[:success] = '課題の追加が完了しました'
       redirect_back(fallback_location: root_path)
     else
       redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
