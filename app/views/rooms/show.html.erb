@@ -62,11 +62,10 @@
                     <% end %>
                   <% end %>
                 </div>
-              </div>
                 <%= form_for [@room, @message] do |f| %>
                 <div class="form-group form-inline">
-                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 "%>
-                  <%= f.submit "メッセージを送る",class: "btn btn-outline-primary w-25 "%>
+                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 mt-5"%>
+                  <%= f.submit "メッセージを送る",class: "btn btn-secondary w-25 mt-5"%>
                 </div>
                 <% end %>
           </div>
@@ -111,8 +110,8 @@
                 </div>
                 <%= form_for [@room, @message] do |f| %>
                 <div class="form-group form-inline">
-                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 "%>
-                  <%= f.submit "メッセージを送る",class: "btn btn-outline-primary w-25 "%>
+                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 mt-5"%>
+                  <%= f.submit "メッセージを送る",class: "btn btn-secondary w-25 mt-5"%>
                 </div>
                 <% end %>
               </div>
