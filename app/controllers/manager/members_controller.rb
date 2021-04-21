@@ -38,6 +38,23 @@ class Manager::MembersController < ApplicationController
   
   def edit
     @member = Member.find(params[:id])
+    @group = @member.group
+    @members = @group.members
+    @member_id = @member.id
+    
+    #tasks-------------------
+    @task = Task.find_by(member_id: params[:id])
+    #education---------------
+    @education = Education.find_by(member_id: params[:id])
+    #-abilty-------------
+    @ability = Ability.find_by(member_id: params[:id])
+    #chat---------------------------
+    rooms = current_manager.rooms
+    #自分が入ってるroomの相手のidを格納する
+    @member_ids = []
+      rooms.each do |r|
+        @member_ids << r.member_id
+      end
   end
   
   #

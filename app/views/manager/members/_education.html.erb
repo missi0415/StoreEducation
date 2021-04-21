@@ -11,9 +11,8 @@
       <%= form_with model: education_new,url: manager_educations_path(education),local: true do |f| %>
       <td><%= f.text_field :title,class: "form-control",placeholder: "教育項目を入力" %></td>
       <td><%= f.text_field :body ,class: "form-control",placeholder: "補足を入力"  %></td>
-      <td><%= f.text_field :progress,class: "form-control",placeholder: "進捗率を入力(0～100)"   %></td>
         <%= f.hidden_field :member_id, value: member_id %>
-      <td><%= f.submit "教育項目追加", class: "btn btn-success" %></td>
+      <td><%= f.submit "教育項目追加", class: "btn btn-secondary form-control" %></td>
       <% end %>
     </tr>
 <% educations.each do |education| %>
@@ -22,9 +21,9 @@
       <td><%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none" %></td>
       <td><%= f.text_field :body  ,id: "education_body_#{education.id}",style: "border: none"%></td>
       <td><%= f.text_field :progress ,id: "education_progress_#{education.id}",:size=>"1px",style: "border: none" %>%</td>
-      <td><%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-success" %></td>
+      <td><%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-outline-success" %></td>
 <% end %>
-      <td><%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-danger" ,method: :delete %></td>
+      <td><%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-outline-danger" ,method: :delete %></td>
     </tr>
 <% end %>
   </tbody>

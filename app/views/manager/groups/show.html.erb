@@ -9,14 +9,14 @@
     <div class="col-md-10 members">
       <div class="row">
         <% @members.each do |member| %>
-        <div class="col-md-3 members">
+        <div class="col-md-3 mt-3 members">
         <%= link_to manager_member_path(member),data: {"turbolinks" => false} do %>
           <div class=" card shadow rounded-start w-100 h-100" >
             <div class="card-header">
               <h6 class="m-0 font-weight-bold title"><%= member.name %></h6>
             </div>  
             <div class="card-body text-center" >  
-                <%= attachment_image_tag member, :image , format: 'jpeg', fallback: "no_image.jpg" ,size: "100x100" %><br>
+                <%= attachment_image_tag member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,size: "100x100" %><br>
               
               <div clas="row">
                   <p><%= member.name_kana %></p>

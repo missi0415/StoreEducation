@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      task:
+        title: 課題項目
+        body: 課題内容

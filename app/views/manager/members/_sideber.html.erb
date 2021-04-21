@@ -1,5 +1,4 @@
 <div class="text-center">
-  
   <%= link_to "　プロフィール" ,manager_member_path(@member),"data-turbolinks": false ,class: "btn btn-primary shadow rounded fas fa-address-card " %>
   <%= link_to "　教育管理" ,manager_education_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-book-reader" %>
   <%= link_to "　課題管理" ,manager_task_path(@member),data: {"turbolinks" => false},class: "btn btn-primary shadow rounded fas fa-tasks " %>
@@ -10,7 +9,7 @@
     <% else %>
       <%= form_for Room.new do |f| %>
         <%= f.hidden_field :member_id, :value => @member.id %>
-        <%= f.submit "  メッセージ",class: "btn btn-primary shadow rounded fas fa-chart-pie" %>
+        <%= f.submit "  メッセージ",class: "btn btn-primary shadow rounded fas fa-comments" %>
       <% end %>
     <% end %>
   <!--チャット機能リンク---------------------->
@@ -18,8 +17,8 @@
 <div class="sub-title">
   <i class="fas fa-user username"> <%= @member.name %></i>
 </div>
-  <% @members.each do |member| %>
+<% @members.each do |member| %>
   <div class="nav-item">
     <%= link_to "  #{member.name}" ,manager_member_path(member),data: {"turbolinks" => false} ,class:"btn btn-sm btn-outline-primary fas fa-user text-white form-control" %>
   </div>  
-  <% end %>
+<% end %>

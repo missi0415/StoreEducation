@@ -7,13 +7,25 @@ class Manager::TasksController < ApplicationController
     @members = @group.members
     @task = Task.find_by(member_id: params[:id])
     @task_new = Task.new
+    #chat----------------------------
+    rooms = current_manager.rooms
+    #自分が入ってるroomの相手のidを格納する
+    @member_ids = []
+      rooms.each do |r|
+        @member_ids << r.member_id
+      end
+    #-------------------------------
   end
   
   
   def create
     @task_new = Task.new(task_params)
-    @task_new.save
+    if @task_new.save 
+      flash[:notice] = '課題の追加が完了しました'
       redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
+    end  
 
   end
 

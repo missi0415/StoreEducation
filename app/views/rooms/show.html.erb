@@ -1,44 +1,124 @@
-<% if member_signed_in? %>
-  <h3>マネジャーとのチャットルーム</h3>
-  <div class="chat-field">
-    <% @messages.each do |m| %>
-      <!-- メッセージがmemberによるものだったら -->
-      <% if m.is_member %>
-        <!-- メッセージを右に寄せる -->
-        <div class="right-message">
-          <%= m.content %>
+<div class="container-fluid">
+  <div class="row" >
+    <% if member_signed_in? %>
+      <div class= "col-lg-2 member-sidebar">
+      <div class="nonborder-title">
+        <i class="fas fa-address-card "> プロフィール</i>
+      </div>
+        <div class="card shadow rounded-start mt-1" style="display:inline-block;">
+          <div class="card-body text-center"  >
+            <%= attachment_image_tag current_member, :image , format: 'jpeg', fallback: "member-no-image.jpg",:height => "100" %><br>
+              <%= form_with model: @member_edit, url: member_member_path(current_member), local:true do |f| %>
+              <div class="image_wrapper">
+                <div class="item_image_btn">
+                <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
+                </div>
+                <div id="img_field" class="mt-2" onClick="$('#file').click()" >
+                  <p>画像編集</p>
+                </div>
+              </div>
+              
+              <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
+              <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
+              <%= f.text_field :phone_number,style: "border: none",class: "form-control m-1",placeholder: "電話番号を入力してください" %> 
+              <%= f.submit '変更を保存',id: "profile-update",class: "btn btn-outline-success form-control "  %>
+              <% end %>
+            <!--チャット機能リンク---------------------->
+              <% if @manager_ids.include?(@manager.id) %>
+                <%= link_to "チャットへ", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
+              <% else %>
+                <%= form_for Room.new do |f| %>
+                  <%= f.hidden_field :manager_id, :value => @manager.id,class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2" %>
+                  <%= f.submit "マネジャーDM"%>
+                <% end %>
+              <% end %>
+            <!--チャット機能リンク---------------------->              
+          </div>
+        </div>  
+    </div>
+     <div class = "col-lg-10 ">
+        <div class = "row">
+          <div class="mx-auto w-75 mt-3 ">
+            <div class="card shadow rounded-start " >
+              <div class="card-header">
+                <h6 class="m-0 font-weight-bold title">マネジャーとのメッセージルーム</h6>
+              </div>
+              <div class="card-body text-center" >      
+                <div class="chat-field">
+                  <% @messages.each do |message| %>
+                    <% if message.is_member %>
+                       <div class="right-message">
+                        <div class="message">
+                          <%= message.content %>
+                        </div>  
+                      </div>
+                    <% else %>
+                      <div class="left-message">
+                        <div class="message">
+                          <%= message.content %>
+                        </div>  
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <%= form_for [@room, @message] do |f| %>
+                <div class="form-group form-inline">
+                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 mt-5"%>
+                  <%= f.submit "メッセージを送る",class: "btn btn-secondary w-25 mt-5"%>
+                </div>
+                <% end %>
+          </div>
         </div>
-      <!-- メッセージがmanagerによるものだったら -->
-      <% else %>
-        <!-- メッセージを左に寄せる -->
-        <div class="left-message">
-          <%= m.content %>
+      </div> 
+      
+    <% elsif manager_signed_in?%>
+      <div class = "col-lg-2 sidebar">
+        <div class="page-title">
+          <i class="fas fa-comments "> メッセージ</i>
         </div>
-      <% end %>
+        <%= render "manager/members/sideber", members: @members %>
+      </div>
+      <div class = "col-lg-10 ">
+        <div class = "row">
+          <div class="mx-auto w-75 mt-3 ">
+            <div class="card shadow rounded-start " >
+              <div class="card-header">
+                <h6 class="m-0 font-weight-bold title"><%= @member.name %>とのチャットルーム</h6>
+              </div>
+              <div class="card-body text-center" >      
+                <div class="chat-field">
+                  <% @messages.each do |message| %>
+                    <!-- メッセージがmemberによるものだったら -->
+                    <% if message.is_member %>
+                      <!-- メッセージを左に寄せる -->
+                      <div class="left-message">
+                        <div class="message">
+                          <%= message.content %>
+                        </div>  
+                      </div>
+                      <!-- メッセージがmanagerによるものだったら -->
+                    <% else %>
+                      <!-- メッセージを右に寄せる -->
+                      <div class="right-message">
+                        <div class="message">
+                          <%= message.content %>
+                        </div>  
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+                <%= form_for [@room, @message] do |f| %>
+                <div class="form-group form-inline">
+                  <%= f.text_field :content ,placeholder: "メッセージを入力してください" ,class: "form-control w-75 mt-5"%>
+                  <%= f.submit "メッセージを送る",class: "btn btn-secondary w-25 mt-5"%>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div> 
     <% end %>
+        
+      </div>
+    </div>    
   </div>
-<% elsif manager_signed_in?%>
-  <h3><%= @member.name %>とのチャットルーム</h3>
-  <div class="chat-field">
-    <% @messages.each do |m| %>
-      <!-- メッセージがmemberによるものだったら -->
-      <% if m.is_member %>
-        <!-- メッセージを左に寄せる -->
-        <div class="left-message">
-          <%= m.content %>
-        </div>
-      <!-- メッセージがmanagerによるものだったら -->
-      <% else %>
-        <!-- メッセージを右に寄せる -->
-        <div class="right-message">
-          <%= m.content %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-<% end %>
-
-<%= form_for [@room, @message] do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit "メッセージを送る"%>
-<% end %>
+</div>

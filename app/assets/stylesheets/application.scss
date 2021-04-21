@@ -39,8 +39,15 @@ body{
  font-family: 'Noto Sans JP', sans-serif;
 }
 
+//背景を光らせるcssどこかで使おう
+// background-color: #a8ffff;
+//   border-radius: 10px;
+//   background: radial-gradient(#a8ffff 20%, #efffff 80%);
+
 //------------------header------------------------------
 header{
+  z-index: 10;
+  position:-webkit-sticky; position:sticky; top:0;
 .wrap {
   width: 100%;
   // max-width: 800px;
@@ -64,24 +71,7 @@ header{
   
 }
 
-// li a{
-  
-//   color: #f2f2f2;
-//   text-decoration: none;
-//   display: block;
 
-//   text-align: center;
-//   background: #0091DC;
-//   // border: 1px solid #0091DC;
-//   border-bottom: none;
-//   white-space: nowrap;
-
-   
-// }
-.active a{
-  background-color: #f2f2f2;
-  color:#0091DC;
-}
 li a {
   color: #f2f2f2;
   background: #0091DC;
@@ -93,6 +83,11 @@ li a {
   border-top: solid 2px #0091DC;
   border-left: solid 2px #0091DC;
   border-right: solid 2px #0091DC;
+ 
+}
+.active a {
+  background-color: #f2f2f2;
+  color:#0091DC;
 }
 
 li a:before {
@@ -115,33 +110,38 @@ li a:hover:before {
   width: 100%;
 }
 
-
-
-
-
 //---------------------------------
-
-
-
   .sidebar{
+
   background-color: #0091DC;
   color: #fff;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  margin-bottom: 0;
+  top: 10px;
+  z-index: 1;
    .logo{
      font-size: 20px;
    }
  
     a{
     color: #fff;
+      &:hover{
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+        line-height: 1;
+        color: blue;
+      }
       span{
-     font-size: 28px;
-   }
+        font-size: 28px;
+        text-decoration: none;
+        border: none;
+      }
     } 
   } 
-  
   
   .row{
     background-color: #0091DC; 
@@ -191,9 +191,10 @@ li a:hover:before {
   
   .card-header{
   font:  2em "Fira Sans", sans-serif;
-  color: #008cff;
-  background-color: #e9ebfc;
+  color: #0091DC;
+  background-color: #f2f2f2;
   border-left: 5px solid #0091DC;
+  
   }
   img{
     width: auto;
@@ -201,14 +202,18 @@ li a:hover:before {
   .card-body{
   background-color: #fff;
   width: 100%;
+  border-left: 5px solid #0091DC;
   }
 }
 //---------------card-----------------------
 //---------------sidebar-----------------------
 
+
 .sidebar{
   background-color: #0091DC;
   color: #fff;
+  z-index: 10;
+  position:-webkit-sticky; position:sticky; top:62px;
   .page-title{
     border-bottom: solid;
     padding : 5px; 
@@ -227,7 +232,7 @@ li a:hover:before {
     border-bottom: solid;
   }
   .nonborder-title{
-    font-size: 15px;
+    font-size: 20px;
     padding : 5px;
     text-align: center;
     margin: 0 auto;
@@ -254,22 +259,23 @@ li a:hover:before {
 //---------------sidebar-----------------------
 //---------------member-sidebar----------------
 .member-sidebar{
-  background-color: #008cff;
-  .page-title{
-
-    padding : 20px; 
+  background-color: #0091DC;
+  border: none;
+    .page-title{
+    border-bottom: solid;
+    padding : 5px; 
     text-align: center;
     margin: 0 auto;
-    font-size: 25px;
-    border-color: #fff;
+    font-size: 20px;
     color: #fff;
+    border-color: #fff;
   }
   .nonborder-title{
-    font-size: 25px;
-    padding : 20px; 
+    padding : 5px; 
     text-align: center;
     margin: 0 auto;
-    font-size: px;
+    font-size: 20px;
+    color: #fff;
     border-color: #fff;
     
   }
@@ -290,15 +296,15 @@ li a:hover:before {
 
 }
 .card{
-  border: 7px solid #008cff;
-  position: absolute;
-  top: 0;
-  left: 0;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
   .card-header{
   font:  1.5em "Fira Sans", sans-serif;
   font-size: 2em;
   color: #008cff;
   background-color: #F8F9FC;
+  
   
   }
   // img{
@@ -310,8 +316,8 @@ li a:hover:before {
   }
 }
 
-//---------------member-card------------------
 }
+//---------------member-card------------------
 //---------------member-sidebar----------------
 
 .item_image_btn {
@@ -321,8 +327,9 @@ li a:hover:before {
 #img_field {
   font-size: 15px;
   margin: 0 auto;
-  color: white;
-  background-color: #6C757D;
+  color: #28a745;
+  background-color: #fff;
+  border: solid 1px #28a745;
   border-radius: 5px;
   width: 100%;
   height: 40px;
@@ -343,7 +350,7 @@ li a:hover:before {
     #img_field.disabled:focus, #img_field[disabled]:focus, fieldset[disabled] #img_field:focus,
     #img_field.disabled.focus, #img_field[disabled].focus, fieldset[disabled] #img_field.focus
     {
-    background: #495057; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    background: #28a745; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     }
      
@@ -440,9 +447,72 @@ textarea {
 //チャット機能------------------
 .left-message{
   text-align: left;
+  margin: 7px 0 7px 0;
+  .message{
+    max-width: 60%;
+    width: auto;
+    margin-right: auto;
+    background-color: #e5e5e5;
+    display: inline-block;
+    border-radius: 17px;
+    padding: 0 10px 0px 10px;
+    color:#000;
+    font-size: 17px;
+  }
 }
 
 .right-message{
   text-align: right;
+  margin: 7px 0 7px 0;
+  .message{
+    max-width: 60%;
+    width: auto;
+    margin-left: auto;
+    background-color: rgba(0,145,220,0.7);
+    display: inline-block;
+    border-radius: 17px;
+    padding: 0 10px 0px 10px;
+    color:#fff;
+    font-size: 17px;
+  }
 }
 //チャット機能------------------
+.profilre{
+  border: none;
+  max-height: 100%;
+}
+.profilre-left{
+  width: 50%;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+}
+.profilre-right{
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  max-height: 100%;
+  p {
+    margin: 5px 5px;
+    font-size: 1em;
+  }
+  
+}
+
+/* inputのすぐ隣に配置するメッセージ要素 */
+.error-message {
+  font-size: 12px;
+  color: #ff7676;
+  display: none; /* 非表示に */
+}
+/* :invalid時だけ隣の要素を表示 */
+input:invalid + .error-message  {
+  display: block;
+}
+input:invalid {
+  border: solid 1px red;
+}
+div.field_with_errors {
+background-color: red;
+padding: 2px;
+}
