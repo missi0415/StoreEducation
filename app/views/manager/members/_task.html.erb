@@ -14,8 +14,8 @@
   </thead>
   <tbody>
     <tr>
-      <%= form_with model: task_new,url: manager_tasks_path(task),local: true do |f| %>
-      <td><%= f.text_field :title,class: " " ,placeholder: "課題項目を入力" %></td>
+      <%= form_with model: task_new,url: manager_tasks_path(task),local: true , id: "form" do |f| %>
+      <td><%= f.text_field :title,class: "form-control" ,placeholder: "課題項目を入力" %></td>
       <td><%= f.text_field :body ,class: "form-control",placeholder: "補足"  %></td>
       <td><%= date_field_tag 'task[start_on]',  Date.today %></td>
       <td><%= date_field_tag 'task[end_on]', nil %></td>

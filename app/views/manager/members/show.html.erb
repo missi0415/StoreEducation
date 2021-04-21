@@ -7,24 +7,37 @@
       <%= render "sideber", members: @members %>
     </div>
     <div class = "col-lg-10">
+      <!--エラーメッセージ-->
+        <% if flash[:error].present? %>
+          <% flash[:error].each do |e| %>
+            <div class="alert alert-danger mx-auto alert-dismissible fade show" id="alert1" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+              <p><%= e %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <!--エラーメッセージ-->
+      
       <div class = "row">
         <div class = "col-lg-6">
           <div class="card shadow rounded-start mt-3"style="height: 18rem;" >
             <div class="card-header">
               <h6 class="m-0 font-weight-bold title">プロフィール</h6>
             </div>  
-            <div class="card-body text-nowrap">  
-              <div class="row member-show text-nowrap">
-                <div class="col-md-6 text-center">
-                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,:height => '200' %><br>
+            <div class="card-body text-nowrap ">  
+              <div class="profilre">
+                <div class="profilre-left">
+                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,:height => '150' %><br>
                 </div>
-                <div class="col-md-6">
-                  <%= @member.name %><br>
-                  <%= @member.name_kana %><br>
-                  <%= @member.email %><br>
-                  <%= @member.phone_number %><br>
-                  <%= @member.is_deleted %><br>
-                  <%= link_to "プロフィール編集" ,edit_manager_member_path ,class: "btn btn-sm btn-secondary "%><br>
+                <div class="profilre-right">
+                  <p><%= @member.name %></p>
+                  <p><%= @member.name_kana %></p>
+                  <p><%= @member.email %></p>
+                  <p><%= @member.phone_number %></p>
+                  <p><%= @member.is_deleted %></p>
+                  <p><%= link_to "プロフィール編集" ,edit_manager_member_path ,class: "btn btn-sm btn-outline-success "%></p>
                 </div>  
               </div>
             </div>  

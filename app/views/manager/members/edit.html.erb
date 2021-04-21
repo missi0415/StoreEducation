@@ -1,40 +1,55 @@
-<h2>manager/member#edit</h2>
-<div class="mx-auto w-50">
-  <div class="row m-3">
-    <p class="col-md-3"><%#= link_to "戻る", manager_member_path(@member), class: "fas fa-arrow-circle-left btn btn-lg" %></p>
-    <h2 class="text-center col-md-9">登録情報編集</h2>
+<div class="container-fluid">
+  <div class="row" >
+    <div class = "col-lg-2 sidebar">
+      <div class="page-title">
+        <i class="fas fa-address-card "> プロフィール編集</i>
+      </div>
+      <%= render "sideber", members: @members %>
+    </div>
+ <!--card----------------------------->
+      <div class="col-lg-10 ">
+        <div class="row">
+          <div class="mx-auto w-50">
+            <div class="card shadow rounded-start mt-3" >
+              <div class="card-header">
+                <h6 class="m-0 font-weight-bold title"><%=@member.name %>のプロフィール編集</h6>
+              </div>
+              <div class="card-body text-center">      
+                <%= form_with model: @member, url: manager_member_path, local: true , method: :patch do |f| %>
+                  <div class="form-group">
+                   <%= f.attachment_field :image %>
+                    <%= f.submit '画像投稿' %>
+                  <div class="form-group"><br />
+                    <%= f.label :name ,"名前" %><br />
+                    <%= f.text_field :name, autofocus: true, class: "form-control" ,placeholder: "変更する名前を入力してください" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :name_kana ,"ふりがな" %><br />
+                    <%= f.text_field :name_kana, autofocus: true, class: "form-control", placeholder: "変更するふりがなを入力してください" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :email, "メールアドレス" %><br />
+                    <%= f.email_field :email, class: "form-control", placeholder: "変更するメールアドレスを入力してください"  %>
+                  </div>
+            
+                  <div class="form-group">
+                    <%= f.label :phone_number ,"電話番号" %><br />
+                    <%= f.text_field :phone_number, class: "form-control", placeholder: "変更する電話番号を入力してください"   %>
+                  </div>
+                  <div class="row mb-3">
+                  <%= f.label :is_deleted, "会員ステータス", class: "col-md-4"  %>
+                  <%#= f.radio_button :is_deleted, false, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span class="mr-5">有効</span>
+                  <%#= f.radio_button :is_deleted, true, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span>退会</span>
+                  </div>
+              
+                  <div class="form-group">
+                    <%= f.submit "変更内容を保存", class: "btn btn-outline-success" %>
+                  </div>
+                <% end  %>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
   </div>
-
-  <%= form_with model: @member, url: manager_member_path, local: true , method: :patch do |f| %>
-    <%#= bootstrap_devise_error_messages! %>
-    <div class="form-inline mb-3">
-    <div class="form-inline mb-3">
-       <%= f.attachment_field :image %>
-        <%= f.submit '画像投稿' %>
-      <label class="mr-4">名前　</label>
-      <div class="form-group">
-        <%= f.text_field :name, autofocus: true, placeholder: "姓", class: "form-control mr-3" %>
-      </div>
-      <div class="form-group">
-        <%= f.text_field :name_kana, autofocus: true, placeholder: "姓", class: "form-control mr-3" %>
-      </div>
-    <div class="form-group">
-      <%= f.label "メールアドレス" %><br />
-      <%= f.email_field :email, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "電話番号" %><br />
-      <%= f.text_field :phone_number, class: 'form-control' %>
-    </div>
-    <div class="row mb-3">
-    <%= f.label :is_deleted, "会員ステータス", class: "col-md-4"  %>
-    <%#= f.radio_button :is_deleted, false, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span class="mr-5">有効</span>
-    <%#= f.radio_button :is_deleted, true, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span>退会</span>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit "変更内容を保存", class: "btn btn-block btn-success" %>
-
-    </div>
-  <% end  %>

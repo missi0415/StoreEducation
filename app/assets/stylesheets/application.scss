@@ -39,8 +39,15 @@ body{
  font-family: 'Noto Sans JP', sans-serif;
 }
 
+//背景を光らせるcssどこかで使おう
+// background-color: #a8ffff;
+//   border-radius: 10px;
+//   background: radial-gradient(#a8ffff 20%, #efffff 80%);
+
 //------------------header------------------------------
 header{
+  z-index: 10;
+  position:-webkit-sticky; position:sticky; top:0;
 .wrap {
   width: 100%;
   // max-width: 800px;
@@ -64,10 +71,7 @@ header{
   
 }
 
-.active a{
-  background-color: #f2f2f2;
-  color:#0091DC;
-}
+
 li a {
   color: #f2f2f2;
   background: #0091DC;
@@ -79,6 +83,11 @@ li a {
   border-top: solid 2px #0091DC;
   border-left: solid 2px #0091DC;
   border-right: solid 2px #0091DC;
+ 
+}
+.active a {
+  background-color: #f2f2f2;
+  color:#0091DC;
 }
 
 li a:before {
@@ -102,10 +111,8 @@ li a:hover:before {
 }
 
 //---------------------------------
-
-
-
   .sidebar{
+
   background-color: #0091DC;
   color: #fff;
   text-align: center;
@@ -122,20 +129,19 @@ li a:hover:before {
  
     a{
     color: #fff;
-    &:hover{
-      text-decoration: none;
-      border-bottom: 2px solid #fff;
-      line-height: 1;
-      color: blue;
-    }
+      &:hover{
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+        line-height: 1;
+        color: blue;
+      }
       span{
-     font-size: 28px;
-     text-decoration: none;
-     border: none;
-   }
+        font-size: 28px;
+        text-decoration: none;
+        border: none;
+      }
     } 
   } 
-  
   
   .row{
     background-color: #0091DC; 
@@ -188,6 +194,7 @@ li a:hover:before {
   color: #0091DC;
   background-color: #f2f2f2;
   border-left: 5px solid #0091DC;
+  
   }
   img{
     width: auto;
@@ -201,9 +208,12 @@ li a:hover:before {
 //---------------card-----------------------
 //---------------sidebar-----------------------
 
+
 .sidebar{
   background-color: #0091DC;
   color: #fff;
+  z-index: 10;
+  position:-webkit-sticky; position:sticky; top:62px;
   .page-title{
     border-bottom: solid;
     padding : 5px; 
@@ -467,3 +477,42 @@ textarea {
   }
 }
 //チャット機能------------------
+.profilre{
+  border: none;
+  max-height: 100%;
+}
+.profilre-left{
+  width: 50%;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+}
+.profilre-right{
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  max-height: 100%;
+  p {
+    margin: 5px 5px;
+    font-size: 1em;
+  }
+  
+}
+
+/* inputのすぐ隣に配置するメッセージ要素 */
+.error-message {
+  font-size: 12px;
+  color: #ff7676;
+  display: none; /* 非表示に */
+}
+/* :invalid時だけ隣の要素を表示 */
+input:invalid + .error-message  {
+  display: block;
+}
+input:invalid {
+  border: solid 1px red;
+}
+div.field_with_errors {
+background-color: red;
+padding: 2px;
+}
