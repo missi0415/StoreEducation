@@ -25,18 +25,31 @@
   border-radius: 5px;
 }
 
-.alert {
-  text-align: center;
-  font-weight: bold;
-  color: #606060;
-  border: 1px solid #FF0000;
-  background-color: #ffdbed;
-  border-radius: 5px;
-  padding: 0;
-}
+// .alert {
+//   text-align: center;
+//   font-weight: bold;
+//   color: #606060;
+//   border: 1px solid #FF0000;
+//   background-color: #ffdbed;
+//   border-radius: 5px;
+//   padding: 0;
+// }
 body{
  background-color: #f2f2f2;
  font-family: 'Noto Sans JP', sans-serif;
+}
+// .wrapper{
+//     min-height: 100vh;
+//     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+// }
+
+footer{
+  width: 100%;
+//     background-color: #efffff;
+  text-align: center;
+//     padding: 30px 0;
+  //position: absolute;/*←絶対位置*/
+  //bottom: 0; /*下に固定*/
 }
 
 //背景を光らせるcssどこかで使おう
@@ -201,19 +214,29 @@ li a:hover:before {
   }
   .card-body{
   background-color: #fff;
+  // border-left: 5px solid #0091DC;
+  }
+  .card-body-board{
+  background-color: #f2f2f2;
   width: 100%;
+  padding: 5px 15px 5px 15px;
+  // border-left: 5px solid #0091DC;
+  }
+    .card-body-m{
+  border-top: solid 2px #f2f2f2;
+  background-color: #fff;
   border-left: 5px solid #0091DC;
+  padding: 5px;
   }
 }
 //---------------card-----------------------
-//---------------sidebar-----------------------
-
+//---------------manager-sidebar-----------------------
 
 .sidebar{
   background-color: #0091DC;
   color: #fff;
   z-index: 10;
-  position:-webkit-sticky; position:sticky; top:62px;
+  position:fixed;left:0; top:61px;height: 100%;
   .page-title{
     border-bottom: solid;
     padding : 5px; 
@@ -261,6 +284,8 @@ li a:hover:before {
 .member-sidebar{
   background-color: #0091DC;
   border: none;
+  z-index: 10;
+  position:fixed; top:61px;height: 100%;
     .page-title{
     border-bottom: solid;
     padding : 5px; 
@@ -290,9 +315,18 @@ li a:hover:before {
     
   }
 //---------------member-card-----------------------
-
+.chart-size{
+  height: 486px;
+  width: 486px;
+  width: 100%;
+  max-width: 486px;
+  height: auto;
+}
 #myChart{
-  font-size: 25px;
+  font-size: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 
 }
 .card{
@@ -311,9 +345,9 @@ li a:hover:before {
   //   height: auto;
   // }
   .card-body{
-  background-color: #fff;
-  
+    background-color: #fff;
   }
+
 }
 
 }
@@ -422,12 +456,15 @@ li a:hover:before {
    color: #b7b7b7;  
 }
 
-
 textarea {
   resize: vertical;
-  width: 600px;
+  width: 100%;
   height: 100%;
 }
+textarea#auto-resize{
+  resize: vertical;
+}
+
 
 .form-custom-group{
     width: auto;
@@ -515,4 +552,9 @@ input:invalid {
 div.field_with_errors {
 background-color: red;
 padding: 2px;
+}
+
+.maxWidth {
+       max-width:1440px;
+       margin: 0 auto;
 }

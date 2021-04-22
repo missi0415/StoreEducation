@@ -1,0 +1,18 @@
+<!--エラーメッセージ-->
+  <% if flash[:error].present? %>
+    <% flash[:error].each do |e| %>
+      <div class="alert alert-danger mx-auto alert-dismissible fade show" id="alert1" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+      </button>
+        <p><%= e %></p>
+      </div>
+    <% end %>
+<% else %>  
+<!--エラーメッセージ-->
+<% flash.each do |key, value| %>
+      <% key = "info" if key == "notice" %>
+      <% key = "danger"  if key == "alert" %>
+      <%= content_tag :div, value, class: "alert alert-#{key}"%>
+<% end %>
+<% end %>

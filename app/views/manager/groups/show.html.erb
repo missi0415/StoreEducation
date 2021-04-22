@@ -1,12 +1,15 @@
-<div class="container-fluid">
+
   <div class="row" >
-    <div class = "col-md-2 sidebar">
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
         <div class="page-title">
           <i  class="fas fa-users"> メンバー一覧</i>
         </div>
           <%= link_to "　メンバー追加", new_member_registration_path(group_id: @group.id), class: "btn btn-primary shadow rounded fas fa-user-plus"  %>
     </div>
-    <div class="col-md-10 members">
+    <!--sidebar-------------------------->
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+    <!--card----------------------------------->
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
       <div class="row">
         <% @members.each do |member| %>
         <div class="col-md-3 mt-3 members">
@@ -32,4 +35,3 @@
       </div>
     </div>  
   </div>
-</div>

@@ -14,11 +14,10 @@
   </head>
 
   <body>
-    
     <%= render "layouts/header" %>
-    <%= render "layouts/flash" %>
-
+    <div class="container-field maxWidth">
         <%= yield %>
+    </div>    
     <%= render "layouts/footer" %>
   </body>
 </html>

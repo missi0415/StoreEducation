@@ -1,7 +1,7 @@
-<div class="container-fluid">
+
   <div class="row" >
     <% if member_signed_in? %>
-      <div class= "col-lg-2 member-sidebar">
+      <div class= "col-lg-2 col-md-2 col-sm-2 col-2 member-sidebar">
       <div class="nonborder-title">
         <i class="fas fa-address-card "> プロフィール</i>
       </div>
@@ -25,18 +25,20 @@
               <% end %>
             <!--チャット機能リンク---------------------->
               <% if @manager_ids.include?(@manager.id) %>
-                <%= link_to "チャットへ", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
+                <%= link_to "  マネジャーDM", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
               <% else %>
                 <%= form_for Room.new do |f| %>
-                  <%= f.hidden_field :manager_id, :value => @manager.id,class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2" %>
-                  <%= f.submit "マネジャーDM"%>
+                  <%= f.hidden_field :manager_id, :value => @manager.id %>
+                  <%= f.submit "  マネジャーDM",class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2"%>
                 <% end %>
               <% end %>
             <!--チャット機能リンク---------------------->              
           </div>
         </div>  
     </div>
-     <div class = "col-lg-10 ">
+    <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+    <!--card----------------------------------->
+    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
         <div class = "row">
           <div class="mx-auto w-75 mt-3 ">
             <div class="card shadow rounded-start " >
@@ -72,13 +74,16 @@
       </div> 
       
     <% elsif manager_signed_in?%>
-      <div class = "col-lg-2 sidebar">
+      <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
         <div class="page-title">
           <i class="fas fa-comments "> メッセージ</i>
         </div>
         <%= render "manager/members/sideber", members: @members %>
       </div>
-      <div class = "col-lg-10 ">
+      <!--sidebar-------------------------->
+      <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+      <!--card----------------------------------->
+      <div class="col-lg-10 col-md-10 col-sm-10 col-10">
         <div class = "row">
           <div class="mx-auto w-75 mt-3 ">
             <div class="card shadow rounded-start " >
@@ -121,4 +126,3 @@
       </div>
     </div>    
   </div>
-</div>

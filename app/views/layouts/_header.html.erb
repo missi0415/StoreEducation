@@ -35,14 +35,8 @@
       <li><%= link_to "　top", "",data: {"turbolinks" => false}, class: " fas fa-download " %></li>
       <% end %> 
       </ul>
-        
-      <div class="row mx-auto ">
-        <% flash.each do |key, value| %>
-          <div class="<%= key %> w-100" role="alert">
-            <%= value %>
-          </div>
-        <% end %>
- 
+    <%= render "layouts/flash" %>
+    <%= render "layouts/errors"%>
     </div>
   </div>
 </div>    

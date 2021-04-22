@@ -1,84 +1,63 @@
-<div class="container-fluid">
+
   <div class="row" >
-    <div class = "col-lg-2 sidebar">
+    <div class = "col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
       <div class="page-title">
         <i class="fas fa-address-card "> プロフィール</i>
       </div>
       <%= render "sideber", members: @members %>
     </div>
-    <div class = "col-lg-10">
-      <!--エラーメッセージ-->
-        <% if flash[:error].present? %>
-          <% flash[:error].each do |e| %>
-            <div class="alert alert-danger mx-auto alert-dismissible fade show" id="alert1" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-            </button>
-              <p><%= e %></p>
-            </div>
-          <% end %>
-        <% end %>
-      <!--エラーメッセージ-->
-      
-      <div class = "row">
-        <div class = "col-lg-6">
-          <div class="card shadow rounded-start mt-3"style="height: 18rem;" >
+    <!--sidebar-------------------------->
+    <div class = "col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2"></div>
+    <!--card----------------------------------->
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+        <div class="row">
+          <div class="card shadow rounded-start m-3" style="width: 100%" >
             <div class="card-header">
               <h6 class="m-0 font-weight-bold title">プロフィール</h6>
             </div>  
-            <div class="card-body text-nowrap ">  
+            <div class="card-body ">
               <div class="profilre">
                 <div class="profilre-left">
-                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,:height => '150' %><br>
+                  <%= attachment_image_tag @member, :image , format: 'jpeg', fallback: "member-no-image.jpg" ,:height => '200' %><br>
+                  <h5><%= @member.name %></h5>
+                  <h5><%= @member.name_kana %><h5>
+                  <h5><%= @member.email %><h5>
+                  <h5><%= @member.phone_number %><h5>
+                  <h5><%= @member.is_deleted %><h5>
+                  <h5><%= link_to "プロフィール編集" ,edit_manager_member_path ,class: "btn btn-sm btn-outline-success "%></p>
                 </div>
                 <div class="profilre-right">
-                  <p><%= @member.name %></p>
-                  <p><%= @member.name_kana %></p>
-                  <p><%= @member.email %></p>
-                  <p><%= @member.phone_number %></p>
-                  <p><%= @member.is_deleted %></p>
-                  <p><%= link_to "プロフィール編集" ,edit_manager_member_path ,class: "btn btn-sm btn-outline-success "%></p>
+                  <div class="chart-size">
+                    <canvas id="myChart" width="100%" height="100%"></canvas>
+                  </div>
                 </div>  
               </div>
             </div>  
           </div>
+        </div>
+        <div class="row">
           <%= render "ability"%>
         </div>
-        <div class="col-lg-6">
-          <div class="card shadow rounded-start mt-3" >
-            <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">能力ステータス</h6>
-            </div>
-              <div class="card-body ">
-                <canvas id="myChart" width="100%" height="100%"></canvas>
-              </div>
-          </div>
-        </div>
-      </div>  
       <div class="row">
         <div class="card shadow rounded-start m-3" style="width: 100%">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Education</h6>
+            <h6 class="m-0 font-weight-bold title">教育管理</h6>
           </div>  
-          <div class="card-body" >  
+          <div class="card-body-board" >  
             <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
           </div>
         </div>  
+        <div class="card shadow rounded-start m-3" style="width: 100%">
+          <div class="card-header">
+            <h6 class="m-0 font-weight-bold title">課題管理</h6>
+          </div>  
+          <div class="card-body-board ">  
+            <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+          <%= paginate @tasks %>
+        </div>
       </div>
-    </div>  
-    <div class="card shadow rounded-start m-3" style="width: 100%">
-      <div class="card-header">
-        <h6 class="m-0 font-weight-bold title">Task</h6>
-      </div>  
-      <div class="card-body ">  
-        <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
-      <%= paginate @tasks %>
-      </div>
-    </div>  
     </div>
   </div>
-</div>
-</div>
 
 
     <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>
