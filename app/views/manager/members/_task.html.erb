@@ -1,44 +1,31 @@
-<div class="table-responsive overflow-x: auto;">
-<table class="table text-nowrap">
-  <thead>
-    <tr>
-      <th>課題</th>
-      <th>補足</th>
-      <th>開始日</th>
-      <th>期日</th>
-      <th>進捗率</th>
-      <th>メンバーコメント</th>
-      <th>メンバー完了チェック</th>
-      <th>マネジャー確認</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <%= form_with model: task_new,url: manager_tasks_path(task),local: true , id: "form" do |f| %>
-      <td><%= f.text_field :title,class: "form-control" ,placeholder: "課題項目を入力" %></td>
-      <td><%= f.text_field :body ,class: "form-control",placeholder: "補足"  %></td>
-      <td><%= date_field_tag 'task[start_on]',  Date.today %></td>
-      <td><%= date_field_tag 'task[end_on]', nil %></td>
-        <%= f.hidden_field :member_id, value: member_id %>
-      <td><%= f.submit "課題項目追加", class: " form-control btn btn-secondary" %></td>
+<%= form_with model: task_new,url: manager_tasks_path(task),local: true , id: "form" do |f| %>
+    <div class="form-inline">
+      <%= f.label :start_on, "開始日", class: "text-secondary"%>
+      <%= date_field_tag 'task[start_on]',  Date.today ,class: "form-control" %>
+      <%=f.label :end_on,"終了日" , class: "text-secondary" %>
+      <%= date_field_tag 'task[end_on]', nil ,class: "form-control"%>
+    </div>
+    <div class="form-inline mt-1">
+      <%= f.text_field :title,class: "form-control w-25" ,placeholder: "課題項目を入力してください" %>
+      <%= f.text_area :body ,class: "form-control w-50",id: "auto-resize",placeholder: "課題内容を入力してください"  %>
+      <%= f.hidden_field :member_id, value: member_id %>
+      <%= f.submit "課題項目追加", class: " form-control w-25 btn btn-secondary" %>
+    </div>
       <% end %>
-    </tr>
 <% tasks.each do |task| %>
-<%= form_with model: task ,url: manager_task_path(task),local: true do |f| %>
-    <tr>
-      <td><%= f.text_field :title ,id: "task_title_#{task.id}",style: "border: none" %></td>
-      <td><%= f.text_field :body  ,id: "task_body_#{task.id}",style: "border: none"%></td>
-      <td><%= f.date_field :start_on ,id: "task_start_on_#{task.id}",style: "border: none" %></td>
-      <td><%= f.date_field :end_on ,id: "task_end_on_#{task.id}",style: "border: none" %></td>
-      <td><%= f.text_field :progress  ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
-      <td><%= task.member_body %></td>
-      <td><%= task.member_status %></td>
-      <td><%= f.select :manager_status,Task.manager_statuses.keys,id: "task_manager_statuse_#{task.id}",style: "border: none"%></td>
-      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-outline-success" %></td>
-<% end %>
-      <td><%= link_to "削除",manager_task_path(task),id: "task_delete_#{task.id}", class: "btn btn-outline-danger" ,method: :delete %></td>
+  <%= form_with model: task ,url: manager_task_path(task),local: true do |f| %>
+    <div class="card-body-m shadow-lg rounded m-4 ">
+      <div class="form-inline">  
+        <td><%= f.text_field :title ,id: "task_title_#{task.id}",style: "border: none" %></td>
+        <td><%= f.text_field :body  ,id: "task_body_#{task.id}",style: "border: none"%></td>
+        <td><%= f.date_field :start_on ,id: "task_start_on_#{task.id}",style: "border: none" %></td>
+        <td><%= f.date_field :end_on ,id: "task_end_on_#{task.id}",style: "border: none" %></td>
+        <td><%= f.text_field :progress  ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
+        <td><%= task.member_body %></td>
+        <td><%= task.member_status %></td>
+        <td><%= f.select :manager_status,Task.manager_statuses.keys,id: "task_manager_statuse_#{task.id}",style: "border: none"%></td>
+        <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-outline-success" %></td>
+  <% end %>
+        <td><%= link_to "削除",manager_task_path(task),id: "task_delete_#{task.id}", class: "btn btn-outline-danger" ,method: :delete %></td>
     </tr>
 <% end %> 
-  </tbody>
-</table>
-</div>

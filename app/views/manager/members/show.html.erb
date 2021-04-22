@@ -48,26 +48,23 @@
       <div class="row">
         <div class="card shadow rounded-start m-3" style="width: 100%">
           <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">Education</h6>
+            <h6 class="m-0 font-weight-bold title">教育管理</h6>
           </div>  
           <div class="card-body" >  
             <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
           </div>
         </div>  
+        <div class="card shadow rounded-start m-3" style="width: 100%">
+          <div class="card-header">
+            <h6 class="m-0 font-weight-bold title">課題管理</h6>
+          </div>  
+          <div class="card-body ">  
+            <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+          <%= paginate @tasks %>
+        </div>
       </div>
-    </div>  
-    <div class="card shadow rounded-start m-3" style="width: 100%">
-      <div class="card-header">
-        <h6 class="m-0 font-weight-bold title">Task</h6>
-      </div>  
-      <div class="card-body ">  
-        <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
-      <%= paginate @tasks %>
-      </div>
-    </div>  
     </div>
   </div>
-</div>
 </div>
 
 

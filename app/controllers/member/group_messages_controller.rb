@@ -14,8 +14,8 @@ class Member::GroupMessagesController < ApplicationController
   end
   
   def create
-    @group_message_new = GroupMessage.new(group_message_params)
     @group_messages = current_member.group.group_messages
+    @group_message_new = GroupMessage.new(group_message_params)
     if @group_message_new.save
       redirect_back(fallback_location: root_path)
     else

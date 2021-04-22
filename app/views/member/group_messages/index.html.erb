@@ -25,81 +25,78 @@
               <% end %>
             <!--チャット機能リンク---------------------->
               <% if @manager_ids.include?(@manager.id) %>
-                <%= link_to "チャットへ", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
+                <%= link_to "  マネジャーDM", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
               <% else %>
                 <%= form_for Room.new do |f| %>
-                  <%= f.hidden_field :manager_id, :value => @manager.id,class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2" %>
-                  <%= f.submit "マネジャーDM"%>
+                  <%= f.hidden_field :manager_id, :value => @manager.id%>
+                  <%= f.submit "マネジャーDM" ,class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2" %>
                 <% end %>
               <% end %>
             <!--チャット機能リンク---------------------->              
           </div>
-        </div>  
+        </div>
+        <div class="page-title">
+        <i class="fas fa-paste">店舗連絡投稿</i>
+        </div>      
+        <%= form_with model: @group_message_new,url: member_group_messages_path(@group_message),local: true do |f| %>
+          <%= f.text_field :title,class: "form-control mt-1",placeholder: "タイトルを入力してください" %>
+          <%= f.text_area :body ,class: "mt-1 form-control",id: "auto-resize" , placeholder: "内容を入力してください" %>
+          <%= f.hidden_field :member_id, value: @current_member.id %>
+          <%= f.hidden_field :group_id, value: @current_member.group.id %>
+          <%= f.submit "連絡事項追加", class: "btn btn-secondary form-control mt-1" %>
+        <% end %>
     </div>
     <!--sidebar-------------------------->
     <div class = "col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4"></div>
     <!--card----------------------------------->
     <div class="col-xl-10 col-lg-9 col-md-9 col-sm-8 col-xs-8">
-      <div class= "row ml-1 mt-2 ml-2"> 
-        <div class="card shadow rounded-start"style="width: 100%">
-          <div class="card-header">
-            <h6 class="m-0 font-weight-bold title">店舗連絡</h6>
-          </div>  
-          <div class="card-body"> 
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>既読チェック</th>
-                  <th>投稿日</th>
-                  <th>投稿者</th>
-                  <th>タイトル</th>
-                  <th>内容</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                <%= form_with model: @group_message_new,url: member_group_messages_path(@group_message),local: true do |f| %>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><%= f.text_field :title, class: "form-control"  %></td>
-                  <td><%= f.text_area :body, class: "form-control"  %></td>
-                    <%= f.hidden_field :member_id, value: @current_member.id %>
-                    <%= f.hidden_field :group_id, value: @current_member.group.id %>
-                  <td><%= f.submit "連絡事項追加", class: "btn btn-success" %></td>
-                  <% end %>
-                </tr>
-                <% @group_messages.each do |group_message| %>
-                <tr>
-                  <!--チェック機能-------------------->
-                  <td>
-                    <div id="check_buttons_<%= group_message.id %>">
-                    <%= render "check" ,group_message: group_message%> 
+      <div class="card shadow rounded-start">
+        <div class="card-header">
+          <h6 class="m-0 font-weight-bold title">店舗連絡</h6>
+        </div>  
+        <div class="card-body-board">
+          <% @group_messages.each do |group_message| %>
+            <%= form_with model: group_message ,url: member_group_message_path(group_message),local: true do |f| %>
+                <div class="card-body-m shadow-lg rounded m-4 ">
+                  <div class="form-inline">
+                    <% if group_message.member_id == current_member.id %>
+                      <%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none",class: "form-control form-custom-group w-25 text-primary font-weight-bold" %>
+                    <% else %>
+                      <div class=" w-25 text-primary font-weight-bold"><%= group_message.title %></div>
+                    <% end %>  
+                      <% if group_message.manager_id == nil %>
+                        <div class="font-weight-normal text text-secondary"><%= group_message.member.name %>　　</div>
+                      <% else %>
+                        <div class="font-weight-normal text text-success">マネジャー　　</div>
+                      <% end %>
+                      <%= l group_message.created_at, format: :short %>
+                  </div>
+                  <% if group_message.member_id == current_member.id %> 
+                    <div>
+                    <%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %>
                     </div>
-                  </td>  
-                  <!---------------------------------->
-                  <td style="width:5%"><%= l group_message.created_at, format: :short %></td>
-                    <% if group_message.manager_id == nil %>
-                      <td style="width:8%"><%= group_message.member.name %></td>
-                    <% else %>
-                      <td class="text text-success">マネジャー</td>
-                    <% end %>
-                    <% if group_message.member_id != current_member.id %>
-                      <td style="width:8%"><%= group_message.title%></td>
-                      <td><%= group_message.body %></td>
-                    <% else %>
-                      <%= form_with model: group_message ,url: member_group_message_path(group_message),local: true do |f| %>
-                        <td style="width:8%"><%= f.text_field :title,id: "group_message_title_#{group_message.id}" ,style: "border: none" %></td>
-                        <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,:size=>"120x2",style: "border: none"%></td>
-                        <td><%= f.submit "変更",id: "group_message_update_#{group_message.id}" , class: "btn btn-success" %></td>
-                        <td><%= link_to "削除", member_group_message_path(group_message),id: "group_message_delete_#{group_message.id}" ,class: "btn btn-danger" ,method: :delete %></td>
-                    <% end %>
-                </tr>
-                <% end %>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
+                    <div class="text-right">
+                      <div id="check_buttons_<%= group_message.id %>">
+                      <%= render "check" ,group_message: group_message%> 
+                      </div>
+                      <%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
+                      <%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-sm btn-outline-danger" ,method: :delete %></td>
+                    </div>
+                  <% else %>
+                  <div>
+                    <%= group_message.title %>
+                  </div>
+                  <div class="text-right">
+                    <div id="check_buttons_<%= group_message.id %>">
+                      <%= render "check" ,group_message: group_message%> 
+                    </div>
+                  </div>
+                <% end %>  
+                </div>
+            <% end %>
+          <% end %> 
+          
+        </div>
         </div>
       </div>  
     </div>

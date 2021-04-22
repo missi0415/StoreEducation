@@ -14,7 +14,7 @@
           <%= f.hidden_field :group_id, value: @group.id %>
           <%= f.submit "連絡事項追加", class: "btn btn-secondary form-control mt-1" %>
         <% end %>
-      </div>
+    </div>
     <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
     <!--card----------------------------------->
     <div class="col-lg-10 col-md-10 col-sm-10 col-10 mt-3">
@@ -22,8 +22,39 @@
         <div class="card-header">
           <h6 class="m-0 font-weight-bold title">店舗連絡</h6>
         </div>  
-        <div class="card-body">
-          
+        <div class="card-body-board">
+          <% @group_messages.each do |group_message| %>
+            <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
+                <div class="card-body-m shadow-lg rounded m-4 ">
+                  <div class="form-inline">
+                    <%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none",class: "form-control form-custom-group w-25 text-primary font-weight-bold" %>
+                    <% if group_message.manager_id == nil %>
+                      <div class="font-weight-normal text text-secondary"><%= group_message.member.name %>　　</div>
+                    <% else %>
+                      <div class="font-weight-normal text text-success">マネジャー　　</div>
+                    <% end %>
+                    <%= l group_message.created_at, format: :short %>
+                  </div>
+                  <div>
+                  <%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %>
+                  </div>
+                  <div class="text-right">
+                     <i class="far fa-check-square fa-2x text text-success check ">
+                    <!---------------------------------------------------------->
+                      <p>-----既読済みメンバー-----<br>
+                      <% group_message.checks.each do |check| %>
+                    	  <%= check.member.name %><br>
+                      <% end %>
+                      </p>
+                      </i>
+                    <%=group_message.checks.count%>人既読
+                  <!--------------------------------------------------------->
+                    <%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
+                    <%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-sm btn-outline-danger" ,method: :delete %></td>
+                  </div>
+                </div>
+            <% end %>
+          <% end %> 
         </div>
       </div>  
     </div>
