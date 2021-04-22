@@ -217,12 +217,13 @@ li a:hover:before {
   // border-left: 5px solid #0091DC;
   }
   .card-body-board{
-  background-color: #fff;
+  background-color: #f2f2f2;
   width: 100%;
+  padding: 5px 15px 5px 15px;
   // border-left: 5px solid #0091DC;
   }
     .card-body-m{
-  border-top: solid 1px #f2f2f2;
+  border-top: solid 2px #f2f2f2;
   background-color: #fff;
   border-left: 5px solid #0091DC;
   padding: 5px;
@@ -235,7 +236,7 @@ li a:hover:before {
   background-color: #0091DC;
   color: #fff;
   z-index: 10;
-  position:fixed; top:61px;height: 100%;
+  position:fixed;left:0; top:61px;height: 100%;
   .page-title{
     border-bottom: solid;
     padding : 5px; 
@@ -314,9 +315,18 @@ li a:hover:before {
     
   }
 //---------------member-card-----------------------
-
+.chart-size{
+  height: 486px;
+  width: 486px;
+  width: 100%;
+  max-width: 486px;
+  height: auto;
+}
 #myChart{
-  font-size: 25px;
+  font-size: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 
 }
 .card{
@@ -542,4 +552,9 @@ input:invalid {
 div.field_with_errors {
 background-color: red;
 padding: 2px;
+}
+
+.maxWidth {
+       max-width:1440px;
+       margin: 0 auto;
 }
