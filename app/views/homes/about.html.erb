@@ -1,0 +1,41 @@
+<div class="table-responsive overflow-x: auto;">
+            <table class="table text-nowrap ">
+              <thead>
+                <tr>
+                  <th>投稿日</th>
+                  <th>投稿者</th>
+                  <th>タイトル</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @group_messages.each do |group_message| %>
+                <tr>
+                  <td><%= l group_message.created_at, format: :short %></td>
+                  <% if group_message.manager_id == nil %>
+                  <td><%= group_message.member.name %></td>
+                  <% else %>
+                  <td class="text text-success">マネジャー</td>
+                  <% end %>
+                  <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
+                  <td><%= f.text_field :title ,id: "group_message_title_#{group_message.id}",style: "border: none",class: "form-control form-custom-group " %></td>
+                  <td><%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %></td>
+                  <td>
+                    <i class="far fa-check-square fa-2x text text-success check ">
+                    <!---------------------------------------------------------->
+                      <p>-----既読済みメンバー-----<br>
+                      <% group_message.checks.each do |check| %>
+                    	  <%= check.member.name %><br>
+                      <% end %>
+                      </p>
+                      </i>
+                    <%=group_message.checks.count%>人既読
+                  <!--------------------------------------------------------->
+                  <%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
+                  <%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-sm btn-outline-danger" ,method: :delete %></td>
+                  <% end %>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
