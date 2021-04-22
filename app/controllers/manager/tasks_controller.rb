@@ -37,9 +37,11 @@ class Manager::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
+      flash[:success] = '課題の更新が完了しました'
       redirect_back(fallback_location: root_path)
     else
-      render :edit
+      binding.pry
+      redirect_back(fallback_location: root_path,flash: { error: @task.errors.full_messages })
     end
   end
   

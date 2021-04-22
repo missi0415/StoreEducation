@@ -1,21 +1,21 @@
 class Manager::GroupsController < ApplicationController
   def index
-    #いまログインしているmanagerに紐付いたgroupsという配列を
     @groups = current_manager.groups
     @group = Group.new
-    #groupのFkであるmanager_idにそのページにログインしている人のIDを代入しておくという記述
     @group.manager_id = current_manager.id
-    #@abilitie_title = AbilityTitle.new
-    #@group = Group.find(params[:id])
   end
   
   def create
+    @groups = current_manager.groups
+    @group = Group.new
+    @group.manager_id = current_manager.id
     @group = Group.new(group_params)
     @group.manager_id = current_manager.id
     if @group.save
+      flash[:success] = '店舗の登録が完了しました'
       redirect_to manager_groups_path
     else
-      render:index
+      redirect_back(fallback_location: root_path,flash: { error: @group.errors.full_messages })
     end
   end
   def show
@@ -25,18 +25,17 @@ class Manager::GroupsController < ApplicationController
     @ability_titles = @group.ability_titles
     
   end
-  
-  def edit
-    @group = Group.find(params[:id])
-    
-  end
-  
+
   def update
+    @groups = current_manager.groups
+    @group = Group.new
+    @group.manager_id = current_manager.id
     @group = Group.find(params[:id])
     if @group.update(group_params)
+      flash[:success] = '店舗情報が更新されました'
       redirect_to manager_groups_path(@group)
     else
-      render :edit
+      redirect_back(fallback_location: root_path,flash: { error: @group.errors.full_messages })
     end
   end
   

@@ -21,25 +21,17 @@ class Manager::AbilitiesController < ApplicationController
   
   def create
     @ability_new = Ability.new(ability_params)
-    #@ability.member_id = @member.id
-    if @ability_new.save
+    @ability_new.save
       redirect_back(fallback_location: root_path)
-    else
-      render:show
-    end
-  end
-
-  def edit
-    @ability = Ability.find(params[:id])
-    
   end
   
   def update
     @ability = Ability.find(params[:id])
     if @ability.update(ability_params)
+      flash[:success] = '教育項目の値が更新されました'
       redirect_back(fallback_location: root_path)
     else
-      render :edit
+      redirect_back(fallback_location: root_path,flash: { error: @ability.errors.full_messages })
     end
   end
   

@@ -6,10 +6,6 @@ class RoomsController < ApplicationController
     @members = @group.members
     @message = Message.new #新規メッセージ投稿
     @messages = @room.messages #このルームのメッセージを全て取得
-    
-
-    
-    
     if member_signed_in?
       if @room.member.id == current_member.id
         @manager = @room.manager
@@ -23,8 +19,6 @@ class RoomsController < ApplicationController
         @manager_ids << r.manager_id
       end
     #-------------------------------
-        
-        
       else
         redirect_to "/"
       end
