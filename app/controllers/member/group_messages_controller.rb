@@ -17,18 +17,20 @@ class Member::GroupMessagesController < ApplicationController
     @group_messages = current_member.group.group_messages
     @group_message_new = GroupMessage.new(group_message_params)
     if @group_message_new.save
-      redirect_back(fallback_location: root_path)
+      flash[:success] = '店舗連絡の投稿が完了しました'
+       redirect_back(fallback_location: root_path)
     else
-      render:index
+      redirect_back(fallback_location: root_path,flash: { error: @group_message_new.errors.full_messages })
     end
   end
   
   def update
     @group_message = GroupMessage.find(params[:id])
     if @group_message.update(group_message_params)
-      redirect_back(fallback_location: root_path)
+      flash[:success] = '店舗連絡の更新が完了しました'
+       redirect_back(fallback_location: root_path)
     else
-      render :index
+      redirect_back(fallback_location: root_path,flash: { error: @group_message.errors.full_messages })
     end
   end
   

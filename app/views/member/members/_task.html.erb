@@ -1,31 +1,30 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>課題</th>
-      <th>補足</th>
-      <th>開始日</th>
-      <th>期日</th>
-      <th>進捗率</th>
-      <th>メンバーコメント</th>
-      <th>メンバー完了チェック</th>
-      <th>マネジャー確認</th>
-    </tr>
-  </thead>
-  <tbody>
 <% tasks.each do |task| %>
-<%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
-    <tr>
-      <td><%= task.title %></td>
-      <td><%= task.body %></td>
-      <td><%= task.start_on %></td>
-      <td><%= task.end_on %></td>
-      <td><%= f.text_field :progress ,id: "task_progress_#{task.id}",:size=>"1px",style: "border: none" %>%</td>
-      <td><%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control",placeholder: "コメントや課題でわからないポイントを入力" %></td>
-      <td><%= f.select :member_status,Task.member_statuses.keys.to_a,{},id: "task_member_status_#{task.id}",style: "border: none"%></td>
-      <td><%= task.manager_status %></td>
-      <td><%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-outline-success" %></td>
+  <%= form_with model: task ,url: member_task_path(task),local: true do |f| %>
+    <div class="card-body-m shadow rounded m-3">
+      <div class="d-flex justify-content-between">
+        <p class="w-25 text-primary font-weight-bold"><%= task.title %></p>
+        <p class="text-secondary"><%= task.start_on %>　～　<%= task.end_on %></p>
+        <p class="text-secondary">マネジャー確認:<span class="text-success"><%= task.manager_status %></span></p>
+      </div>
+        <div class=" rounded ml-3 mr-3">
+          <p class="font-weight-bold text-secondary">課題内容</p>
+          <p class=" text-secondary"><%= task.body %></p>
+        </div>
+        <div class=" rounded m-3">
+          <div class="form-inline">
+            <%= f.label :member_status,"着手状況",class: "font-weight-bold text-secondary mr-5"%>
+            <%= f.select :member_status,Task.member_statuses.keys.to_a,{},id: "task_member_status_#{task.id}",class: "form-control" %>
+          </div>
+          <div class="form-inline">
+            <%= f.label :member_body,"進捗報告",class: "font-weight-bold text-secondary mr-5"%>
+            <%= f.text_area :member_body,id: "task_member_body_#{task.id}",class: "form-control w-75 auto-resize h-4",placeholder: "進捗状況と疑問点を入力" %>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <div class=" font-weight-bold text-secondary"><%= task.progress %>%</div>
+              <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50", id: "task_progress_#{task.id}" %>
+              <%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-sm btn-outline-success" %>
+          </div> 
+        </div>  
+    </div>
+  <% end %>
 <% end %>
-    </tr>
-<% end %>
-  </tbody>
-</table>

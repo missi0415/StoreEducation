@@ -40,7 +40,6 @@ class Manager::TasksController < ApplicationController
       flash[:success] = '課題の更新が完了しました'
       redirect_back(fallback_location: root_path)
     else
-      binding.pry
       redirect_back(fallback_location: root_path,flash: { error: @task.errors.full_messages })
     end
   end
