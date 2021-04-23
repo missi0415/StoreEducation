@@ -31,10 +31,11 @@ class Member::MembersController < ApplicationController
     @education = Education.find_by(member_id: current_member.id)
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to member_members_path
+      flash[:success] = 'プロフィールの更新が完了しました'
+      redirect_back(fallback_location: root_path)
     else
-      render :index
-    end  
+      redirect_back(fallback_location: root_path,flash: { error: @member.errors.full_messages })
+    end
   end  
   
   private

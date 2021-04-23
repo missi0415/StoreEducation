@@ -1,6 +1,20 @@
 ja:
   activerecord:
     attributes:
+      group:
+        name: 店舗名
+      education:
+        title: 教育項目
+        body: 教育内容
       task:
         title: 課題項目
         body: 課題内容
+      ability_title:
+        title: 評価項目
+      ability:
+        value: 値
+      group_message:
+        title: タイトル
+        body: 内容
+        
+        

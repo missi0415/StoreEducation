@@ -1,11 +1,11 @@
 <!--エラーメッセージ-->
   <% if flash[:error].present? %>
     <% flash[:error].each do |e| %>
-      <div class="alert alert-danger mx-auto alert-dismissible fade show" id="alert1" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show" id="alert1" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">×</span>
       </button>
-        <p><%= e %></p>
+        <%= e %>
       </div>
     <% end %>
 <% else %>  

@@ -11,9 +11,10 @@ class Member::EducationsController < ApplicationController
     @education = Education.find_by(member_id: current_member.id)
     @education = Education.find(params[:id])
     if @education.update(education_params)
-      redirect_to member_members_path
+      flash[:success] = '教育項目の更新が完了しました'
+      redirect_back(fallback_location: root_path)
     else
-      render "member/members/index"
+      redirect_back(fallback_location: root_path,flash: { error: @education.errors.full_messages })
     end
   end
   

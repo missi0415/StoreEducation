@@ -21,23 +21,20 @@ class Manager::EducationsController < ApplicationController
   def create
     @education_new = Education.new(education_params)
     if @education_new.save
+      flash[:success] = '教育項目の追加が完了しました'
       redirect_back(fallback_location: root_path)
     else
-      render:show
+      redirect_back(fallback_location: root_path,flash: { error: @education_new.errors.full_messages })
     end
-  end
-
-  def edit
-    @education = Education.find(params[:id])
-    
   end
   
   def update
     @education = Education.find(params[:id])
     if @education.update(education_params)
+      flash[:success] = '教育項目の更新が完了しました'
       redirect_back(fallback_location: root_path)
     else
-      render :edit
+      redirect_back(fallback_location: root_path,flash: { error: @education.errors.full_messages })
     end
   end
   

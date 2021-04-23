@@ -15,9 +15,11 @@
 
   <body>
     <%= render "layouts/header" %>
+    <div class="footerFixed">
     <div class="container-field maxWidth">
         <%= yield %>
     </div>    
     <%= render "layouts/footer" %>
+  </div>  
   </body>
 </html>
