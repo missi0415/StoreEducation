@@ -7,25 +7,29 @@
   <% end %>
 </div>
 
+    <div class="row">
 <% educations.each do |education| %>
+      <div class="col-6 w-100">
   <%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
       <div class="card-body-m shadow-lg rounded m-4 ">
         <div class="form-inline">  
-          <%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none",class: "form-control form-custom-group w-25 text-primary font-weight-bold mt-1 mb-2" %>
-          <h6 class="w-25 font-weight-bold text-secondary mb-0"><%= education.progress %>%</h6>
+          <%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none",class: "form-control form-custom-group w-50 text-primary font-weight-bold " %>
         </div>
-        <div>
-        <%= f.text_area :body  ,id: "education_body_#{education.id}",style: "border: none",class: "auto-resize"%>
-        </div>
-        <div>
-          <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range mb-1", id: "education_progress_#{education.id}" %>
-        <div class="text-right">
-        <%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-outline-success " %>
-        <%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-outline-danger  " ,method: :delete %>
-        </div>
+          <%#= f.label :body, "教育内容",class: "font-weight-bold text-secondary" %>
+          <%= f.text_area :body  ,id: "education_body_#{education.id}",style: "border: none",class: "auto-resize"%>
+        <div class="d-flex justify-content-between">
+          <div class=" font-weight-bold text-secondary "><%= education.progress %>%</div>
+          <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50", id: "education_progress_#{education.id}" %>
+          <div>
+          <%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-sm btn-outline-success " %>
+          <%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-sm btn-outline-danger  " ,method: :delete %>
+          </div>
+        </div>  
         <% end %>
         </div>
-      </div>
+        </div>
   <% end %>
+    </div>
+  </div>  
 
 
