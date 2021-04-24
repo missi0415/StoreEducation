@@ -26,6 +26,9 @@ body{
  background-color: #f2f2f2;
  font-family: 'Noto Sans JP', sans-serif;
 }
+.top{
+  background-color: #fff;
+}
 
 .footerFixed{
     min-height: 90vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
@@ -37,7 +40,7 @@ body{
 
 footer{
   p{
-    margin: 0 ;
+    margin: 0  0 0 180px;
   }
   width: 100%;
   text-align: center;
@@ -54,7 +57,10 @@ footer{
 .maxWidth {
        max-width:1200px;
        margin: 0 auto;
-       text-align: center;
+}
+.bgc{
+  background-color: #fff;
+  width: 100%;
 }
 
 //背景を光らせるcssどこかで使おう

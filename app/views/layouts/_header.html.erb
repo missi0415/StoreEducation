@@ -31,8 +31,8 @@
       <li class="<%= "active" if (controller_path == 'member/members' && action_name == 'index')%>"><%= link_to "マイページ", member_members_path,data: {"turbolinks" => false}, class: "fas fa-address-card "  %></li>
       <li class="<%= "active" if (controller_path == 'member/group_messages' && action_name == 'index')%>"><%= link_to "店舗連絡", member_group_messages_path,data: {"turbolinks" => false}, class: " fas fa-clipboard "  %></li>
       <% else %>
-      <li><%= link_to "　About", "",data: {"turbolinks" => false}, class: " fas fa-download " %></li>
-      <li><%= link_to "　top", "",data: {"turbolinks" => false}, class: " fas fa-download " %></li>
+      <!--<li><%#= link_to "Top", "",data: {"turbolinks" => false}%></li>-->
+      <li><%= link_to "使い方", homes_about_path,data: {"turbolinks" => false}, class: " fas fa-question " %></li>
       <% end %> 
       </ul>
     <%= render "layouts/flash" %>
