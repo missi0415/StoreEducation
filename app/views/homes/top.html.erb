@@ -1,59 +1,78 @@
 <div class="top" id="main">
   <div class="fade-in">
-    <div class="jumbotron top-image" style="background-color:#336699;">
+    <div class="jumbotron top-image bgc-through" style="background-color:#336699;">
       <h1 class="display-4 text-center" style="font-size: 2.3rem; color: #fff;">
       StoreEducationへようこそ！
       </h1>
-        <p class="lead text-center pt-3 pb-3" style="color: #fff;">
+        <p class="lead text-center pt-3 pb-3" style= "color: #fff;">
           StoreEducationはあなたの店舗教育の手助けができます。
         </p>
         <p class="pt-4 text-center">
-          <a class="btn btn-secondary btn-raised btn-lg mr-3" href="/users/sign_up">
-            無料会員登録</a>
-          <a class="btn btn-secondary btn-raised btn-lg" href="/users/sign_in">ログイン</a></p>
-        </div>
-        <div class="container pt-5 pb-5 bgc">
+            <%= link_to "  新規登録" ,new_manager_registration_path ,class: "btn btn-light btn-lg fas w-25 fa-user-plus"%>
+          <%= link_to 'ゲストログイン', managers_guest_sign_in_path, method: :post,class: "btn btn-raised btn-lg h-100 btn-secondary "  %>
+        </p>
+      </div>
+      <div class=" bgc-through pt-5 pb-5"  >
           <h2 class="text-center">
-            <i class="fas fa-question-circle text-muted mr-3"></i>StoreEducationとは</h2>
-            <p class="lead text-center">飲食店店長の従業員教育を<br />手助けするサイトです。</p>
-            <div class="mt-4"></div>
-            </div>
-            <div class="pt-5 pb-5" style="background-color: #F2F2F2;">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-6">
-                    <h2 class="pb-4">
-                      <i class="fas fa-address-card text-muted mr-3">
-                      </i>プロフィール
-                    </h2>
-                      <p class="lead">
-                        従業員の長所・短所がひと目で分かります。
-                      </p>
-                  </div>
-                  <div class="col-md-6">
-                    <%= image_tag  asset_path("profile-image02.jpg"), :width=>"auto" ,:height=>"300px" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container pt-5 pb-5">
-              <div class="row">
-                <div class="col-md-6 order-md-2">
-                  <h2 class="pb-4">
-                    <i class="fas fa-store-alt text-muted mr-2"></i>
-                    複数店舗管理
-                  </h2>
-                  <p class="lead">
-                    店舗登録をすることで、
-                    複数の店舗を管理することが可能です。
-                  </p>
-                </div>
-              <div class="col-md-6 order-md-1">
-                <%= image_tag  asset_path("stores-image.jpg"), :width=>"auto" ,:height=>"250px" %>
-              </div>
+            <i class="fas fa-user-circle text-muted mr-3"></i>既に登録済みの方
+          </h2>
+        <div class=" d-flex justify-content-center"　>
+          <div class="mr-3 w-25 text-center" >
+          <p class="lead text-center text-muted ">店長の方はこちらから</p>
+          <i class="fas fa-sort-down fa-3x"></i>
+          <%= link_to "マネジャーログイン" ,new_manager_session_path,class: "btn btn-outline-light btn-lg fas w-100 fas fa-sign-in-alt"%>
+          </div>
+          <div class="ml-3 w-25 text-center" >
+          <p class="lead text-cente text-muted">従業員の方はこちらから</p>
+          <i class="fas fa-sort-down fa-3x"></i>
+          <%= link_to "メンバーログイン" ,new_manager_session_path,class: "btn btn-outline-light btn-lg fas w-100 fas fa-sign-in-alt"%>
           </div>
         </div>
-        <div class="pt-5 pb-5" style="background-color: #F2F2F2;">
+      </div>
+      <div class="bgc-through pt-5 pb-5"style="background-color: #fff;" >
+          <h2 class="text-center">
+            <i class="fas fa-question-circle text-muted mr-3"></i>StoreEducationとは
+          </h2>
+          <p class="lead text-center">飲食店店長の従業員教育を<br />手助けするサイトです。</p>
+      </div>
+      <div class="pt-5 pb-5 bgc-through">
+        <div class="container">
+          <div class="d-flex justify-content-between">
+            <div class="col-md-6">
+              <h2 class="pb-4">
+                <i class="fas fa-address-card text-muted mr-3">
+                </i>プロフィール
+              </h2>
+                <p class="lead">
+                  従業員の長所・短所がひと目で分かります。
+                </p>
+            </div>
+            <div class="col-md-6 mr-3">
+              <%= image_tag  asset_path("profile-image02.jpg"), :width=>"100%" ,:height=>"100%"%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-5 pb-5 bgc-through" style="background-color: #fff;">
+        <div class="container">
+        <div class="d-flex justify-content-between">
+          <div class="col-md-6 ">
+            <%= image_tag  asset_path("stores-image.jpg"), :width=>"100%" ,:height=>"100%" %>
+          </div>
+          <div class="col-md-6">
+            <h2 class="pb-4">
+              <i class="fas fa-store-alt text-muted mr-3"></i>
+              複数店舗管理
+            </h2>
+            <p class="lead">
+              店舗登録をすることで、
+              複数の店舗を管理することが可能です。
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+        <div class="pt-5 pb-5 bgc-through">
           <div class="container">
             <div class="row">
               <div class="col-md-6">
@@ -66,96 +85,101 @@
                 </p>
               </div>
               <div class="col-md-6">
-                <%= image_tag  asset_path("members-image.jpg"), :width=>"auto" ,:height=>"250px" %>
+                <%= image_tag  asset_path("members-image.jpg"),  :width=>"100%" ,:height=>"100%"  %>
               </div>
             </div>
           </div>
         </div>
-<div class="container pt-5">
-  <h3 class="text-center pb-4">
-    <i class="fas fa-tools text-muted mr-3"></i>
-    他にもこんな機能が
-  </h3>
-  <div class="row mb-3">
-    <div class="col-md-4 mb-3">
-      <div class="card grow">
-        <div class="card-body">
-          <h4>
-            <i class="far fa-clipboard text-muted mr-3"></i>
-              メッセージボード
-          </h4>
-          <p class="lead text-muted">
-            店舗毎に全体連絡掲示板があります。
-          </p>
+        <div class="pt-5 pb-5 bgc-through" style="background-color: #fff;">
+          <div class="container">
+            
+          <h3 class="text-center pb-4">
+            <i class="fas fa-tools text-muted mr-3"></i>
+            他にもこんな機能が
+          </h3>
+          <div class="row mb-3">
+            <div class="col-md-4 mb-3">
+              <div class="card grow shadow ">
+                <div class="card-body">
+                  <h4>
+                    <i class="far fa-clipboard text-muted mr-3"></i>
+                      メッセージボード
+                  </h4>
+                  <p class="lead text-muted">
+                    店舗毎に全体連絡掲示板があるため情報共有を容易に行うことができます。
+                  </p>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-4 mb-3">
+            <div class="card grow shadow ">
+              <div class="card-body">
+                <h4>
+                  <i class="fas fa-tasks text-muted mr-3"></i>
+                  課題管理
+                </h4>
+                <p class="lead text-muted">
+                  従業員一人一人に課題を設定することができ、進捗状況を従業員も確認することができます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card grow shadow ">
+              <div class="card-body">
+                <h4>
+                  <i class="fas fa-user-check text-muted mr-3"></i>
+                  チェック機能
+                </h4>
+                <p class="lead text-muted">
+                  全体連絡を誰が見ていて誰が見ていないのか把握することができます。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="row row-eq-height">
+          <div class="col-md-4 mb-3">
+            <div class="card grow shadow ">
+              <div class="card-body">
+                <h4>
+                  <i class="fas fa-book-reader text-muted mr-3"></i>
+                  教育管理
+                </h4>
+                <p class="lead text-muted">
+                  誰にどの教育をどれくらいしたのか記録しておくことができます。
+                  
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card grow shadow ">
+              <div class="card-body">
+                <h4><i class="far fa-comments text-muted mr-3"></i>
+                  DM
+                </h4>
+                <p class="lead text-muted">
+                  従業員と個別にメッセージのやり取りが可能です。</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card grow shadow ">
+              <div class="card-body">
+                <h4>
+                  <i class="fas fa-people-arrows text-muted mr-3"></i>
+                    コミュニケーション
+                </h4>
+                <p class="lead text-muted">
+                  従業員もアカウントを持っているので自身の教育と課題を確認できます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
       </div>
-    </div>
-  <div class="col-md-4 mb-3">
-    <div class="card grow">
-      <div class="card-body">
-        <h4>
-          <i class="fas fa-tasks text-muted mr-3"></i>
-          課題管理機能
-        </h4>
-        <p class="lead text-muted">
-          従業員一人ひとりに課題を設定することができます。</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card grow">
-      <div class="card-body">
-        <h4>
-          <i class="fas fa-user-check text-muted mr-3"></i>
-          チェック機能
-        </h4>
-        <p class="lead text-muted">
-          全体連絡を誰が見ていて誰が見ていないのか把握することができます。
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row row-eq-height">
-  <div class="col-md-4 mb-3">
-    <div class="card grow">
-      <div class="card-body">
-        <h4>
-          <i class="fas fa-book-reader text-muted mr-3"></i>
-          教育管理
-        </h4>
-        <p class="lead text-muted">
-          誰にどの教育をどれくらいしたのか記録しておくことができます。</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-3">
-    <div class="card grow">
-      <div class="card-body">
-        <h4><i class="far fa-comments text-muted mr-3"></i>
-          個別DM
-        </h4>
-        <p class="lead text-muted">
-          従業員ひとりひとりと個別でメッセージのやり取りが可能です。</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4 mb-3">
-    <div class="card grow">
-      <div class="card-body">
-        <h4>
-          <i class="fas fa-people-arrows text-muted mr-3"></i>
-            双方向コミュニケーション
-        </h4>
-        <p class="lead text-muted">
-          従業員もアカウントを持っているので自身の教育進捗と課題進捗を確認することができます。</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
   <hr />
-  <div class="container pt-5 pb-5 text-center">
+  <div class="container pt-5 pb-5 text-center" >
     <h2>
       <i class="fas fa-check-circle mr-3" style="color: #4CAF50;"></i>
       さあ、始めよう
@@ -163,12 +187,8 @@
     <p class="pt-2">
       登録に必要な時間は 1分程度 です。</p>
     <p class="pt-4">
-      <a class="btn btn-primary btn-raised btn-lg mr-3" href="/users/sign_up">
-        無料会員登録
-      </a>
-      <a class="btn btn-secondary btn-raised btn-lg" href="/users/sign_in">
-        ログイン
-      </a>
+      <%= link_to "  新規登録" ,new_manager_registration_path ,class: "btn btn-outline-light shadow btn-lg fas w-50 fa-user-plus"%>
+      <%= link_to 'ゲストログイン', managers_guest_sign_in_path, method: :post,class: "btn btn-raised shadow btn-lg w-25 h-100 btn-secondary "  %>
     </p>
   </div>
   <div style="background-color: #F2F2F2;">

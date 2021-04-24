@@ -23,15 +23,11 @@
 }
 
 body{
- background-color: #f2f2f2;
+  background-color: #f2f2f2;
  font-family: 'Noto Sans JP', sans-serif;
 }
-.top{
-  background-color: #fff;
-}
-
 .footerFixed{
-    min-height: 90vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    min-height: 95vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
     position: relative;/* ←相対位置 */
     padding-bottom: 100px; /* ←フッターの高さを指定 */
     box-sizing: border-box;
@@ -55,18 +51,78 @@ footer{
   z-index: 100;
 }
 .maxWidth {
-       max-width:1200px;
+      max-width: 1200px;
        margin: 0 auto;
+        // background-color: #f2f2f2;
 }
-.bgc{
-  background-color: #fff;
-  width: 100%;
-}
+
 
 //背景を光らせるcssどこかで使おう
 // background-color: #a8ffff;
 //   border-radius: 10px;
 //   background: radial-gradient(#a8ffff 20%, #efffff 80%);
+
+.bgc-through{
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+  .btn-light{
+    white-space: nowrap;
+    text-align: center;
+    height: 46px;
+    background-color: #fff;
+    margin: 5px 0 5px 0;
+    color : #336699;
+    padding: 15px 15px 15px 15px;
+    border: 0 none;
+    letter-spacing: 2px;
+    //border-style: outset;//;
+  }  
+
+    .btn-light:hover, .btn-light:focus, 
+    .btn-light:active, .btn-light:active:focus, .btn-light:active:hover, .btn-light:active.focus,
+    .btn-light.active, .btn-light.active:focus, .btn-light.active:hover, .btn-light.active.focus,
+    .open > .dropdown-toggle.btn-light, 
+    .open > .dropdown-toggle.btn-light:hover,
+    .open > .dropdown-toggle.btn-light:focus, 
+    .open > .dropdown-toggle.btn-light.focus,
+    .btn-light.disabled:hover, .btn-light[disabled]:hover, fieldset[disabled] .btn-light:hover,
+    .btn-light.disabled:focus, .btn-light[disabled]:focus, fieldset[disabled] .btn-light:focus,
+    .btn-light.disabled.focus, .btn-light[disabled].focus, fieldset[disabled] .btn-light.focus
+    {
+    background: #ccd9ff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #12141a; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    }
+
+  .btn-outline-light{
+    white-space: nowrap;
+    text-align: center;
+    height: 46px;
+    background-color: #336699;
+    margin: 5px 0 5px 0;
+    color : #fff;
+    padding: 15px 15px 15px 15px;
+    border: 0 none;
+    letter-spacing: 2px;
+  }  
+    .btn-outline-light:hover, .btn-outline-light:focus, 
+    .btn-outline-light:active, .btn-outline-light:active:focus, .btn-outline-light:active:hover, .btn-outline-light:active.focus,
+    .btn-outline-light.active, .btn-outline-light.active:focus, .btn-outline-light.active:hover, .btn-outline-light.active.focus,
+    .open > .dropdown-toggle.btn-outline-light, 
+    .open > .dropdown-toggle.btn-outline-light:hover,
+    .open > .dropdown-toggle.btn-outline-light:focus, 
+    .open > .dropdown-toggle.btn-outline-light.focus,
+    .btn-outline-light.disabled:hover, .btn-outline-light[disabled]:hover, fieldset[disabled] .btn-outline-light:hover,
+    .btn-outline-light.disabled:focus, .btn-outline-light[disabled]:focus, fieldset[disabled] .btn-outline-light:focus,
+    .btn-outline-light.disabled.focus, .btn-outline-light[disabled].focus, fieldset[disabled] .btn-outline-light.focus
+    {
+    border: solid 1px #dddddd;
+    background: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #336699; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    }
 
 //------------------header------------------------------
 header{
