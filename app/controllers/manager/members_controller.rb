@@ -62,7 +62,7 @@ class Manager::MembersController < ApplicationController
     @member = Member.find(params[:id])
     if @member.update(member_params)
       flash[:success] = 'メンバー情報を更新しました'
-      redirect_back(fallback_location: root_path)
+      redirect_to manager_member_path(@member)
     else
       redirect_back(fallback_location: root_path,flash: { error: @member.errors.full_messages })
     end
