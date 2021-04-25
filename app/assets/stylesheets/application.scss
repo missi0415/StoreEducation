@@ -86,7 +86,14 @@ footer{
       height: 240px;
     }
   }
-
+  
+  .about{
+    .card{
+      img{
+        width: 100%;
+      }
+    }  
+  }
     .btn-light:hover, .btn-light:focus, 
     .btn-light:active, .btn-light:active:focus, .btn-light:active:hover, .btn-light:active.focus,
     .btn-light.active, .btn-light.active:focus, .btn-light.active:hover, .btn-light.active.focus,
@@ -181,7 +188,7 @@ header{
   display: flex;
   padding: 0px;
   font-size: 20px;
-  padding: 0px 20px 0px 20px;
+  padding: 0;
 }
 
 #tab-menu li {
@@ -196,6 +203,7 @@ header{
 
 li a {
   color: #f2f2f2;
+  width: 150px;
   background: #0091DC;
   padding: 20px 20px 20px 20px;
   white-space: nowrap;
@@ -203,7 +211,6 @@ li a {
   position: relative;
   z-index: 1;
   border-top: solid 2px #0091DC;
-  border-left: solid 2px #0091DC;
   border-right: solid 2px #0091DC;
  
 }

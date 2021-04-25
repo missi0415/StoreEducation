@@ -8,7 +8,7 @@
         <i class="fas fa-paste">店舗連絡投稿</i>
       </div>      
         <%= form_with model: @group_message_new,url: manager_group_messages_path(@group_message),local: true do |f| %>
-          <%= f.text_field :title,class: "form-control mt-1",placeholder: "タイトルを入力してください" %>
+          <%= f.text_field :title,class: "form-control mt-1",id: "group_message_post",placeholder: "タイトルを入力してください" %>
           <%= f.text_area :body ,class: "mt-1 form-control",id: "auto-resize" , placeholder: "内容を入力してください" %>
           <%= f.hidden_field :manager_id, value: @manager_id %>
           <%= f.hidden_field :group_id, value: @group.id %>
@@ -23,6 +23,15 @@
           <h6 class="m-0 font-weight-bold title">店舗連絡</h6>
         </div>  
         <div class="card-body-board">
+        <% if @group_messages.count == 0 %>
+          <script>
+          const storeForm = document.getElementById('group_message_post').focus();
+          </script>
+          <div class="card-body text-center">
+            まだ店舗連絡が投稿されていません。<button class="btn-blue rounded" ><i class= "fas fa-paste" onclick="document.getElementById('group_message_post').focus();"> 店舗連絡投稿</i></button>から<br>
+            店舗連絡を投稿してみてください。
+          </div>
+        <% else %>  
           <% @group_messages.each do |group_message| %>
             <%= form_with model: group_message ,url: manager_group_message_path(group_message),local: true do |f| %>
                 <div class="card-body-m shadow-lg rounded m-4 ">
@@ -54,7 +63,8 @@
                   </div>
                 </div>
             <% end %>
-          <% end %> 
+          <% end %>
+          <% end %>
         </div>
       </div>  
     </div>
