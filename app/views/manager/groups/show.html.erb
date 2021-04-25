@@ -11,6 +11,11 @@
     <!--card----------------------------------->
     <div class="col-lg-10 col-md-10 col-sm-10 col-10">
       <div class="row">
+          <% if @members.count == 0 %>
+          <div class="card-body text-center">
+            まだメンバーが登録されていません。<%= link_to "　メンバー追加", new_member_registration_path(group_id: @group.id), class: "btn btn-primary shadow rounded w-25 fas fa-user-plus"  %>からメンバーを追加してください。
+          </div>
+        <% else %>  
         <% @members.each do |member| %>
         <div class="col-md-3 mt-3 members">
         <%= link_to manager_member_path(member),data: {"turbolinks" => false} do %>
@@ -31,6 +36,7 @@
           </div>
           <% end %>
         </div>
+        <% end %>
         <% end %>
       </div>
     </div>  

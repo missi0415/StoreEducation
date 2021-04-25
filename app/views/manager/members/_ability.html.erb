@@ -9,19 +9,23 @@
         <%= f.hidden_field :group_id,value: @group.id %>
         <%= f.submit "項目追加", class: "btn btn-secondary form-control" %>
       <% end %>
+      <div class="container">
+        
     <div class="row">
-      <div class="col-md-6 ability-title">
+      <div class="w-50">
         <% @ability_titles.each do |ability_title| %>
+          
           <%= form_with model: ability_title,url: manager_ability_title_path(ability_title),local:true do |f| %>
+        <dic class="text-nowrap">
             <%= f.hidden_field :group_id,value: ability_title.group_id %>
-            <%= f.text_field :title ,class: "form-custom w-50"%>
-            <%= f.submit "変更", class: "btn btn-outline-success w-25" %>
-            <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger w-25",method: :delete %><br>
+            <%= f.text_field :title ,class: "form-custom"%>
+            <%= f.submit "変更", class: "btn btn-outline-success" %>
+            <%= link_to "削除" , manager_ability_title_path(ability_title),class: "btn btn-outline-danger",method: :delete %><br>
           <% end %>	
+        </dic>
     		<% end %>
       </div>
-      <div class="col-md-6">
-        <div class="table-responsive overflow-x: auto;">
+      <div class="w-50">
           <table class="table ability text-nowrap">
             <thead>
               <tr>
@@ -43,6 +47,6 @@
           </table>
         </div>  
       </div>
+      </div>
     </div>  
   </div>  
-</div>

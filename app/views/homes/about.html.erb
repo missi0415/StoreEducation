@@ -1,59 +1,186 @@
-
-
+<div class="about">
   <div class="row" style="height: 100%">
     <!--sidebar-------------------------->
     <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
       <div class="page-title">
-        <i  class="fas fa-users"> Top</i>
+        <i  class="far fa-question-circle">　使い方</i>
       </div>
+      <ul class="text-nowrap list-unstyled text-left" style="font-size:22px;">
+        <li class="mt-2"><a href="#anc1"  class="text-white p-3">店舗登録</a></li>
+        <li class="mt-2"><a href="#anc2"  class="text-white p-3">メンバー追加</a></li>
+        <li class="mt-2"><a href="#anc3"  class="text-white p-3">店舗連絡</a></li>
+        <li class="mt-2"><a href="#anc4"  class="text-white p-3">教育管理</a></li>
+        <li class="mt-2"><a href="#anc5"  class="text-white p-3">課題管理</a></li>
+        <li class="mt-2"><a href="#anc6"  class="text-white p-3">能力管理</a></li>
+        <li class="mt-2"><a href="#anc7"  class="text-white p-3">メッセージ</a></li>
+      </ul>
     </div>
     <!--sidebar-------------------------->
     <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
     <!--card----------------------------------->
-    <div class="col-lg-10 col-md-10 col-sm-10 col-10">
-      <div class="row">
-        <p>StoreEducationへようこそ！</p>
-        <p>StoreEducationはあなたの店舗教育を手助けするサイトです</p>
-        <p>ゲストログインからどのようなサイトか覗いてみてください！</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card shadow rounded-start" >
-            <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">マネジャー</h6>
-            </div>
-              
-            <div class="card-body text-center">
-              <%= image_tag  asset_path("figure_one_blue.jpg"), :width=>"150px" ,:height=>"200px" %>
-              <%= link_to "新規登録" ,new_manager_registration_path ,class: "btn btn-outline-primary shadow rounded form-control fas fa-user-plus"%>
-              <%= link_to "マネジャーログイン" ,new_manager_session_path, class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt" %>
-            </div>
-          </div>
-        </div> 
-        <div class="col-lg-4 ">
-          <div class="card shadow rounded-start h-100" >
-            <div class="card-header">
-              <h6 class="m-0 font-weight-bold title ">メンバー</h6>
-            </div>
-            <div class="card-body text-center ">
-              <%= image_tag asset_path("figure_group_blue.jpg"), :width=>"200px" ,:height=>"200px" %>
-              <%= link_to "メンバーログイン" ,new_member_session_path,class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt" %>
-            </div>
-          </div>
-        </div> 
-        <div class="col-lg-4">
-          <div class="card shadow rounded-start h-100" >
-            <div class="card-header">
-              <h6 class="m-0 font-weight-bold title">マネジャーゲストログイン</h6>
-            </div>
-            <div class="card-body text-center">
-              <%= image_tag  asset_path("figure_one_white"), :size => '150x200' %>
-              <%= link_to 'マネジャーゲストログイン（閲覧用）', managers_guest_sign_in_path, method: :post,class: "btn btn-outline-primary shadow rounded form-control fas fa-sign-in-alt"  %>
-            </div>
-          </div>
-        </div> 
+    <div  class="col-lg-10 col-md-10 col-sm-10 col-10">
+      
+      <a id="anc1" class="anchor"></a>
+      <div id="店舗登録"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">店舗登録</h4>
         </div>  
-      </div>
-      </div>
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("店舗登録01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">店舗名の入力</li>
+                <li class="mt-2">赤枠に登録したい店舗名を入力します</li>
+              </ul>
+              <%= image_tag  asset_path("店舗登録02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">登録ボタンを押します</li>
+              </ul>              
+              <%= image_tag  asset_path("店舗登録03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">店舗の登録が完了しました</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc2" class="anchor"></a>
+      <div id="メンバー追加"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">メンバー追加</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("メンバー登録01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">メンバーの追加をクリックします</li>
+                
+              </ul>
+              <%= image_tag  asset_path("メンバー登録02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">情報の入力</li>
+                <li class="mt-2">新しいメンバーの情報を入力し登録ボタンをおします</li>
+                <li class="mt-2">パスワードはメンバーに口頭で伝えてください</li>
+                <li class="mt-2">ここで入力したemailとパスワードでメンバー側はログインできます</li>
+              </ul>              
+              <%= image_tag  asset_path("メンバー登録03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">メンバーの追加が完了しました。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc3" class="anchor"></a>
+      <div id="教育管理"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">教育管理</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("教育管理01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">教育項目の追加</li>
+                <li class="mt-2">赤枠に登録したい教育項目と教育内容を入力します</li>
+                <li class="mt-2">教育項目追加ボタンをクリックします</li>
+              </ul>
+              <%= image_tag  asset_path("教育管理02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">教育項目の更新</li>
+                <li class="mt-2">①　教育項目タイトルを変更できます</li>
+                <li class="mt-2">②　教育内容を入力できます(最大200文字)</li>
+                <li class="mt-2">①　進捗率はスライドで変更できます</li>
+                <li class="mt-2">変更ボタンで変更を反映できます</li>
+              </ul>              
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc4" class="anchor"></a>
+      <div id="課題管理"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">課題管理</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("課題管理01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">課題項目の追加</li>
+                <li class="mt-2">赤枠に登録し課題項目と課題内容を入力します</li>
+                <li class="mt-2">課題項目追加をクリックします</li>
+              </ul>
+              <%= image_tag  asset_path("課題管理02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">課題項目追加ボタンを押します</li>
+              </ul>              
+              <%= image_tag  asset_path("課題管理03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">まだ途中</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc5" class="anchor"></a>
+      <div id="能力管理"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">能力管理</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("能力評価01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">評価項目の追加</li>
+                <li class="mt-2">①赤枠に評価項目を入力し項目追加ボタンを押します</li>
+                <li class="mt-2">評価項目は店舗メンバー全員で共有されます</li>
+                <li class="mt-2">②グラフは評価項目に値をいれないうちは白紙になっています</li>
+              </ul>
+              <%= image_tag  asset_path("能力評価02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">値の更新</li>
+                <li class="mt-2">①評価項目はいつでも更新できます。</li>
+                <li class="mt-2">②そのメンバーの評価をします(ここでは5段階ですが100点満点でも評価できます)。</li>
+              </ul>              
+              <%= image_tag  asset_path("能力評価03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">評価項目と値が入力されるとグラフに反映されます</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc6" class="anchor"></a>
+      <div id="メッセージ"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">メッセージ</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("店舗登録01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">店舗名の入力</li>
+                <li class="mt-2">赤枠に登録したい店舗名を入力します</li>
+              </ul>
+              <%= image_tag  asset_path("店舗登録02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">登録ボタンを押します</li>
+              </ul>              
+              <%= image_tag  asset_path("店舗登録03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">店舗の登録が完了しました</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      
+<!--col-終わり  -->
     </div>
-   </div>
+  </div>
+</div>
