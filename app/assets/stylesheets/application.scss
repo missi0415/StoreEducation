@@ -75,12 +75,17 @@ footer{
     height: 46px;
     background-color: #fff;
     margin: 5px 0 5px 0;
-    color : #336699;
+    color : #3973ac;
     padding: 15px 15px 15px 15px;
     border: 0 none;
     letter-spacing: 2px;
     //border-style: outset;//;
   }  
+  .top{
+    .card-body{
+      height: 240px;
+    }
+  }
 
     .btn-light:hover, .btn-light:focus, 
     .btn-light:active, .btn-light:active:focus, .btn-light:active:hover, .btn-light:active.focus,
@@ -101,10 +106,10 @@ footer{
     white-space: nowrap;
     text-align: center;
     height: 46px;
-    background-color: #336699;
+    background-color: #3973ac;
     margin: 5px 0 5px 0;
     color : #fff;
-    padding: 15px 15px 15px 15px;
+    padding: 10px 10px 10px 15px;
     border: 0 none;
     letter-spacing: 2px;
   }  
@@ -121,8 +126,45 @@ footer{
     {
     border: solid 1px #dddddd;
     background: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
-    color: #336699; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    color: #3973ac; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     }
+    
+  .btn-blue{
+    white-space: nowrap;
+    text-align: center;
+    // height: 46px;
+    background-color: #0091DC;
+    color : #fff;
+    padding: 10px 0px 10px 0 ;
+    border: 0 none;
+    letter-spacing: 2px;
+  }  
+  .form-control:focus {
+  border: solid 2px rgba(0,255,255, 0.8);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.075) inset, 0 0 5px rgba(0,255,255, 0.8);
+  outline: 0 none;
+}
+    .btn-blue:hover, .btn-blue:focus, 
+    .btn-blue:active, .btn-blue:active:focus, .btn-blue:active:hover, .btn-blue:active.focus,
+    .btn-blue.active, .btn-blue.active:focus, .btn-blue.active:hover, .btn-blue.active.focus,
+    .open > .dropdown-toggle.btn-blue, 
+    .open > .dropdown-toggle.btn-blue:hover,
+    .open > .dropdown-toggle.btn-blue:focus, 
+    .open > .dropdown-toggle.btn-blue.focus,
+    .btn-blue.disabled:hover, .btn-blue[disabled]:hover, fieldset[disabled] .btn-blue:hover,
+    .btn-blue.disabled:focus, .btn-blue[disabled]:focus, fieldset[disabled] .btn-blue:focus,
+    .btn-blue.disabled.focus, .btn-blue[disabled].focus, fieldset[disabled] .btn-blue.focus
+    {
+    border: solid 1px #dddddd;
+    background: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #3973ac; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    }
+
+a.anchor {
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
 
 //------------------header------------------------------
 header{
@@ -519,7 +561,7 @@ li a:hover:before {
 // ----------------------------------------
 ::placeholder {
   font-style: italic;
-   font-size: 1em;
+   font-size: 0.5em;
    color: #b7b7b7;   
 }
 .form-control::placeholder{

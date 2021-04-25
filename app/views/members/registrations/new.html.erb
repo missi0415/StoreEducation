@@ -1,19 +1,16 @@
 
     <div class="row" style="height: 100%">
       <!--sidebar-------------------------->
-      <div class = "col-md-2 sidebar">
+       <div class = "col-lg-2 col-md-2 col-sm-2 col-2 sidebar">
         <div class="page-title">
           <i  class="fas fa-user-friends"> メンバー登録</i>
         </div>
       </div>
-      <!--sidebar-------------------------->
-      <!--card----------------------------->
-      <div class="col-md-10 ">
+      <div class = "col-lg-2 col-md-2 col-sm-2 col-2"></div>
+      <!--card----------------------------------->
+      <div class="col-lg-10 col-md-10 col-sm-10 col-10">
         <div class="row">
-          <div class="email">
-
-          </div>
-          <div class="mx-auto w-50">
+          <div class="mx-auto w-75 mt-3">
             <div class="card shadow rounded-start" >
               <div class="card-header">
                 <h6 class="m-0 font-weight-bold title">メンバー登録</h6>
@@ -23,26 +20,24 @@
                 <%= render "members/shared/error_messages", resource: resource %>
                   <div class="form-group">
                     <%= display_validation_errors("name","name")%>
-                    <%= f.label :name ,"Member Name" %><br />
+                    <%= f.label :name ,"名前" %><br />
                     <%= f.text_field :name, autofocus: true, autocomplete: "name",class: "form-control", placeholder: "新メンバーの名前を入力してください" %>
                   </div>
                   <div class="form-group">
-                    <%= f.label :email, "Email" %><br />
+                    <%= f.label :email, "メールアドレス" %><br />
                     <%= display_validation_errors("email","email")%>
                     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control", placeholder: "メールアドレスを入力してください" %>
-                    
                   </div>
-                
                   <div class="form-group">
-                    <%= f.label :password ,"password"  %>
+                    <%= f.label :password ,"パスワード"  %>
                     <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <em>(<%= @minimum_password_length %>文字以上 )</em>
                     <% end %><br />
                     <%= f.password_field :password, autocomplete: "new-password",class: "form-control", placeholder: "パスワードを設定してください"%>
                   </div>
                   <div class="form-group">
-                    <%= f.label :password_confirmation ,"password_confirmation"%><br />
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control", placeholder: "確認用パスワード"%>
+                    <%= f.label :password_confirmation ,"確認用パスワード"%><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control", placeholder: "確認用パスワードを入力してください"%>
                   </div>
                     <%= f.hidden_field :group_id, value: @group_id %>
                   <div class="actions">

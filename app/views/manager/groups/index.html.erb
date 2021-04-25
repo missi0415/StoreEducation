@@ -10,7 +10,7 @@
         <i  class="fas fa-plus-circle"> 店舗登録</i>
       </div>
         <%= form_with model: @group,url: manager_groups_path, local:true do |f| %>
-          <%= f.text_field :name, class: 'form-control goup_name', placeholder: "店舗名を入力してください" %>
+          <%= f.text_field :name, class: 'form-control goup_name ',id: "store-form", placeholder: "店舗名を入力" %>
           <%= f.submit class: 'btn btn-secondary form-control mt-2' %>
         <% end %>
       
@@ -23,38 +23,48 @@
     <!--card----------------------------------->
     <div class="col-lg-10 col-md-10 col-sm-10 col-10">
       <div class="row">
-        <% @groups.each do |group| %>  
-          <div class="col-lg-4 mt-3">
-            <div class="card shadow rounded-start">
-              <div class="card-header">
-                <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
-              </div>  
-              <div class="card-body text-center ">  
-                <!--<div class="list">-->
-                  <img>
-                    <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "shop-icon.jpg",size: "150x150" %>
-                  <!--<p>メンバー一覧に遷移します</p>-->
-                  </img>
-                <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
-                  <%= link_to "　メンバー一覧を見る", manager_group_path(group),data: {"turbolinks" => false}, class: " btn btn-secondary form-control fas fa-users mt-2" %>
-                  <%= f.text_field :name,class: "form-control mt-2" %>
-                  <div class="image_wrapper w-100">
-                  <div class="item_image_btn w-100">
-                  <%= f.attachment_field :group_image ,style: "border: none", id: "file",class: "form-control"%>
-                  </div>
-                  <div id="img_field" class="mt-2" onClick="$('#file').click()" >
-                    <p>店舗画像編集</p>
-                  </div>
-                  </div>
-                  <div class="form-group form-inline">
-                  <%= f.submit "更新", class: "btn btn-outline-success form-control mt-2 w-50" %>
-                  <%= link_to "削除",manager_group_path(group) ,data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger form-control mt-2 w-50",method: :delete %>
-                  </div>
-                <% end %>
-              </div>  
-            </div>
+        <% if @groups.count == 0 %>
+          <script>
+          const storeForm = document.getElementById('store-form').focus();
+          </script>
+          <div class="card-body text-center">
+            まだ店舗が登録されていません。<button class="btn-blue rounded" ><i class= "fas fa-plus-circle" onclick="document.getElementById('store-form').focus();"> 店舗登録</i></button>から店舗を登録してください。
           </div>
-        <% end %>
+        <% else %>  
+        
+          <% @groups.each do |group| %>  
+            <div class="col-lg-4 mt-3">
+              <div class="card shadow rounded-start">
+                <div class="card-header">
+                  <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
+                </div>  
+                <div class="card-body text-center ">  
+                  <!--<div class="list">-->
+                    <img>
+                      <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "shop-icon.jpg",size: "150x150" %>
+                    <!--<p>メンバー一覧に遷移します</p>-->
+                    </img>
+                  <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
+                    <%= link_to "　メンバー一覧を見る", manager_group_path(group),data: {"turbolinks" => false}, class: " btn btn-blue form-control fas fa-users mt-2" %>
+                    <%= f.text_field :name,class: "form-control mt-2" %>
+                    <div class="image_wrapper w-100">
+                    <div class="item_image_btn w-100">
+                    <%= f.attachment_field :group_image ,style: "border: none", id: "file",class: "form-control"%>
+                    </div>
+                    <div id="img_field" class="mt-2" onClick="$('#file').click()" >
+                      <p>店舗画像編集</p>
+                    </div>
+                    </div>
+                    <div class="form-group form-inline">
+                    <%= f.submit "更新", class: "btn btn-outline-success form-control mt-2 w-50" %>
+                    <%= link_to "削除",manager_group_path(group) ,data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger form-control mt-2 w-50",method: :delete %>
+                    </div>
+                  <% end %>
+                </div>  
+              </div>
+            </div>
+          <% end %>
+        <% end %>  
       </div>
     </div>
   </div>

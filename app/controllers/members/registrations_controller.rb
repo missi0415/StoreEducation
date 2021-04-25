@@ -16,13 +16,13 @@ class Members::RegistrationsController < Devise::RegistrationsController
     member = Member.new(sign_up_params)
     #@group_id = member.group_id
     @group_id = sign_up_params[:group_id]
-    unless member.valid?
+    if member.valid?
+      super
+    else  
       flash[:alert] = member.errors.full_messages
-      #flash[:alert] = member.errors.full_messages_for(:email)
-      #flash[:alert] = member.errors.full_messages_for(:password)
       redirect_to new_member_registration_path(group_id: @group_id)
     end
-    super
+    
   end
 
   # GET /resource/edit
@@ -36,7 +36,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
+  # def destroySS
   #   super
   # end
 
@@ -66,7 +66,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def after_sign_in_path_for(resource)
-    manager_groups_path
+    manager_group_path(@group_id)
   end  
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
