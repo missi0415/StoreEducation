@@ -21,6 +21,9 @@ class Manager::GroupsController < ApplicationController
   end
   def show
     @group = Group.find(params[:id])
+    unless @group.manager == current_manager
+    redirect_to root_path
+    end
     #送られてくるパラメータを指定している
     @members = @group.members
     @ability_titles = @group.ability_titles

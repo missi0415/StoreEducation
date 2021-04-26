@@ -2,6 +2,9 @@ class Manager::GroupMessagesController < ApplicationController
   before_action :authenticate_manager!
   def show
     @group = Group.find(params[:id])
+    unless @group.manager == current_manager
+    redirect_to root_path
+    end
     @group_messages = @group.group_messages
     @manager_id = current_manager.id
     @group_message_new = GroupMessage.new
