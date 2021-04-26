@@ -13,4 +13,5 @@ class Member < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :rooms
   validates :name, presence: true, length: { maximum: 20 }
+  validates :email, presence: true
 end

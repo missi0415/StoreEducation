@@ -12,8 +12,10 @@
     <% else %>
       <%= form_for Room.new do |f| %>
         <%= f.hidden_field :member_id, :value => @member.id %>
-        <%#= button_tag '<i class="fas fa-comments></i>　メッセージ'.html_safe, :type => "submit", :class =>"btn btn-primary shadow rounded" %>
-        <%= f.submit " メッセージ",class: "btn btn-primary shadow rounded fas fa-comments" %>
+        <%= button_tag :type => "submit", :class => "btn btn-primary shadow rounded" do %>
+         <i class="fas fa-comments">　メッセージ</i>
+        <% end %>
+        <%#= f.submit " メッセージ",class: "btn btn-primary shadow rounded fas fa-comments" %>
       <% end %>
     <% end %>
   <% end %>  

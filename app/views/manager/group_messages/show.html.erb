@@ -50,10 +50,10 @@
                   <div class="text-right">
                      <i class="far fa-check-square fa-2x text text-success check ">
                     <!---------------------------------------------------------->
-                      <p>-----既読済みメンバー-----<br>
-                      <% group_message.checks.each do |check| %>
-                    	  <%= check.member.name %><br>
-                      <% end %>
+                      <p class="text-center">-----既読済みメンバー-----<br>
+                        <% group_message.checks.each do |check| %>
+                      	  <%= check.member.name %><br>
+                        <% end %>
                       </p>
                       </i>
                     <%=group_message.checks.count%>人既読

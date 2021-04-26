@@ -1,9 +1,13 @@
 class Manager::TasksController < ApplicationController
+  before_action :authenticate_manager!
   def show
     @member = Member.find(params[:id])
     @tasks = @member.tasks
     @member_id = @member.id
     @group = @member.group
+    unless @group.manager == current_manager
+      redirect_to root_path
+    end
     @members = @group.members
     @task = Task.find_by(member_id: params[:id])
     @task_new = Task.new
