@@ -8,7 +8,7 @@
         <div class="card shadow rounded-start mt-1" style="display:inline-block;">
           <div class="card-body text-center"  >
             <%= attachment_image_tag current_member, :image , format: 'jpeg', fallback: "member-no-image.jpg",:height => "100" %><br>
-              <%= form_with model: @member_edit, url: member_member_path(current_member), local:true do |f| %>
+              <%= form_with model: @member, url: member_member_path(current_member), local:true do |f| %>
               <div class="image_wrapper">
                 <div class="item_image_btn">
                 <%= f.attachment_field :image, id: "file", style: "border: none",class: "form-control m-1"%>
@@ -18,12 +18,15 @@
                 </div>
               </div>
               
-              <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "メールアドレスを入力してください" %> 
+              <%= f.text_field :name,style: "border: none",class: "form-control m-1",placeholder: "名前" %> 
               <%= f.text_field :email,style: "border: none",class: "form-control m-1", placeholder: "メールアドレスを入力してください" %> 
               <%= f.text_field :phone_number,style: "border: none",class: "form-control m-1",placeholder: "電話番号を入力してください" %> 
               <%= f.submit '変更を保存',id: "profile-update",class: "btn btn-outline-success form-control "  %>
               <% end %>
             <!--チャット機能リンク---------------------->
+            <% if (controller_path == 'rooms' && action_name == 'show') %>
+               <%= link_to "  マネジャーDM", "#",class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %>
+            <% else %>
               <% if @manager_ids.include?(@manager.id) %>
                 <%= link_to "  マネジャーDM", room_path(current_member.rooms.find_by(manager_id: @manager.id)),class: "btn btn-outline-secondary form-control shadow rounded fas fa-comments mt-2" %><br>
               <% else %>
@@ -32,6 +35,7 @@
                   <%= f.submit "  マネジャーDM",class: "shadow rounded fas fa-comments btn btn-outline-secondary form-control mt-2"%>
                 <% end %>
               <% end %>
+            <% end %>   
             <!--チャット機能リンク---------------------->              
           </div>
         </div>  
@@ -88,7 +92,7 @@
           <div class="mx-auto w-75 mt-3 ">
             <div class="card shadow rounded-start " >
               <div class="card-header">
-                <h6 class="m-0 font-weight-bold title"><%= @member.name %>とのチャットルーム</h6>
+                <h6 class="m-0 font-weight-bold title"><%= @member.name %>とのメッセージルーム</h6>
               </div>
               <div class="card-body text-center" >      
                 <div class="chat-field">
