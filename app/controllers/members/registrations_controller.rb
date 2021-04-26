@@ -18,6 +18,16 @@ class Members::RegistrationsController < Devise::RegistrationsController
     @group_id = sign_up_params[:group_id]
     if member.valid?
       super
+        # if @member.save
+        # @group = @member.group
+        # @ability_titles = AbilityTitle.where(gtoup_id: @group)
+        # @ability_titles.each do |ability_title|
+        # Ability.create!(
+        #   member: @member,
+        #   ability_title_id: @ability_title.id
+        #   )
+        # end  
+        # end  
     else  
       flash[:alert] = member.errors.full_messages
       redirect_to new_member_registration_path(group_id: @group_id)
@@ -66,6 +76,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def after_sign_in_path_for(resource)
+
     manager_group_path(@group_id)
   end  
   # The path used after sign up for inactive accounts.

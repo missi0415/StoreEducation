@@ -6,19 +6,22 @@ class RoomsController < ApplicationController
     @members = @group.members
     @message = Message.new #新規メッセージ投稿
     @messages = @room.messages #このルームのメッセージを全て取得
-    #chat----------------------------
-    rooms = current_manager.rooms
-    #自分が入ってるroomの相手のidを格納する
-    @member_ids = []
-      rooms.each do |r|
-        @member_ids << r.member_id
-      end
-    #-------------------------------
+
+    @manager = @group.manager
+    # #chat----------------------------
+    # rooms = current_manager.room
+    # #自分が入ってるroomの相手のidを格納する
+    # @member_ids = []
+    #   rooms.each do |r|
+    #     @member_ids << r.member_id
+    #   end
+    # #-------------------------------
     
     
     if member_signed_in?
       if @room.member.id == current_member.id
         @manager = @room.manager
+        @member = current_member
       else
         redirect_to "/"
       end
