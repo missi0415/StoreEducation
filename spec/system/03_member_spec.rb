@@ -76,8 +76,8 @@ RSpec.describe "メンバーログイン", type: :system do
       it "ログイン後のページがメンバーindexである" do
         expect(current_path).to eq member_members_path
       end
-      it "グループ連絡への遷移" do
-        click_link 'グループ連絡'
+      it "店舗連絡への遷移" do
+        click_link '店舗連絡'
         expect(current_path).to eq member_group_messages_path
       end
     end
@@ -100,26 +100,26 @@ RSpec.describe "メンバーログイン", type: :system do
     end  
     context "グループメッセージ機能" do
       it "グループメッセージの投稿" do
-        click_link 'グループ連絡'
-        fill_in 'group_message_title', with: "グループ連絡タイトル"
-        fill_in 'group_message_body', with: "連絡内容"
+        click_link '店舗連絡'
+        fill_in 'group_message_post', with: "店舗連絡タイトル"
+        fill_in 'auto-resize', with: "連絡内容"
         click_button '連絡事項追加'
-        expect(page).to have_field'group_message_title_1', with: "グループ連絡タイトル"
+        expect(page).to have_field'group_message_title_1', with: "店舗連絡タイトル"
         expect(page).to have_field'group_message_body_1', with: "連絡内容"
       end
       it "グループメッセージの編集" do
-        click_link 'グループ連絡'
-        fill_in 'group_message_title', with: "グループ連絡タイトル"
-        fill_in 'group_message_body', with: "連絡内容"
+        click_link '店舗連絡'
+        fill_in 'group_message_post', with: "店舗連絡タイトル"
+        fill_in 'auto-resize', with: "連絡内容"
         click_button '連絡事項追加'
         fill_in 'group_message_title_1', with: '内容変更'
         find_by_id('group_message_update_1').click
         expect(page).to have_field'group_message_title_1', with: "内容変更"
       end  
       it "グループメッセージの削除" do
-        click_link 'グループ連絡'
-        fill_in 'group_message_title', with: "グループ連絡タイトル"
-        fill_in 'group_message_body', with: "連絡内容"
+        click_link '店舗連絡'
+        fill_in 'group_message_post', with: "店舗連絡タイトル"
+        fill_in 'auto-resize', with: "連絡内容"
         click_button '連絡事項追加'
         click_link "削除"
         expect(page).to_not have_field'group_message_title_1', with: "連絡内容"

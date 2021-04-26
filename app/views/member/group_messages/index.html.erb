@@ -6,7 +6,7 @@
         <i class="fas fa-paste">店舗連絡投稿</i>
         </div>      
         <%= form_with model: @group_message_new,url: member_group_messages_path(@group_message),local: true do |f| %>
-          <%= f.text_field :title,class: "form-control mt-1",placeholder: "タイトルを入力してください" %>
+          <%= f.text_field :title,class: "form-control mt-1",id: "group_message_post",placeholder: "タイトルを入力してください" %>
           <%= f.text_area :body ,class: "mt-1 form-control",id: "auto-resize" , placeholder: "内容を入力してください" %>
           <%= f.hidden_field :member_id, value: @current_member.id %>
           <%= f.hidden_field :group_id, value: @current_member.group.id %>
@@ -46,7 +46,7 @@
                       <div id="check_buttons_<%= group_message.id %>">
                       <%= render "check" ,group_message: group_message%> 
                       </div>
-                      <%= f.submit "変更",id: "group_message_update#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
+                      <%= f.submit "変更",id: "group_message_update_#{group_message.id}", class: "btn btn-sm btn-outline-success" %>
                       <%= link_to "削除",manager_group_message_path(group_message), class: "btn btn-sm btn-outline-danger" ,method: :delete %></td>
                     </div>
                   <% else %>
