@@ -1,4 +1,5 @@
 class Manager::TasksController < ApplicationController
+  before_action :authenticate_manager!
   def show
     @member = Member.find(params[:id])
     @tasks = @member.tasks

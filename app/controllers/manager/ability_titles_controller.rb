@@ -1,5 +1,5 @@
 class Manager::AbilityTitlesController < ApplicationController
-  
+before_action :authenticate_manager!  
   def create
     @ability_title = AbilityTitle.new(ability_title_params) 
     if @ability_title.save

@@ -1,4 +1,5 @@
 class Manager::GroupsController < ApplicationController
+  before_action :authenticate_manager!
   def index
     @groups = current_manager.groups
     @group = Group.new

@@ -1,4 +1,5 @@
 class Manager::EducationsController < ApplicationController
+  before_action :authenticate_manager!
   def show
     @member = Member.find(params[:id])
     @group = @member.group

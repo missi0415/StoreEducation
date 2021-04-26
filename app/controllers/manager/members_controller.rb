@@ -1,4 +1,5 @@
 class Manager::MembersController < ApplicationController
+  before_action :authenticate_manager!
   def show
     @member = Member.find(params[:id])
     @group = @member.group
@@ -72,6 +73,6 @@ class Manager::MembersController < ApplicationController
   private
   
   def member_params
-    params.require(:member).permit(:name,:name_kana,:image,:phone_number,:is_deleted,:group_id)
+    params.require(:member).permit(:name,:email,:name_kana,:image,:phone_number,:is_deleted,:group_id)
   end  
 end
