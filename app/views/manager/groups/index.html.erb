@@ -40,7 +40,7 @@
                 <div class="card-body text-center ">  
                   <!--<div class="list">-->
                     <img>
-                      <%= attachment_image_tag group, :group_image , :fill, 150, 150, format: 'jpeg', fallback: "shop-icon.jpg",size: "150x150" %>
+                      <%= attachment_image_tag group, :group_image , format: 'jpeg', fallback: "shop-icon.jpg",:height => '200' %>
                     <!--<p>メンバー一覧に遷移します</p>-->
                     </img>
                   <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
