@@ -83,7 +83,14 @@ footer{
   }  
   .top{
     .card-body{
-      height: 240px;
+      height: 200px;
+    }
+    .card-body:hover{
+      	box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+	      transform: translateY(-4px);
+	       transform: scale(1.1,1.1);
+	       transition     : 0.5s;
+	      
     }
   }
   
