@@ -47,13 +47,19 @@
                     <%= link_to "　メンバー一覧を見る", manager_group_path(group),data: {"turbolinks" => false}, class: " btn btn-blue form-control fas fa-users mt-2" %>
                     <%= f.text_field :name,class: "form-control mt-2" %>
                     <div class="image_wrapper w-100">
-                    <div class="item_image_btn w-100">
-                    <%= f.attachment_field :group_image ,style: "border: none", id: "file",class: "form-control"%>
-                    </div>
-                    <div id="img_field" class="mt-2" onClick="$('#file').click()" >
-                      <p>店舗画像編集</p>
+                    <%= f.attachment_field :group_image ,style: "display: none", id: "file_#{group.id}",class: "form-control"%>
+                    <div id="img_field<%=group.id %>" class="mt-2 btn btn-outline-success form-control">
+                      店舗画像編集
                     </div>
                     </div>
+                    <script>
+                      const groupId<%= group.id %> = "<%=group.id %>"
+                      const image<%= group.id %> = document.getElementById("img_field" + `${groupId<%= group.id %>}`);
+                      image<%= group.id %>.addEventListener('click', () => {
+                      const fileID<%= group.id %> = $(`#file_${groupId<%= group.id %>}`) 
+                        fileID<%= group.id %>.click();
+                      })
+                    </script>
                     <div class="form-group form-inline">
                     <%= f.submit "更新", class: "btn btn-outline-success form-control mt-2 w-50" %>
                     <%= link_to "削除",manager_group_path(group) ,data: {confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger form-control mt-2 w-50",method: :delete %>
