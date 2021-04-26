@@ -5,14 +5,18 @@
       <div class="page-title">
         <i  class="far fa-question-circle">　使い方</i>
       </div>
-      <ul class="text-nowrap list-unstyled text-left" style="font-size:22px;">
+      <ul class="text-nowrap list-unstyled text-left" style="font-size:20px;">
+        <li class="mt-2 font-weight-bold"style="font-size:25px;" >・マネジャー側</li>
         <li class="mt-2"><a href="#anc1"  class="text-white p-3">店舗登録</a></li>
         <li class="mt-2"><a href="#anc2"  class="text-white p-3">メンバー追加</a></li>
-        <li class="mt-2"><a href="#anc3"  class="text-white p-3">店舗連絡</a></li>
-        <li class="mt-2"><a href="#anc4"  class="text-white p-3">教育管理</a></li>
-        <li class="mt-2"><a href="#anc5"  class="text-white p-3">課題管理</a></li>
-        <li class="mt-2"><a href="#anc6"  class="text-white p-3">能力管理</a></li>
-        <li class="mt-2"><a href="#anc7"  class="text-white p-3">メッセージ</a></li>
+        <li class="mt-2"><a href="#anc3"  class="text-white p-3">教育管理</a></li>
+        <li class="mt-2"><a href="#anc4"  class="text-white p-3">課題管理</a></li>
+        <li class="mt-2"><a href="#anc5"  class="text-white p-3">能力管理</a></li>
+        <li class="mt-2"><a href="#anc6"  class="text-white p-3">メッセージ</a></li>
+        <li class="mt-2"><a href="#anc7"  class="text-white p-3">店舗連絡</a></li>
+        <li class="mt-2 font-weight-bold"style="font-size:25px;" >・メンバー側</li>
+        <li class="mt-2"><a href="#anc8"  class="text-white p-3">メンバーログイン</a></li>
+        <li class="mt-2"><a href="#anc9"  class="text-white p-3">メンバー機能</a></li>
       </ul>
     </div>
     <!--sidebar-------------------------->
@@ -162,18 +166,103 @@
         <div class="card-body-board">
           <div class="container">
             <div class="row p-3">
-              <%= image_tag  asset_path("店舗登録01.jpg")%>
+              <%= image_tag  asset_path("メッセージ01.jpg")%>
               <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
-                <li class="mt-2" style="font-size:20px;">店舗名の入力</li>
+                <li class="mt-2" style="font-size:20px;">赤枠内にメッセージを入力しメッセージを送るボタンを押します</li>
+              </ul>
+              <%= image_tag  asset_path("メッセージ02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">メンバー側画面</li>
+                <li class="mt-2">①マネジャーから送られてきたメッセージです</li>
+                <li class="mt-2">②自身もメッセージを返すことができます</li>
+              </ul>              
+              <%= image_tag  asset_path("メッセージ03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">自身のメッセージが右側・相手のメッセージが左側です</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc7" class="anchor"></a>
+      <div id="メッセージ"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">店舗連絡</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("店舗連絡01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">赤枠の部分にタイトルと内容を入力します</li>
+              </ul>
+              <%= image_tag  asset_path("店舗連絡02.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">内容は300文字まで入力可能です</li>
+              </ul>              
+              <%= image_tag  asset_path("店舗連絡03.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">投稿の編集</li>
+                <li class="mt-2">①タイトルを変更できます。</li>
+                <li class="mt-2">②内容を変更です</li>
+                <li class="mt-2">③チェックボタンにマウスを当てると既読したメンバーが確認できます</li>
+                <li class="mt-2">内容を変更したら変更ボタンを押して更新します</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc8" class="anchor"></a>
+      <div id="メッセージ"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">メンバーログイン</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("メンバーログイン01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">メンバーログインボタンをおします</li>
                 <li class="mt-2">赤枠に登録したい店舗名を入力します</li>
               </ul>
-              <%= image_tag  asset_path("店舗登録02.jpg"),class: "mt-5" %>
+              <%= image_tag  asset_path("メンバーログイン02.jpg"),class: "mt-5" %>
               <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
-                <li class="mt-2" style="font-size:20px;">登録ボタンを押します</li>
+                <li class="mt-2" style="font-size:20px;">自分のアドレスと、マネジャーから教えられたパスワードでログインします</li>
               </ul>              
-              <%= image_tag  asset_path("店舗登録03.jpg"),class: "mt-5"%>
+              <%= image_tag  asset_path("メンバーログイン03.jpg"),class: "mt-5"%>
               <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
-                <li class="mt-2 " style="font-size:20px;">店舗の登録が完了しました</li>
+                <li class="mt-2 " style="font-size:20px;">ログインするとマイページが表示されます</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <a id="anc9" class="anchor"></a>
+      <div id="メッセージ"class="card shadow rounded-start mt-5" style="width: 100%">
+        <div class="card-header bg-se">
+          <h4 class="m-0 font-weight-bold title">メンバー機能</h4>
+        </div>  
+        <div class="card-body-board">
+          <div class="container">
+            <div class="row p-3">
+              <%= image_tag  asset_path("メンバー変更可能01.jpg")%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark w-100">
+                <li class="mt-2" style="font-size:20px;">課題の確認</li>
+                <li class="mt-2">①与えられた課題に着手したかを選択します</li>
+                <li class="mt-2">②進捗報告や課題の疑問点をコメントします</li>
+                <li class="mt-2">③進捗率をスライドバーで選択します</li>
+                <li class="mt-2">値を変更したら変更ボタンを押して更新します</li>
+                <li class="mt-2" style="font-size:20px;">教育進捗は進捗率のみ変更する事ができます</li>
+              </ul>
+              <%= image_tag  asset_path("メンバー店舗連絡01.jpg"),class: "mt-5" %>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2" style="font-size:20px;">店舗連絡の確認</li>
+                <li class="mt-2">①タイトルと内容を入力すると店舗連絡の投稿が可能です</li>
+                <li class="mt-2">②連絡事項を確認したらチェックボタンを押します</li>
+              </ul>              
+              <%= image_tag  asset_path("メンバー店舗連絡02.jpg"),class: "mt-5"%>
+              <ul class="text-nowrap list-unstyled text-left alert alert-dark  w-100">
+                <li class="mt-2 " style="font-size:20px;">自分の投稿したメッセージのみ編集することができます</li>
               </ul>
             </div>
           </div>
