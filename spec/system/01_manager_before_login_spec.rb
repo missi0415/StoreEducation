@@ -75,9 +75,9 @@ RSpec.describe "マネジャーログイン", type: :system do
         click_link 'メンバー一覧'
         expect(current_path).to eq manager_group_path(@group.id)
       end
-      it "グループ連絡への遷移" do
+      it "店舗連絡への遷移" do
         click_link 'メンバー一覧'
-        click_link 'グループ連絡'
+        click_link '店舗連絡'
         expect(current_path).to eq manager_group_message_path(@group.id)
       end 
       it "メンバープロフィールへの遷移" do
