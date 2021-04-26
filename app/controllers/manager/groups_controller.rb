@@ -37,7 +37,7 @@ class Manager::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:success] = '店舗情報が更新されました'
-      redirect_to manager_groups_path(@group)
+      redirect_to manager_groups_path
     else
       redirect_back(fallback_location: root_path,flash: { error: @group.errors.full_messages })
     end
