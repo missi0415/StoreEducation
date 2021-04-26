@@ -3,6 +3,9 @@ class Manager::AbilitiesController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @group = @member.group
+    unless @group.manager == current_manager
+      redirect_to root_path
+    end
     @members = @group.members
     @ability_titles = @group.ability_titles
     @abilities = @member.abilities

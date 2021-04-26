@@ -3,6 +3,9 @@ class Manager::EducationsController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @group = @member.group
+    unless @group.manager == current_manager
+      redirect_to root_path
+    end
     @members = @group.members
     @educations = @member.educations
     @education = Education.find_by(member_id: params[:id])
