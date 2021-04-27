@@ -38,11 +38,9 @@
                   <h6 class="m-0 font-weight-bold title"><%=group.name %></h6>
                 </div>  
                 <div class="card-body text-center ">  
-                  <!--<div class="list">-->
-                    <img>
-                      <%= attachment_image_tag group, :group_image , format: 'jpeg', fallback: "shop-icon.jpg",:height => '200' %>
-                    <!--<p>メンバー一覧に遷移します</p>-->
-                    </img>
+                    <div class="group_picture">
+                      <%= attachment_image_tag group, :group_image , format: 'jpeg', fallback: "shop-icon.jpg"%>
+                    </div>
                   <%= form_with model: group, url: manager_group_path(group), local:true do |f| %>
                     <%= link_to "　メンバー一覧を見る", manager_group_path(group),data: {"turbolinks" => false}, class: " btn btn-blue form-control fas fa-users mt-2" %>
                     <%= f.text_field :name,class: "form-control mt-2" %>
