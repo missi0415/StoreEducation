@@ -343,10 +343,12 @@ li a:hover:before {
     box-sizing: border-box;
   }
 .group_picture {
+  border: none;
   .group_image {
     width: 250px;
     height: 250px;
     object-fit: contain;
+    box-sizing: border-box;
   }
 }
 .member_picture {
