@@ -23,14 +23,19 @@ class Manager::TasksController < ApplicationController
   
   
   def create
+    # binding.pry
+    # @member = params[:task][:member_id]
     @task_new = Task.new(task_params)
-    if @task_new.save 
-      flash[:success] = '課題の追加が完了しました'
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
-    end  
-
+    member_id = params[:task][:member_id]
+    @tasks = Task.where(member_id: member_id)
+    
+      if @task_new.save 
+        flash[:success] = '課題の追加が完了しました'
+      # redirect_back(fallback_location: root_path)
+        # format.html {redirect_back(fallback_location: root_path)}
+      else
+        redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
+      end 
   end
 
   def edit
@@ -40,18 +45,22 @@ class Manager::TasksController < ApplicationController
   
   def update
     @task = Task.find(params[:id])
+    @tasks = Task.where(member_id: @task.member_id)
     if @task.update(task_params)
       flash[:success] = '課題の更新が完了しました'
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
     else
-      redirect_back(fallback_location: root_path,flash: { error: @task.errors.full_messages })
+      # redirect_back(fallback_location: root_path,flash: { error: @task.errors.full_messages })
     end
   end
   
   def destroy
     @task = Task.find(params[:id])
+    
+    @tasks = Task.where(member_id: @task.member_id)
     @task.destroy
-    redirect_back(fallback_location: root_path)
+    
+    # redirect_back(fallback_location: root_path)
   end  
     
   private
