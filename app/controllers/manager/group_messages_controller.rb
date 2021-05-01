@@ -12,6 +12,7 @@ class Manager::GroupMessagesController < ApplicationController
   
   def create
     @group_message_new = GroupMessage.new(group_message_params)
+    @group_message_new.score = Language.get_data(group_message_params[:body])  #この行を追加
     if @group_message_new.save
       flash[:success] = '店舗連絡の投稿が完了しました'
        redirect_back(fallback_location: root_path)
@@ -22,6 +23,7 @@ class Manager::GroupMessagesController < ApplicationController
   
   def update
     @group_message = GroupMessage.find(params[:id])
+    @group_message.score = Language.get_data(group_message_params[:body]) 
     if @group_message.update(group_message_params)
       flash[:success] = '店舗連絡の更新が完了しました'
        redirect_back(fallback_location: root_path)
