@@ -46,11 +46,11 @@
                   </div>
                   <div>
                   <%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %>
-                    <%#= group_message.score %>
+                    
                     <% if group_message.score < -0.7 %>
-                  <span class="text-danger">
-                    ネガティブな表現が含まれています。表現方法をご一考ください。
-                  </span>
+                      <span class="text-danger">
+                        ネガティブな表現が含まれています。表現方法をご一考ください。
+                      </span>
                   　<% end %>
                   </div>
                   <div class="text-right">
