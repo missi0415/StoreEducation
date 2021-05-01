@@ -418,26 +418,5 @@ Ability.create!(
                 value: 3,
                 )                             
                           
-
-GroupMessage.create!(
-                group_id: 1,
-                manager_id: 1,
-                title: "シフトに関して",
-                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
-GroupMessage.create!(
-                group_id: 1,
-                manager_id: 1,
-                title: "年末調整書類",
-                body: "期限は一週間前です。必ず提出してください。")                
-GroupMessage.create!(
-                group_id: 1,
-                member_id: 2,
-                title: "メンバー２です",
-                body: "先日店舗に忘れ物の電話がありました。明日の１２時に佐々木様が取りに来ます。対応お願い致します。")                
-                
-GroupMessage.create!(
-                group_id: 2,
-                member_id: 1,
-                title: "メンバー１です",
-                body: "最近シフト提出期限に遅れが見えます。期限は厳守していきましょう。")                
+            
                 
