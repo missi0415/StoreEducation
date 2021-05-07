@@ -35,25 +35,25 @@
       <% end %>
     </div>  
 <% end %> 
-        <script>
-        <% tasks.each do |task| %> 
-          let inputElem<%=task.id%> = document.getElementById('task_progress_<%=task.id%>'); // input要素
-          let currentValueElem<%=task.id%> = document.getElementById('current-value<%=task.id %>'); // 埋め込む先のspan要素
-          
-            
-          // 現在の値をspanに埋め込む関数s
-          const setCurrentValue<%=task.id%> = (val) => {
-            currentValueElem<%=task.id%>.innerText = val;
-          }
-          
-          // inputイベント時に値をセットする関数
-          const rangeOnChange<%=task.id%> = (e) =>{
-            setCurrentValue<%=task.id%>(e.target.value);
-          }
-          
+<script>
+  <% tasks.each do |task| %> 
+    let inputElem<%=task.id%> = document.getElementById('task_progress_<%=task.id%>'); // input要素
+    let currentValueElem<%=task.id%> = document.getElementById('current-value<%=task.id %>'); // 埋め込む先のspan要素
+    
+    
+    // 現在の値をspanに埋め込む関数s
+    const setCurrentValue<%=task.id%> = (val) => {
+    currentValueElem<%=task.id%>.innerText = val;
+    }
+    
+    // inputイベント時に値をセットする関数
+    const rangeOnChange<%=task.id%> = (e) =>{
+    setCurrentValue<%=task.id%>(e.target.value);
+    }
+    
+    
+    inputElem<%=task.id%>.addEventListener('input', rangeOnChange<%=task.id%>); // スライダー変化時にイベントを発火
+    setCurrentValue<%=task.id%>(inputElem<%=task.id%>.value); // ページ読み込み時に値をセット
+  <% end %>  
 
-            inputElem<%=task.id%>.addEventListener('input', rangeOnChange<%=task.id%>); // スライダー変化時にイベントを発火
-            setCurrentValue<%=task.id%>(inputElem<%=task.id%>.value); // ページ読み込み時に値をセット
-        <% end %>  
-      
-        </script>
+</script>
