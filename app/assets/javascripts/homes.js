@@ -76,6 +76,3 @@ $(function(){
   }).trigger('change');
 });
 
-$(function(){
-	 $(".sidebar").frix();
-});

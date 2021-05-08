@@ -23,9 +23,9 @@
           <p class="text-secondary mb-2">報告 : <%= task.member_body %></p>
         </div>
       </div>
-      <div class="d-flex justify-content-between">
-        <div class=" font-weight-bold text-secondary" ><span id="current-value<%=task.id %>"><%=task.progress%></span>%</div>
-        <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50", id: "task_progress_#{task.id}" %>
+      <div class="d-flex justify-content-between progress_container">
+        <div class=" font-weight-bold text-secondary" ><span class="current_value" id="current-value<%=task.id %>"><%=task.progress%></span>%</div>
+        <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50 task_progress", id: "task_progress_#{task.id}" %>
       <div>
       <%= f.select :manager_status,Task.manager_statuses.keys,id: "task_manager_statuse_#{task.id}" ,class: "form-control" %>
       <%= f.submit "変更を保存する",id: "task_update_#{task.id}",class: "btn btn-sm btn-outline-success" %>
@@ -36,24 +36,17 @@
     </div>  
 <% end %> 
 <script>
-  <% tasks.each do |task| %> 
-    let inputElem<%=task.id%> = document.getElementById('task_progress_<%=task.id%>'); // input要素
-    let currentValueElem<%=task.id%> = document.getElementById('current-value<%=task.id %>'); // 埋め込む先のspan要素
-    
-    
-    // 現在の値をspanに埋め込む関数s
-    const setCurrentValue<%=task.id%> = (val) => {
-    currentValueElem<%=task.id%>.innerText = val;
-    }
-    
-    // inputイベント時に値をセットする関数
-    const rangeOnChange<%=task.id%> = (e) =>{
-    setCurrentValue<%=task.id%>(e.target.value);
-    }
-    
-    
-    inputElem<%=task.id%>.addEventListener('input', rangeOnChange<%=task.id%>); // スライダー変化時にイベントを発火
-    setCurrentValue<%=task.id%>(inputElem<%=task.id%>.value); // ページ読み込み時に値をセット
-  <% end %>  
+  $(document).ready(() => {
+    /**
+    $('.task_progress').change(function () {
+      $(this).parent('.progress_container').find('.current_value').html($(this).val());
+    });
+    */
+    $('.task_progress').on('input', function () {
+      //console.log($(this).val());
+      //console.log($(this).parent('.progress_container').find('.current_value').html());
+      $(this).parent('.progress_container').find('.current_value').html($(this).val());//
+    });
+  });
 
 </script>

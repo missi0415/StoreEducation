@@ -4,11 +4,25 @@
   <div class="row" >
     <div class="col-md-2 sidebar">
         <!--<%= image_tag asset_path("logo.jpg"), :size => '30x30' %>-->
+      <% if manager_signed_in? %>
+        <%= link_to manager_groups_path  do%>  
+          <div class="logo">
+            <span>S</span>tore<span>E</span>ducation
+          </div>
+        <% end %>
+      <% elsif member_signed_in? %>
+        <%= link_to member_members_path  do%>  
+          <div class="logo">
+            <span>S</span>tore<span>E</span>ducation
+          </div>
+        <% end %>
+      <% else %>
         <%= link_to root_path  do%>  
           <div class="logo">
             <span>S</span>tore<span>E</span>ducation
           </div>
         <% end %>
+      <% end %>  
     </div> 
       <ul id="tab-menu">
      <% if manager_signed_in?  %>
