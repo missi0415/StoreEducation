@@ -34,7 +34,8 @@ class Manager::TasksController < ApplicationController
       # redirect_back(fallback_location: root_path)
         # format.html {redirect_back(fallback_location: root_path)}
       else
-        redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
+        render 'error'
+        #redirect_back(fallback_location: root_path,flash: { error: @task_new.errors.full_messages })
       end 
   end
 
@@ -50,6 +51,7 @@ class Manager::TasksController < ApplicationController
       flash[:success] = '課題の更新が完了しました'
       # redirect_back(fallback_location: root_path)
     else
+      render 'error'
       # redirect_back(fallback_location: root_path,flash: { error: @task.errors.full_messages })
     end
   end

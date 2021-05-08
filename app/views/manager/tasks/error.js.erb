@@ -1,0 +1,7 @@
+<% if params[:commit] == "課題項目追加" %>
+$("#task-error").html("<%= j(render 'layouts/errors', model: @task_new) %>");
+setTimeout(function(){$("#task-error").html("")}, 5000);
+<% else %>
+$("#task-error").html("<%= j(render 'layouts/errors', model: @task) %>");
+setTimeout(function(){$("#task-error").html("")}, 5000);
+<% end %>
