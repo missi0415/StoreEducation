@@ -16,6 +16,9 @@
       </div>  
       <div class="card-body" >  
         <%= render partial: "manager/members/task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+        <div class="task-message">
+          <%= render "manager/members/task_body", task: @task,tasks: @tasks%>
+        </div>
       </div>
     </div>  
   </div>

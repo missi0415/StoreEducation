@@ -53,11 +53,14 @@
           </div>  
           <div class="card-body-board ">  
             <%= render partial: "task", locals: { task_new: @task_new, task: @task,tasks: @tasks,member_id: @member_id }%>
+            <div class="task-message">
+              <%= render "task_body", task: @task,tasks: @tasks%>
+            </div>
           <%= paginate @tasks %>
         </div>
       </div>
     </div>
   </div>
 
-
     <%= render partial: "chart", locals: { ability_titles: @ability_titles, abilities: @abilities }%>
+    

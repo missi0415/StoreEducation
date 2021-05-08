@@ -7,7 +7,7 @@
       <div class="sub-title">
         <i class="fas fa-paste">店舗連絡投稿</i>
       </div>      
-        <%= form_with model: @group_message_new,url: manager_group_messages_path(@group_message),local: true do |f| %>
+        <%= form_with model: @group_message_new,url: manager_group_messages_path(@group_message) do |f| %>
           <%= f.text_field :title,class: "form-control mt-1",id: "group_message_post",placeholder: "タイトルを入力してください" %>
           <%= f.text_area :body ,class: "mt-1 form-control",id: "auto-resize" , placeholder: "内容を入力してください" %>
           <%= f.hidden_field :manager_id, value: @manager_id %>

@@ -12,6 +12,7 @@ class Manager::MembersController < ApplicationController
     
     #tasks-------------------
     @tasks = @member.tasks.page(params[:page]).per(5)
+    # @tasks = @member.tasks.all
     @task = Task.find_by(member_id: params[:id])
     @task_new = Task.new
     #education---------------
