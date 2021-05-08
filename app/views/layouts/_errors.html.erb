@@ -1,0 +1,13 @@
+<% if model.errors.any? %>
+  <div id="error_explanation" class="text-danger">
+    <h3>
+      <%= pluralize(model.errors.count, "件のエラーがあります") %> 
+    </h3>
+
+    <ul>
+      <% model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
