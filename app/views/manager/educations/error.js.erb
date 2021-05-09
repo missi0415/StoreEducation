@@ -1,0 +1,7 @@
+<% if params[:commit] == "教育項目追加" %>
+$("#education-error").html("<%= j(render 'layouts/errors', model: @education_new) %>");
+setTimeout(function(){$("#task-error").html("")}, 5000);
+<% else %>
+$("#education-error").html("<%= j(render 'layouts/errors', model: @education) %>");
+setTimeout(function(){$("#task-error").html("")}, 5000);
+<% end %>

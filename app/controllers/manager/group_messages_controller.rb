@@ -5,7 +5,7 @@ class Manager::GroupMessagesController < ApplicationController
     unless @group.manager == current_manager
     redirect_to root_path
     end
-    @group_messages = @group.group_messages
+    @group_messages = @group.group_messages.order(created_at: :desc)
     @manager_id = current_manager.id
     @group_message_new = GroupMessage.new
   end

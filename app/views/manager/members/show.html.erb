@@ -45,6 +45,8 @@
           </div>  
           <div class="card-body-board" >  
             <%= render partial: "education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+            <div class="education-message">
+            <%= render partial: "education_body", locals: { educations: @educations,education: @education }%>
           </div>
         </div>  
         <div class="card shadow rounded-start mt-3" style="width: 100%">

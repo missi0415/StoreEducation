@@ -1,35 +1,13 @@
-  <%= form_with model: education_new,url: manager_educations_path(education),local: true do |f| %>
+<div id="education-error">
+</div>
+<%= form_with model: education_new,url: manager_educations_path(education),remote: true do |f| %>
 <div class ="form-inline">
-    <%= f.text_field :title,class: "form-control w-25",placeholder: "教育項目を入力してください" %>
-    <%= f.text_field :body ,class: "form-control w-50",placeholder: "教育内容を入力してください"  %>
+    <%= f.text_field :title,class: "form-control w-25",id: "education_title",placeholder: "教育項目を入力してください" %>
+    <%= f.text_field :body ,class: "form-control w-50",id: "education_body",placeholder: "教育内容を入力してください"  %>
     <%= f.submit "教育項目追加", class: "btn btn-secondary form-control w-25" %>
     <%= f.hidden_field :member_id, value: member_id %>
   <% end %>
 </div>
 
-    <div class="row">
-<% educations.each do |education| %>
-      <div class="col-6 w-100">
-  <%= form_with model: education ,url: manager_education_path(education),local: true do |f| %>
-      <div class="card-body-m shadow-lg rounded m-4 ">
-        <div class="form-inline">  
-          <%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none",class: "form-control form-custom-group w-50 text-primary font-weight-bold " %>
-        </div>
-          <%#= f.label :body, "教育内容",class: "font-weight-bold text-secondary" %>
-          <%= f.text_area :body  ,id: "education_body_#{education.id}",style: "border: none",class: "auto-resize"%>
-        <div class="d-flex justify-content-between">
-          <div class=" font-weight-bold text-secondary "><%= education.progress %>%</div>
-          <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50", id: "education_progress_#{education.id}" %>
-          <div>
-          <%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-sm btn-outline-success " %>
-          <%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-sm btn-outline-danger  " ,method: :delete %>
-          </div>
-        </div>  
-        <% end %>
-        </div>
-        </div>
-  <% end %>
-    </div>
-  </div>  
 
 
