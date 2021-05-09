@@ -76,3 +76,6 @@ $(function(){
   }).trigger('change');
 });
 
+// $(function(){
+//   setTimeout("$('.alert').fadeOut('slow')", 5000);
+// });

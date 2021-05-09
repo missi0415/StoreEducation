@@ -1,4 +1,4 @@
-  
+
 <% tasks.each do |task| %>
   <%= form_with model: task ,url: manager_task_path(task) ,remote: true do |f| %>
     
@@ -35,6 +35,7 @@
       <% end %>
     </div>  
 <% end %> 
+
 <script>
   $(document).ready(() => {
     /**

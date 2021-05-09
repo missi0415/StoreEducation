@@ -1,0 +1,39 @@
+  
+    <div class="row">
+      <% educations.each do |education| %>
+        <div class="col-6 w-100">
+          <%= form_with model: education ,url: manager_education_path(education),remote: true do |f| %>
+            <div class="card-body-m shadow-lg rounded m-4 ">
+              <div class="form-inline">  
+                <%= f.text_field :title ,id: "education_title_#{education.id}",style: "border: none",class: "form-control form-custom-group w-50 text-primary font-weight-bold " %>
+              </div>
+                <%= f.text_area :body  ,id: "education_body_#{education.id}",style: "border: none",class: "auto-resize"%>
+              <div class="d-flex justify-content-between education_container">
+                <div class=" font-weight-bold text-secondary ">
+                  <span class="education_progress">
+                    <%= education.progress %>
+                  </span>
+                  %
+                </div>
+                <%= f.range_field :progress, :min=>0, :max=>100, class: "form-control-range w-50 education_progress", id: "education_progress_#{education.id}" %>
+                <div>
+                  <%= f.submit "変更", id: "education_update_#{education.id}",class: "btn btn-sm btn-outline-success " %>
+                  <%= link_to "削除",manager_education_path(education), id: "education_delete_#{education.id}", class: "btn btn-sm btn-outline-danger  " ,method: :delete, remote: true %>
+                </div>
+              </div>  
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+</div>
+<script>
+  $(document).ready(() => {
+    $('.education_progress').on('input', function () {
+      console.log($(this).parent('.progress_container').find('.education_progress').html());
+      $(this).parent('.education_container').find('.education_progress').html($(this).val());
+    });
+  });
+
+</script>
