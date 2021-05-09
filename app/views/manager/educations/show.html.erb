@@ -16,8 +16,10 @@
             <h6 class="m-0 font-weight-bold title">教育管理</h6>
           </div>  
           <div class="card-body">  
-             <%= render partial: "manager/members/education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
-             <%= render partial: "manager/members/education_body", locals: { educations: @educations,education: @education }%>
+            <%= render partial: "manager/members/education", locals: { education_new: @education_new, educations: @educations,education: @education,member_id: @member_id }%>
+            <div class="education-message">
+              <%= render partial: "manager/members/education_body", locals: { educations: @educations,education: @education }%>
+            </div>  
           </div>
         </div>  
       </div>  
