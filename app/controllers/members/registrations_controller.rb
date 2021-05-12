@@ -76,7 +76,13 @@ class Members::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def after_sign_in_path_for(resource)
-
+    @ability_titles = AbilityTitle.where(group_id: @group_id)
+    @ability_titles.each do |ability_title|
+      Ability.create!(
+        member_id: @member.id,
+        ability_title_id: ability_title.id
+      )
+    end
     manager_group_path(@group_id)
   end  
   # The path used after sign up for inactive accounts.
