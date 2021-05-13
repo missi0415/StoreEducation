@@ -11,7 +11,8 @@
     <!--card----------------------------------->
     <div class="col-lg-10 col-md-10 col-sm-10 col-10">
         <div class="row">
-          <div class="mx-auto w-50">
+      <%= link_to '戻る', :back ,class: "far fa-arrow-alt-circle-left"%> 
+          <div class="mx-auto w-75">
             <div class="card shadow rounded-start mt-3" >
               <div class="card-header">
                 <h6 class="m-0 font-weight-bold title"><%=@member.name %>のプロフィール編集</h6>
@@ -38,12 +39,20 @@
                     <%= f.label :phone_number ,"電話番号" %><br />
                     <%= f.text_field :phone_number, class: "form-control", placeholder: "変更する電話番号を入力してください"   %>
                   </div>
-                  <div class="form-inline">
-                  <%= f.label :is_deleted, "メンバーステータス" ,class: "mr-5" %>
-                  <%= f.radio_button :is_deleted, false, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span class="mr-5">有効</span>
-                  <%= f.radio_button :is_deleted, true, class: 'form-control-md mr-1', style: "width: 20px; height: 20px;" %><span>退会</span>
-                  </div>
-              
+                  <!--<%= link_to "メンバーを消去する" ,member_registration_path(@member), class: "form-control btn btn-outline-danger",id: "member-delete",method: :delete %>-->
+                  <!--<div id ="Result"></div>-->
+                  <!--<script>-->
+                  <!--  document.getElementById("#member-delete").onclick = -->
+                  <!--  let checkSaveFlg = window.confirm('メンバーを消去してよろしいですか？消去するとデータは復元できません');-->
+                      
+                  <!--    if(checkSaveFlg) {-->
+                  <!--      document.getElementById("Result").textContent = "メンバーを消去しました";-->
+                  <!--    } else {-->
+                  <!--      document.getElementById("Result").textContent = "キャンセルしました。";-->
+                  <!--    }-->
+                  <!--  };-->
+                  <!--</script>-->
+                  
                   <div class="form-group">
                     <%= f.submit "変更内容を保存", class: "btn btn-outline-success" %>
                   </div>
