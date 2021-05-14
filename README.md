@@ -22,6 +22,10 @@
 ### 主な利用シーン
 店長が部下を教育をするシーンで利用
 
+## ER図
+![image](https://user-images.githubusercontent.com/76615633/118229626-4ab80e80-b4c7-11eb-99d6-e4f45b584bdc.png)
+
+
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1t4AGqin8ptOpMXf0g8FrYJsLSANSRb1ZwNopq7VCoF4/edit?usp=sharing
 
