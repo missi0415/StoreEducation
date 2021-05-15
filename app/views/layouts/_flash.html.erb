@@ -1,4 +1,5 @@
 <!--エラーメッセージ-->
+ <div id="alert-message"></div>
   <% if flash[:error].present? %>
     <% flash[:error].each do |e| %>
       <div class="alert alert-danger alert-dismissible fade show" id="alert1" role="alert">
@@ -10,9 +11,11 @@
     <% end %>
 <% else %>  
 <!--エラーメッセージ-->
+<div id=flash-message>
 <% flash.each do |key, value| %>
       <% key = "info" if key == "notice" %>
       <% key = "danger"  if key == "alert" %>
       <%= content_tag :div, value, class: "alert alert-#{key}"%>
 <% end %>
 <% end %>
+</div>

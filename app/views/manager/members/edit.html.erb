@@ -11,7 +11,6 @@
     <!--card----------------------------------->
     <div class="col-lg-10 col-md-10 col-sm-10 col-10">
         <div class="row">
-      <%= link_to '戻る', :back ,class: "far fa-arrow-alt-circle-left"%> 
           <div class="mx-auto w-75">
             <div class="card shadow rounded-start mt-3" >
               <div class="card-header">
@@ -39,24 +38,9 @@
                     <%= f.label :phone_number ,"電話番号" %><br />
                     <%= f.text_field :phone_number, class: "form-control", placeholder: "変更する電話番号を入力してください"   %>
                   </div>
-                  <!--<%= link_to "メンバーを消去する" ,member_registration_path(@member), class: "form-control btn btn-outline-danger",id: "member-delete",method: :delete %>-->
-                  <!--<div id ="Result"></div>-->
-                  <!--<script>-->
-                  <!--  document.getElementById("#member-delete").onclick = -->
-                  <!--  let checkSaveFlg = window.confirm('メンバーを消去してよろしいですか？消去するとデータは復元できません');-->
-                      
-                  <!--    if(checkSaveFlg) {-->
-                  <!--      document.getElementById("Result").textContent = "メンバーを消去しました";-->
-                  <!--    } else {-->
-                  <!--      document.getElementById("Result").textContent = "キャンセルしました。";-->
-                  <!--    }-->
-                  <!--  };-->
-                  <!--</script>-->
-                  
-                  <div class="form-group">
-                    <%= f.submit "変更内容を保存", class: "btn btn-outline-success" %>
-                  </div>
+                  <%= f.submit "変更内容を保存", class: "btn btn-outline-success form-control mt-3" %>
                 <% end  %>
+                <%= link_to "メンバーを消去する", manager_member_path(@member), class: "form-control btn btn-outline-danger mt-3",id: "member-delete",method: :delete ,data:{confirm: 'メンバーを消去してよろしいですか？消去するとデータは復元できません'}%>
               </div>
             </div>
           </div>

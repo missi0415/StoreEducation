@@ -26,10 +26,7 @@ class Manager::TasksController < ApplicationController
     @task_new = Task.new(task_params)
     member_id = params[:task][:member_id]
     @tasks = Task.where(member_id: member_id)
-    
-      if @task_new.save 
-        flash[:success] = '課題の追加が完了しました'
-      else
+      unless  @task_new.save 
         render 'error'
       end 
   end
@@ -42,9 +39,7 @@ class Manager::TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @tasks = Task.where(member_id: @task.member_id)
-    if @task.update(task_params)
-      flash[:success] = '課題の更新が完了しました'
-    else
+    unless @task.update(task_params)
       render 'error'
     end
   end
