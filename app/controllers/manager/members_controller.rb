@@ -73,6 +73,13 @@ class Manager::MembersController < ApplicationController
     end
   end  
   
+  def destroy
+  @member = Member.find(params[:id])
+  @group = @member.group.id
+  @member.destroy
+  flash[:success] ="メンバーを消去しました"
+  redirect_to manager_group_path(@group)
+  end
   
   private
   

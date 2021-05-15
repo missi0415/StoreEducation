@@ -10,7 +10,7 @@
     </div>
     <div class="form-inline mt-1">
       <%= f.text_field :title,class: "form-control w-25" ,placeholder: "課題項目を入力してください" %>
-      <%= f.text_area :body ,class: "form-control w-50",id: "auto-resize",placeholder: "課題内容を入力してください"  %>
+      <%= f.text_area :body ,class: "form-control w-50 auto-resize", placeholder: "課題内容を入力してください"  %>
       <%= f.hidden_field :member_id, value: member_id %>
       <%= f.submit "課題項目追加", class: " form-control w-25 btn btn-secondary" %>
     </div>

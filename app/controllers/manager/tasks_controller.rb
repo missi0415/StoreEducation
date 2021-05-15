@@ -43,7 +43,6 @@ class Manager::TasksController < ApplicationController
     @task = Task.find(params[:id])
     @tasks = Task.where(member_id: @task.member_id)
     if @task.update(task_params)
-      flash[:success] = '課題の更新が完了しました'
     else
       render 'error'
     end
