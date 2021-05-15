@@ -26,9 +26,7 @@ class Manager::EducationsController < ApplicationController
     @education_new = Education.new(education_params)
     member_id = params[:education][:member_id]
     @educations = Education.where(member_id: member_id)
-    if @education_new.save
-      flash[:success] = '教育項目の追加が完了しました'
-    else
+    unless @education_new.save
       render 'error'
     end
   end
@@ -36,9 +34,7 @@ class Manager::EducationsController < ApplicationController
   def update
     @education = Education.find(params[:id])
     @educations = Education.where(member_id: @education.member_id)
-    if @education.update(education_params)
-      flash[:success] = '教育項目の更新が完了しました'
-    else
+    unless @education.update(education_params)
       render 'error'
     end
   end
