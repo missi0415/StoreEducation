@@ -36,7 +36,7 @@
                       <% else %>
                         <div class="font-weight-normal text text-success">マネジャー　　</div>
                       <% end %>
-                      <%= l group_message.created_at, format: :short %>
+                      <%= group_message.created_at.to_s(:datetime_jp) %>
                   </div>
                   <% if group_message.member_id == current_member.id %> 
                     <div>
@@ -62,8 +62,7 @@
                 </div>
             <% end %>
           <% end %> 
-          
-          </div>
         </div>
-      </div>  
-    </div>
+      </div>
+    </div>  
+  </div>
