@@ -42,7 +42,7 @@
                     <% else %>
                       <div class="font-weight-normal text text-success">マネジャー　　</div>
                     <% end %>
-                    <%= l group_message.created_at, format: :short %>
+                    <%= group_message.created_at.to_s(:datetime_jp) %>
                   </div>
                   <div>
                   <%= f.text_area :body ,id: "group_message_body_#{group_message.id}" ,style: "border: none",class: "auto-resize" %>
