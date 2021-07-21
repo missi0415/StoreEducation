@@ -23,7 +23,8 @@
 店長が部下を教育をするシーンで利用
 
 ## ER図
-![image](https://user-images.githubusercontent.com/76615633/118229626-4ab80e80-b4c7-11eb-99d6-e4f45b584bdc.png)
+![image](https://user-images.githubusercontent.com/76615633/126500758-18291601-f6d0-403d-bd3d-7bff64230fdb.png)
+
 
 
 ## 機能一覧
