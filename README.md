@@ -30,8 +30,8 @@
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1t4AGqin8ptOpMXf0g8FrYJsLSANSRb1ZwNopq7VCoF4/edit?usp=sharing
 
-
-
+## インフラ構成図
+![image](https://user-images.githubusercontent.com/76615633/135366059-a759b7ce-f704-418b-a866-60abc56f27a1.png)
 
 
 ## 開発環境
